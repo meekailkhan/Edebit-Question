@@ -30,7 +30,7 @@
 // console.log(makePair(123,32,413))
 
 
-// Create a function which returns the number of true values there are in an array.
+// 3)=> Create a function which returns the number of true values there are in an array.
 
 // Examples
 // countTrue([true, false, false, true, false]) ➞ 2
@@ -56,7 +56,7 @@
 // --------------------------------------------------------------------------------
 
 
-// According to the lodash documentation, _.compact creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
+//4)=> According to the lodash documentation, _.compact creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
 
 // Your task is to build this helper function without using lodash. You will write a function that receives an array and removes all falsey values.
 // Examples
@@ -66,9 +66,53 @@
 // This entire series of challenges can be found here.
 
 // answer:
-function compact(arr){
-    return arr.filter(Boolean)
+// function compact(arr){
+//     return arr.filter(Boolean)
+// }
+// let array = [0, 1, false, 2, "", 3]
+// let result = compact(array)
+// console.log(result)
+
+// ---------------------------------------------------------------------------------------------------
+
+//5)=> Create a function that concatenates n input arrays, where n is variable.
+
+// Examples
+// concat([1, 2, 3], [4, 5], [6, 7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+
+// concat([1], [2], [3], [4], [5], [6], [7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+
+// concat([1, 2], [3, 4]) ➞ [1, 2, 3, 4]
+
+// concat([4, 4, 4, 4, 4]) ➞ [4, 4, 4, 4, 4]
+// Notes
+// Arrays should be concatenated in order of the arguments.
+
+// function concat(...args) {
+// 	return args.flat()
+// }
+
+// -------------------------------------------------------------
+// 6)=>Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num until the array length reaches length.
+
+// Examples
+// arrayOfMultiples(7, 5) ➞ [7, 14, 21, 28, 35]
+
+// arrayOfMultiples(12, 10) ➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+
+// arrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
+// Notes
+// Notice that num is also included in the returned array.
+
+function arrayOfMultiples (num, length) {
+	let arr = [];
+	for(let i=1;i<length;i++){
+		arr.push(num*i)
+	}
+	return arr
 }
-let array = [0, 1, false, 2, "", 3]
-let result = compact(array)
-console.log(result)
+console.log(arrayOfMultiples(7, 5)) // [7, 14, 21, 28, 35]
+
+console.log(arrayOfMultiples(12, 10)) //[12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+
+console.log(arrayOfMultiples(17, 6)) // [17, 34, 51, 68, 85, 102]
