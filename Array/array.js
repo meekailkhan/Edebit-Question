@@ -104,15 +104,199 @@
 // Notes
 // Notice that num is also included in the returned array.
 
-function arrayOfMultiples (num, length) {
-	let arr = [];
-	for(let i=1;i<length;i++){
-		arr.push(num*i)
-	}
-	return arr
-}
-console.log(arrayOfMultiples(7, 5)) // [7, 14, 21, 28, 35]
+// function arrayOfMultiples (num, length) {
+// 	let arr = [];
+// 	for(let i=1;i<length;i++){
+// 		arr.push(num*i)
+// 	}
+// 	return arr
+// }
+// console.log(arrayOfMultiples(7, 5)) // [7, 14, 21, 28, 35]
 
-console.log(arrayOfMultiples(12, 10)) //[12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+// console.log(arrayOfMultiples(12, 10)) //[12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
 
-console.log(arrayOfMultiples(17, 6)) // [17, 34, 51, 68, 85, 102]
+// console.log(arrayOfMultiples(17, 6)) // [17, 34, 51, 68, 85, 102]
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// 7)=> write a function to flatten an array of subarrays into one array. (Suppose I am unware there is a .flat() method in the Array prototype). In other words, I want to transform this: [[1, 2], [3, 4]] into [1, 2, 3, 4].
+
+
+
+// Examples
+// flatten([[1, 2], [3, 4]]) ➞   [1, 2, 3, 4]
+
+// flatten([["a", "b"], ["c", "d"]]) ➞  ["a", "b", "c", "d"]
+
+// flatten([[true, false], [false, false]]) ➞   [true, false, false, false]
+
+// ans:
+// function flatten(arr) {
+//   arr2 = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     arr2.push(arr[i]);
+//   }
+//   return arr2.flat();
+// }
+
+// console.log(flatten([[1, 2], [3, 4]]))
+// console.log(flatten([["a", "b"], ["c", "d"]]))
+// console.log(flatten([[true, false], [false, false]]))
+
+// --------------------------------------------------------------------------------------------------------------------------
+
+
+//7)=> In this challenge you will be given an array similar to the following:
+
+// [[3], 4, [2], [5], 1, 6]
+// In words, elements of the array are either an integer or an array containing a single integer. We humans can clearly see that this array can reasonably be sorted according to "the content of the elements" as:
+
+// [1, [2], [3], 4, [5], 6]
+// Create a function that, given an array similar to the above, sorts the array according to the "content of the elements".
+
+// Examples
+// sortIt([4, 1, 3]) ➞ [1, 3, 4]
+
+// sortIt([[4], [1], [3]]) ➞ [[1], [3], [4]]
+
+// sortIt([4, [1], 3]) ➞ [[1], 3, 4]
+
+// sortIt([[4], 1, [3]]) ➞ [1, [3], [4]]
+
+// sortIt([[3], 4, [2], [5], 1, 6]) ➞ [1, [2], [3], 4, [5], 6]
+// Notes
+// To reiterate, elements of the array will be either integers or arrays with a single integer.
+
+// function sortIt(arr) {
+//   return arr.sort((a, b) => {
+//     if (Array.isArray(a) && Array.isArray(b)) {
+//       return a[0] - b[0];
+//     } else if (Array.isArray(a)) {
+//       return a[0] - b;
+//     } else if (Array.isArray(b)) {
+//       return a - b[0];
+//     } else {
+//       return a - b;
+//     }
+//   });
+// }
+
+// console.log(sortIt([4, 1, 3])); // ➞ [1, 3, 4]
+// console.log(sortIt([[4], [1], [3]])); // ➞ [[1], [3], [4]]
+// console.log(sortIt([4, [1], 3])); // ➞ [[1], 3, 4]
+// console.log(sortIt([[4], 1, [3]])); // ➞ [1, [3], [4]]
+// console.log(sortIt([[3], 4, [2], [5], 1, 6])); // ➞ [1, [2], [3], 4, [5], 6]
+
+// -------------------------------------------------------------------------------------------------------------
+
+// 8)=>Write a function to reverse an array.
+
+// Examples
+// reverse([1, 2, 3, 4]) ➞ [4, 3, 2, 1]
+
+// reverse([9, 9, 2, 3, 4]) ➞ [4, 3, 2, 9, 9]
+
+// reverse([]) ➞ []
+// Notes
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+
+// 
+
+// ans:
+// function reverse(arr){
+//     return arr.reverse()
+// }
+
+// reverse([1, 2, 3, 4]) //➞ [4, 3, 2, 1]
+
+// reverse([9, 9, 2, 3, 4]) // ➞ [4, 3, 2, 9, 9]
+// -------------------------------------------------------------------------------
+
+// 9)=> Help fix all the bugs in the function incrementItems! It is intended to add 1 to every element in the array!
+
+// Examples
+// incrementItems([0, 1, 2, 3]) ➞ [1, 2, 3, 4]
+
+// incrementItems([2, 4, 6, 8]) ➞ [3, 5, 7, 9]
+
+// incrementItems([-1, -2, -3, -4]) ➞ [0, -1, -2, -3]
+// Notes
+// Make sure to read every line carefully.
+
+// ans:
+// function incrementItems(arr) {
+// 	for (let i = 0; i < arr.length; i++)
+// 		arr[i] = arr[i] + 1
+// 	return arr
+// }
+// console.log(incrementItems([0, 1, 2, 3]))// ➞ [1, 2, 3, 4]
+
+// console.log(incrementItems([2, 4, 6, 8]))// ➞ [3, 5, 7, 9]
+
+// console.log(incrementItems([-1, -2, -3, -4]))// ➞ [0, -1, -2, -3]
+
+// --------------------------------------------------------------------------------------------------------------
+
+//10)=> You can assign variables from arrays like this:
+
+// const arr = [1, 2, 3, 4, 5, 6]
+// let a = arr[0]
+// let b = arr[1]
+
+// console.log(a) // outputs 1
+// console.log(b) // outputs 2
+// With ES6, you can assign variables from arrays in a much more succinct way. Create variables a and b from the given array using the ES6 destructuring assignment syntax, where a === 1 and b === 2.
+
+// ans:
+// const arr = [1,2,3,4,5,6];
+// let [a,b] = [arr[0],arr[1]]
+
+// console.log(a);
+// console.log(b)
+
+// ---------------------------------------------------------------------------------------------------------
+
+//11)=> Create a function that accepts an array and returns the last item in the array.
+
+// Examples
+// getLastItem([1, 2, 3]) ➞ 3
+
+// getLastItem(["cat", "dog", "duck"]) ➞ "duck"
+
+// getLastItem([true, false, true]) ➞ true
+// Notes
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+
+// // ans:
+// function getLastItem(arr){
+//     let lastIndex = arr.length-1
+//     return arr[lastIndex]
+// }
+
+// console.log(getLastItem(["cat", "dog", "duck"])) //➞ "duck"
+
+// console.log(getLastItem([true, false, true])) //➞ true
+
+// -------------------------------------------------------------------------------------------------------------------------
+
+//12)=> Create a function that takes an array of numbers or letters and returns a string.
+
+// Examples
+// arrayToString([1, 2, 3, 4, 5, 6]) ➞ "123456"
+
+// arrayToString(["a", "b", "c", "d", "e", "f"]) ➞ "abcdef"
+
+// arrayToString([1, 2, 3, "a", "s", "dAAAA"]) ➞ "123asdAAAA"
+
+// ans:
+// function arrayToString(arr){
+//     return String(arr.join(""))
+// }
+
+// console.log(arrayToString([1, 2, 3, 4, 5, 6])) //➞ "123456"
+// console.log(arrayToString(["a", "b", "c", "d", "e", "f"])) //➞ "abcdef"
+// console.log(arrayToString([1, 2, 3, "a", "s", "dAAAA"])) // ➞ "123asdAAAA"
