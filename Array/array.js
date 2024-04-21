@@ -300,3 +300,78 @@
 // console.log(arrayToString([1, 2, 3, 4, 5, 6])) //➞ "123456"
 // console.log(arrayToString(["a", "b", "c", "d", "e", "f"])) //➞ "abcdef"
 // console.log(arrayToString([1, 2, 3, "a", "s", "dAAAA"])) // ➞ "123asdAAAA"
+
+//13)=> Create a function that returns true if the first array can be nested inside the second and false otherwise.
+
+// arr1 can be nested inside arr2 if:
+
+// arr1's min is greater than arr2's min.
+// arr1's max is less than arr2's max.
+// Examples
+// canNest([1, 2, 3, 4], [0, 6]) ➞ true
+
+// canNest([3, 1], [4, 0]) ➞ true
+
+// canNest([9, 9, 8], [8, 9]) ➞ false
+
+// canNest([1, 2, 3, 4], [2, 3]) ➞ false
+
+
+// ans:
+function canNest(arr1,arr2){
+    return Math.min(...arr1)>Math.min(...arr2)&&Math.max(...arr1)<Math.max(...arr2)
+}
+
+console.log(canNest([1, 2, 3, 4], [0, 6])) // ➞ true
+console.log(canNest([3, 1], [4, 0])) // ➞ true
+console.log(canNest([9, 9, 8], [8, 9])) // ➞ false
+console.log(canNest([1, 2, 3, 4], [2, 3])) // ➞ false
+
+
+// -----------------------------------------------------------------------------------------------------------------
+//14)=> Create a function that takes two arrays and insert the second array in the middle of the first array.
+
+// Examples
+// tuckIn([1, 10], [2, 3, 4, 5, 6, 7, 8, 9]) ➞ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// tuckIn([15,150], [45, 75, 35]) ➞ [15, 45, 75, 35, 150]
+
+// tuckIn([[1, 2], [5, 6]], [[3, 4]]) ➞ [[1, 2], [3, 4], [5, 6]]
+// Notes
+// The first array always has two elements.
+// Use the spread syntax to solve this challenge.
+
+//ans:
+function tuckIn(arr1,arr2){
+    return [arr1[0],...arr2,arr1[1]]
+}
+console.log(tuckIn([1, 10], [2, 3, 4, 5, 6, 7, 8, 9])) //➞ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(tuckIn([15,150], [45, 75, 35])) //➞ [15, 45, 75, 35, 150]
+console.log(tuckIn([[1, 2], [5, 6]], [[3, 4]])) //➞ [[1, 2], [3, 4], [5, 6]]
+
+
+//15)=> Given a number, return an array containing the two halves of the number. If the number is odd, make the rightmost number higher.
+
+// Examples
+// numberSplit(4) ➞ [2, 2]
+
+// numberSplit(10) ➞ [5, 5]
+
+// numberSplit(11) ➞ [5, 6]
+
+// numberSplit(-9) ➞ [-5, -4]
+// Notes
+// All numbers will be integers.
+// You can expect negative numbers too.
+
+// ans:
+function numberSplit(num){
+    let half = num/2
+    let [leftHalf,rightHalf] = [Math.floor(num/2),Math.ceil(num/2)]
+    return num % 2 === 0 ? [half,half] : [leftHalf,rightHalf]
+}
+
+console.log(numberSplit(4)) //➞ [2, 2]
+console.log(numberSplit(10)) //➞ [5, 5]
+console.log(numberSplit(11)) //➞ [5, 6]
+console.log(numberSplit(-9)) //➞ [-5, -4]
