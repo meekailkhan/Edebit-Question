@@ -314,18 +314,18 @@
 
 // canNest([9, 9, 8], [8, 9]) ➞ false
 
-// canNest([1, 2, 3, 4], [2, 3]) ➞ false
+// // canNest([1, 2, 3, 4], [2, 3]) ➞ false
 
 
-// ans:
-function canNest(arr1,arr2){
-    return Math.min(...arr1)>Math.min(...arr2)&&Math.max(...arr1)<Math.max(...arr2)
-}
+// // ans:
+// function canNest(arr1,arr2){
+//     return Math.min(...arr1)>Math.min(...arr2)&&Math.max(...arr1)<Math.max(...arr2)
+// }
 
-console.log(canNest([1, 2, 3, 4], [0, 6])) // ➞ true
-console.log(canNest([3, 1], [4, 0])) // ➞ true
-console.log(canNest([9, 9, 8], [8, 9])) // ➞ false
-console.log(canNest([1, 2, 3, 4], [2, 3])) // ➞ false
+// console.log(canNest([1, 2, 3, 4], [0, 6])) // ➞ true
+// console.log(canNest([3, 1], [4, 0])) // ➞ true
+// console.log(canNest([9, 9, 8], [8, 9])) // ➞ false
+// console.log(canNest([1, 2, 3, 4], [2, 3])) // ➞ false
 
 
 // -----------------------------------------------------------------------------------------------------------------
@@ -342,12 +342,12 @@ console.log(canNest([1, 2, 3, 4], [2, 3])) // ➞ false
 // Use the spread syntax to solve this challenge.
 
 //ans:
-function tuckIn(arr1,arr2){
-    return [arr1[0],...arr2,arr1[1]]
-}
-console.log(tuckIn([1, 10], [2, 3, 4, 5, 6, 7, 8, 9])) //➞ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-console.log(tuckIn([15,150], [45, 75, 35])) //➞ [15, 45, 75, 35, 150]
-console.log(tuckIn([[1, 2], [5, 6]], [[3, 4]])) //➞ [[1, 2], [3, 4], [5, 6]]
+// function tuckIn(arr1,arr2){
+//     return [arr1[0],...arr2,arr1[1]]
+// }
+// console.log(tuckIn([1, 10], [2, 3, 4, 5, 6, 7, 8, 9])) //➞ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// console.log(tuckIn([15,150], [45, 75, 35])) //➞ [15, 45, 75, 35, 150]
+// console.log(tuckIn([[1, 2], [5, 6]], [[3, 4]])) //➞ [[1, 2], [3, 4], [5, 6]]
 
 
 //15)=> Given a number, return an array containing the two halves of the number. If the number is odd, make the rightmost number higher.
@@ -364,14 +364,41 @@ console.log(tuckIn([[1, 2], [5, 6]], [[3, 4]])) //➞ [[1, 2], [3, 4], [5, 6]]
 // All numbers will be integers.
 // You can expect negative numbers too.
 
-// ans:
-function numberSplit(num){
-    let half = num/2
-    let [leftHalf,rightHalf] = [Math.floor(num/2),Math.ceil(num/2)]
-    return num % 2 === 0 ? [half,half] : [leftHalf,rightHalf]
-}
+// // ans:
+// function numberSplit(num){
+//     let half = num/2
+//     let [leftHalf,rightHalf] = [Math.floor(num/2),Math.ceil(num/2)]
+//     return num % 2 === 0 ? [half,half] : [leftHalf,rightHalf]
+// }
 
-console.log(numberSplit(4)) //➞ [2, 2]
-console.log(numberSplit(10)) //➞ [5, 5]
-console.log(numberSplit(11)) //➞ [5, 6]
-console.log(numberSplit(-9)) //➞ [-5, -4]
+// console.log(numberSplit(4)) //➞ [2, 2]
+// console.log(numberSplit(10)) //➞ [5, 5]
+// console.log(numberSplit(11)) //➞ [5, 6]
+// console.log(numberSplit(-9)) //➞ [-5, -4]
+
+
+// --------------------------------------------------------------------------------------------------------
+//16)=> Create a function that takes an array of numbers and returns a new array, sorted in ascending order (smallest to biggest).
+
+// Sort numbers array in ascending order.
+// If the function's argument is null, an empty array, or undefined; return an empty array.
+// Return a new array of sorted numbers.
+// Examples
+// sortNumsAscending([1, 2, 10, 50, 5]) ➞ [1, 2, 5, 10, 50]
+
+// sortNumsAscending([80, 29, 4, -95, -24, 85]) ➞ [-95, -24, 4, 29, 80, 85]
+
+// sortNumsAscending(null) ➞ []
+
+// sortNumsAscending([]) ➞ []
+
+// function sortNumsAscending(arr){
+//     return arr.sort(function(a,b){
+//         return a-b
+//     })
+// }
+
+// console.log(sortNumsAscending([1, 2, 10, 50, 5]))// ➞ [1, 2, 5, 10, 50]
+// console.log(sortNumsAscending([80, 29, 4, -95, -24, 85]))// ➞ [-95, -24, 4, 29, 80, 85]
+// console.log(sortNumsAscending(null))// ➞ []
+// console.log(sortNumsAscending([]))// ➞ []
