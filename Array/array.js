@@ -402,3 +402,45 @@
 // console.log(sortNumsAscending([80, 29, 4, -95, -24, 85]))// ➞ [-95, -24, 4, 29, 80, 85]
 // console.log(sortNumsAscending(null))// ➞ []
 // console.log(sortNumsAscending([]))// ➞ []
+
+// Question)=> Create a function that takes an array of numbers and returns the second largest number.
+
+// Examples
+// secondLargest([10, 40, 30, 20, 50]) ➞ 40
+
+// secondLargest([25, 143, 89, 13, 105]) ➞ 105
+
+// secondLargest([54, 23, 11, 17, 10]) ➞ 23
+// Notes
+// There will be at least two numbers in the array.
+// ans)=>
+// function secondLargest(arr){
+//     let result = arr.sort((a,b)=>b-a)
+//     return result[1]
+// }
+
+// console.log(secondLargest([10, 40, 30, 20, 50])) // ➞ 40
+// console.log(secondLargest([25, 143, 89, 13, 105])) // ➞ 105
+// console.log(secondLargest([54, 23, 11, 17, 10])) // ➞ 23
+// console.log(secondLargest([12,15,34,65,87,43]))
+
+// Question)=> Given three arguments ⁠— an object obj of the stolen items, the pet's name and a value ⁠— return an object with that name and value in it (as key-value pairs).
+
+// Examples
+// addName({}, "Brutus", 300) ➞ { Brutus: 300 }
+
+// addName({ piano: 500 }, "Brutus", 400) ➞ { piano: 500, Brutus: 400 }
+
+// addName({ piano: 500, stereo: 300 }, "Caligula", 440) ➞ { piano: 500, stereo: 300, Caligula: 440 }
+// Notes
+// The value argument will be a number.
+// ans)=>
+
+function addName(obj,key,value){
+    obj.key = value
+    return obj
+}
+
+console.log(addName({}, "Brutus", 300)) // ➞ { Brutus: 300 }
+console.log(addName({ piano: 500 }, "Brutus", 400)) // ➞ { piano: 500, Brutus: 400 }
+console.log(addName({ piano: 500, stereo: 300 }, "Caligula", 440)) // ➞ { piano: 500, stereo: 300, Caligula: 440 }
