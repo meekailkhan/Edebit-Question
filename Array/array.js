@@ -463,12 +463,60 @@
 // Notes
 // To reiterate, elements of the array will be either integers or arrays with a single integer.
 // ans)=>
-function sortIt(arr){
-    return arr.sort((a,b)=>a-b)
+// function sortIt(arr){
+//     return arr.sort((a,b)=>a-b)
+// }
+
+// console.log(sortIt([4, 1, 3])) //➞ [1, 3, 4]
+// console.log(sortIt([[4], [1], [3]])) // ➞ [[1], [3], [4]]
+// console.log(sortIt([4, [1], 3])) // ➞ [[1], 3, 4]
+// console.log(sortIt([[4], 1, [3]])) // ➞ [1, [3], [4]]
+// console.log(sortIt([[3], 4, [2], [5], 1, 6])) // ➞ [1, [2], [3], 4, [5], 6]
+
+// ----------------------------------------------------------------------------------------------------------------
+
+// Question)=> The Code tab has a code which attempts to add a clone of an array to itself. There is no error message, but the results are not as expected. Can you fix the code?
+
+// Examples
+// clone([1, 1]) ➞ [1, 1, [1, 1]]
+
+// clone([1, 2, 3]) ➞ [1, 2, 3, [1, 2, 3]]
+
+// clone(["x", "y"]) ➞ ["x", "y", ["x", "y"]]
+// Notes
+// N/A
+
+// ans)=>
+// function clone(arr){
+//     let res = arr;
+//     arr.push(res)
+//     return arr
+// }
+
+// console.log(clone([1, 1])) //➞ [1, 1, [1, 1]]
+// console.log(clone([1, 2, 3])) // ➞ [1, 2, 3, [1, 2, 3]]
+// console.log(clone(["x", "y"])) // ➞ ["x", "y", ["x", "y"]]
+// -----------------------------------------------------------------------------------------------------------------------
+
+// Question)=> Create a function that takes in an array (slot machine outcome) and returns true if all elements in the array are identical, and false otherwise. The array will contain 4 elements.
+
+// Examples
+// testJackpot(["@", "@", "@", "@"]) ➞ true
+
+// testJackpot(["abc", "abc", "abc", "abc"]) ➞ true
+
+// testJackpot(["SS", "SS", "SS", "SS"]) ➞ true
+
+// testJackpot(["&&", "&", "&&&", "&&&&"]) ➞ false
+
+// testJackpot(["SS", "SS", "SS", "Ss"]) ➞ false
+// ans)=>
+function testJackpot(arr){
+    return arr.every(item => item===arr[0])
 }
 
-console.log(sortIt([4, 1, 3])) //➞ [1, 3, 4]
-console.log(sortIt([[4], [1], [3]])) // ➞ [[1], [3], [4]]
-console.log(sortIt([4, [1], 3])) // ➞ [[1], 3, 4]
-console.log(sortIt([[4], 1, [3]])) // ➞ [1, [3], [4]]
-console.log(sortIt([[3], 4, [2], [5], 1, 6])) // ➞ [1, [2], [3], 4, [5], 6]
+console.log(testJackpot(["@", "@", "@", "@"]))// ➞ true
+console.log(testJackpot(["abc", "abc", "abc", "abc"])) // ➞ true
+console.log(testJackpot(["SS", "SS", "SS", "SS"])) // ➞ true
+console.log(testJackpot(["&&", "&", "&&&", "&&&&"])) // ➞ false
+console.log(testJackpot(["SS", "SS", "SS", "Ss"])) // ➞ false
