@@ -535,14 +535,35 @@
 // ascDesNone([1, 2, 3, 4], "None") ➞ [1, 2, 3, 4]
 
 // ans)=>
-function ascDesNone(arr,order){
-    if(order == "Asc" || order == "None"){
-        return arr.sort((a,b)=>a-b)
-    }else if(order == "Des"){
-       return arr.sort((a,b)=>b-a)
-    }
+// function ascDesNone(arr,order){
+//     if(order == "Asc" || order == "None"){
+//         return arr.sort((a,b)=>a-b)
+//     }else if(order == "Des"){
+//        return arr.sort((a,b)=>b-a)
+//     }
+// }
+
+// console.log(ascDesNone([4, 3, 2, 1], "Asc" )) // ➞ [1, 2, 3, 4]
+// console.log(ascDesNone([7, 8, 11, 66], "Des")) // ➞ [66, 11, 8, 7]
+// console.log(ascDesNone([1, 2, 3, 4], "None")) // ➞ [1, 2, 3, 4]
+// --------------------------------------------------------------------------------------------------
+
+// Question)=> Create a function which concatenates the number 7 to the end of every chord in an array. Ignore all chords which already end with 7.
+
+// Examples
+// jazzify(["G", "F", "C"]) ➞ ["G7", "F7", "C7"]
+
+// jazzify(["Dm", "G", "E", "A"]) ➞ ["Dm7", "G7", "E7", "A7"]
+
+// jazzify(["F7", "E7", "A7", "Ab7", "Gm7", "C7"]) ➞ ["F7", "E7", "A7", "Ab7", "Gm7", "C7"]
+
+// jazzify([]) ➞ []
+// ans)=>
+function jazzify(arr){
+    return arr.map(item => item.endsWith("7")? item: `${item}7`)
 }
 
-console.log(ascDesNone([4, 3, 2, 1], "Asc" )) // ➞ [1, 2, 3, 4]
-console.log(ascDesNone([7, 8, 11, 66], "Des")) // ➞ [66, 11, 8, 7]
-console.log(ascDesNone([1, 2, 3, 4], "None")) // ➞ [1, 2, 3, 4]
+console.log(jazzify(["G", "F", "C"])) //➞ ["G7", "F7", "C7"]
+console.log(jazzify(["Dm", "G", "E", "A"])) // ➞ ["Dm7", "G7", "E7", "A7"]
+console.log(jazzify(["F7", "E7", "A7", "Ab7", "Gm7", "C7"])) // ➞ ["F7", "E7", "A7", "Ab7", "Gm7", "C7"]
+console.log(jazzify([])) // ➞ []
