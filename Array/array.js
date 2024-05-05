@@ -423,6 +423,7 @@
 // console.log(secondLargest([25, 143, 89, 13, 105])) // ➞ 105
 // console.log(secondLargest([54, 23, 11, 17, 10])) // ➞ 23
 // console.log(secondLargest([12,15,34,65,87,43]))
+// ----------------------------------------------------------------------------------------------------------------------------
 
 // Question)=> Given three arguments ⁠— an object obj of the stolen items, the pet's name and a value ⁠— return an object with that name and value in it (as key-value pairs).
 
@@ -436,11 +437,38 @@
 // The value argument will be a number.
 // ans)=>
 
-function addName(obj,key,value){
-    obj.key = value
-    return obj
+// function addName(obj,name,value){
+//     obj.name = value
+//     return obj
+// }
+
+// console.log(addName({}, "Brutus", 300)) // ➞ { Brutus: 300 }
+// console.log(addName({ piano: 500 }, "Brutus", 400)) // ➞ { piano: 500, Brutus: 400 }
+// console.log(addName({ piano: 500, stereo: 300 }, "Caligula", 440)) // ➞ { piano: 500, stereo: 300, Caligula: 440 }
+
+// -----------------------------------------------------------------------
+
+// Create a function that, given an array similar to the above, sorts the array according to the "content of the elements".
+
+// Examples
+// sortIt([4, 1, 3]) ➞ [1, 3, 4]
+
+// sortIt([[4], [1], [3]]) ➞ [[1], [3], [4]]
+
+// sortIt([4, [1], 3]) ➞ [[1], 3, 4]
+
+// sortIt([[4], 1, [3]]) ➞ [1, [3], [4]]
+
+// sortIt([[3], 4, [2], [5], 1, 6]) ➞ [1, [2], [3], 4, [5], 6]
+// Notes
+// To reiterate, elements of the array will be either integers or arrays with a single integer.
+// ans)=>
+function sortIt(arr){
+    return arr.sort((a,b)=>a-b)
 }
 
-console.log(addName({}, "Brutus", 300)) // ➞ { Brutus: 300 }
-console.log(addName({ piano: 500 }, "Brutus", 400)) // ➞ { piano: 500, Brutus: 400 }
-console.log(addName({ piano: 500, stereo: 300 }, "Caligula", 440)) // ➞ { piano: 500, stereo: 300, Caligula: 440 }
+console.log(sortIt([4, 1, 3])) //➞ [1, 3, 4]
+console.log(sortIt([[4], [1], [3]])) // ➞ [[1], [3], [4]]
+console.log(sortIt([4, [1], 3])) // ➞ [[1], 3, 4]
+console.log(sortIt([[4], 1, [3]])) // ➞ [1, [3], [4]]
+console.log(sortIt([[3], 4, [2], [5], 1, 6])) // ➞ [1, [2], [3], 4, [5], 6]
