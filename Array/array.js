@@ -559,11 +559,42 @@
 
 // jazzify([]) ➞ []
 // ans)=>
-function jazzify(arr){
-    return arr.map(item => item.endsWith("7")? item: `${item}7`)
+// function jazzify(arr){
+//     return arr.map(item => item.endsWith("7")? item: `${item}7`)
+// }
+
+// console.log(jazzify(["G", "F", "C"])) //➞ ["G7", "F7", "C7"]
+// console.log(jazzify(["Dm", "G", "E", "A"])) // ➞ ["Dm7", "G7", "E7", "A7"]
+// console.log(jazzify(["F7", "E7", "A7", "Ab7", "Gm7", "C7"])) // ➞ ["F7", "E7", "A7", "Ab7", "Gm7", "C7"]
+// console.log(jazzify([])) // ➞ []
+// ---------------------------------------------------------------------------------------------------------
+
+// Question)=> Create a function that takes an array and a string as arguments and returns the index of the string.
+
+// Examples
+// findIndex(["hi", "edabit", "fgh", "abc"], "fgh") ➞ 2
+
+// findIndex(["Red", "blue", "Blue", "Green"], "blue") ➞ 1
+
+// findIndex(["a", "g", "y", "d"], "d") ➞ 3
+
+// findIndex(["Pineapple", "Orange", "Grape", "Apple"], "Pineapple") ➞ 0
+// Notes
+// Don't forget to return the result.
+// If you are stuck, find help in the Resources tab.
+// ans)=>
+// function findIndex(arr,item){
+//     return arr.indexOf(item)
+// }
+
+function findIndex(arr,item){
+    for(let i = 0;i<arr.length;i++){
+        if(arr[i]==item){
+            return i
+        }
+    }
 }
 
-console.log(jazzify(["G", "F", "C"])) //➞ ["G7", "F7", "C7"]
-console.log(jazzify(["Dm", "G", "E", "A"])) // ➞ ["Dm7", "G7", "E7", "A7"]
-console.log(jazzify(["F7", "E7", "A7", "Ab7", "Gm7", "C7"])) // ➞ ["F7", "E7", "A7", "Ab7", "Gm7", "C7"]
-console.log(jazzify([])) // ➞ []
+console.log(findIndex(["hi", "edabit", "fgh", "abc"], "fgh")) // ➞ 2
+console.log(findIndex(["Red", "blue", "Blue", "Green"], "blue")) // ➞ 1
+console.log(findIndex(["a", "g", "y", "d"], "d")) // ➞ 3
