@@ -2,15 +2,24 @@
 
 // function isThereSevent(arr){
 //     if(arr.join("").includes(7)){
-//         console.log("Boom")
+//         return "Boom"
 //     }else{
-//         console.log("there is no 7 in arr")
+//         return "there is no 7 in arr"
 //     }
 // }
+// function isThereSevent(arr){
+//     let str = String(arr)
+//     for(let i=0;i<str.length;i++){
+//         if(str[i]==="7"){
+//             return "Boom"
+//         }
+//     }
+//     return "there is no 7 in"
+// }
 
-// isThereSevent([1,2,6,8,4,3])
-// isThereSevent([1,12,3,67,32])
-// isThereSevent([1,127,3,6,32])
+// console.log(isThereSevent([1,2,6,8,4,3]))
+// console.log(isThereSevent([1,12,3,67,32]))
+// console.log(isThereSevent([1,127,3,6,32]))
 // ----------------------
 
 //2)=> Given two arguments, return an array which contains these two arguments.
@@ -43,7 +52,7 @@
 // function countTrue(arr) {
 // 	let res = 0;
 // 	for(let i =0;i<arr.length;i++){
-// 		if(arr[i]== true){
+// 		if(arr[i]){
 // 			res++
 // 		}
 // 	}
@@ -68,6 +77,15 @@
 // answer:
 // function compact(arr){
 //     return arr.filter(Boolean)
+// }
+// function compact(arr){
+//     let res = []
+//     for(let i = 0;i<arr.length;i++){
+//         if(arr[i]){
+//             res.push(arr[i])
+//         }
+//     }
+//     return res
 // }
 // let array = [0, 1, false, 2, "", 3]
 // let result = compact(array)
@@ -209,9 +227,16 @@
 //     return arr.reverse()
 // }
 
-// reverse([1, 2, 3, 4]) //➞ [4, 3, 2, 1]
+function reverse(arr){
+    let res = [];
+    for(let i = arr.length-1;i>=0;i--){
+        res.push(arr[i])
+    }
+    return res
+}
 
-// reverse([9, 9, 2, 3, 4]) // ➞ [4, 3, 2, 9, 9]
+console.log(reverse([1, 2, 3, 4])) //➞ [4, 3, 2, 1]
+console.log(reverse([9, 9, 2, 3, 4])) // ➞ [4, 3, 2, 9, 9]
 // -------------------------------------------------------------------------------
 
 // 9)=> Help fix all the bugs in the function incrementItems! It is intended to add 1 to every element in the array!
@@ -583,18 +608,19 @@
 // Don't forget to return the result.
 // If you are stuck, find help in the Resources tab.
 // ans)=>
+
 // function findIndex(arr,item){
 //     return arr.indexOf(item)
 // }
 
-function findIndex(arr,item){
-    for(let i = 0;i<arr.length;i++){
-        if(arr[i]==item){
-            return i
-        }
-    }
-}
+// function findIndex(arr,item){
+//     for(let i = 0;i<arr.length;i++){
+//         if(arr[i]==item){
+//             return i
+//         }
+//     }
+// }
 
-console.log(findIndex(["hi", "edabit", "fgh", "abc"], "fgh")) // ➞ 2
-console.log(findIndex(["Red", "blue", "Blue", "Green"], "blue")) // ➞ 1
-console.log(findIndex(["a", "g", "y", "d"], "d")) // ➞ 3
+// console.log(findIndex(["hi", "edabit", "fgh", "abc"], "fgh")) // ➞ 2
+// console.log(findIndex(["Red", "blue", "Blue", "Green"], "blue")) // ➞ 1
+// console.log(findIndex(["a", "g", "y", "d"], "d")) // ➞ 3
