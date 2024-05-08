@@ -7,10 +7,20 @@
 //         return "there is no 7 in arr"
 //     }
 // }
+// function doesContain(num,targetNum){
+//     while(num <= 0) {
+//         const currentNum = num % 10;
+//         if(currentNum == targetNum) {
+//             return true;
+//         }
+//         num = parseInt(num/10);
+//     }
+//     return false;
+// }
 // function isThereSevent(arr){
-//     let str = String(arr)
-//     for(let i=0;i<str.length;i++){
-//         if(str[i]==="7"){
+    
+//     for(let i=0;i<arr.length;i++){
+//         if(doesContain(arr[i], 7)){
 //             return "Boom"
 //         }
 //     }
@@ -227,16 +237,16 @@
 //     return arr.reverse()
 // }
 
-function reverse(arr){
-    let res = [];
-    for(let i = arr.length-1;i>=0;i--){
-        res.push(arr[i])
-    }
-    return res
-}
+// function reverse(arr){
+//     let res = [];
+//     for(let i = arr.length-1;i>=0;i--){
+//         res.push(arr[i])
+//     }
+//     return res
+// }
 
-console.log(reverse([1, 2, 3, 4])) //➞ [4, 3, 2, 1]
-console.log(reverse([9, 9, 2, 3, 4])) // ➞ [4, 3, 2, 9, 9]
+// console.log(reverse([1, 2, 3, 4])) //➞ [4, 3, 2, 1]
+// console.log(reverse([9, 9, 2, 3, 4])) // ➞ [4, 3, 2, 9, 9]
 // -------------------------------------------------------------------------------
 
 // 9)=> Help fix all the bugs in the function incrementItems! It is intended to add 1 to every element in the array!
@@ -624,3 +634,161 @@ console.log(reverse([9, 9, 2, 3, 4])) // ➞ [4, 3, 2, 9, 9]
 // console.log(findIndex(["hi", "edabit", "fgh", "abc"], "fgh")) // ➞ 2
 // console.log(findIndex(["Red", "blue", "Blue", "Green"], "blue")) // ➞ 1
 // console.log(findIndex(["a", "g", "y", "d"], "d")) // ➞ 3
+
+// --------------------------------------------------------------------------------------------------------------
+
+// // Question)=> Create a function to concatenate two integer arrays.
+
+// // Examples
+// // concat([1, 3, 5], [2, 6, 8]) ➞ [1, 3, 5, 2, 6, 8]
+
+// // concat([7, 8], [10, 9, 1, 1, 2]) ➞ [7, 8, 10, 9, 1, 1, 2]
+
+// // concat([4, 5, 1], [3, 3, 3, 3, 3]) ➞ [4, 5, 1, 3, 3, 3, 3, 3]
+// // Notes
+// // Don't forget to return the result.
+// // See Resources tab for more info.
+// // ans)=>
+
+// // function concat(arr1,arr2){
+// //     let res = [arr1,arr2];
+// //     return res.flat();
+// // }
+
+// function concat(arr1,arr2){
+//     let res = [];
+//     for(let i=0;i<arr1.length;i++){
+//         res.push(arr1[i])
+//     }
+//     for(let i=0;i<arr2.length;i++){
+//         res.push(arr2[i])
+//     }
+//     return res
+// }
+
+// console.log(concat([1, 3, 5], [2, 6, 8])) //➞ [1, 3, 5, 2, 6, 8]
+// console.log(concat([7, 8], [10, 9, 1, 1, 2])) //➞ [7, 8, 10, 9, 1, 1, 2]
+// console.log(concat([4, 5, 1], [3, 3, 3, 3, 3])) //➞ [4, 5, 1, 3, 3, 3, 3, 3]
+// --------------------------------------------------------------------------------------------------------
+
+// // Question)=> Write a function to check if an array contains a particular number.
+
+// // Examples
+// // check([1, 2, 3, 4, 5], 3) ➞ true
+
+// // check([1, 1, 2, 1, 1], 3) ➞ false
+
+// // check([5, 5, 5, 6], 5) ➞ true
+
+// // check([], 5) ➞ false
+// // Notes
+// // Don't forget to return the result.
+// // If you get stuck on a challenge, find help in the Resources tab.
+// // If you're really stuck, unlock solutions in the Solutions tab.
+// // ans)=>
+
+// // function check(arr,num){
+// //     return arr.includes(num)
+// // }
+
+// function check(arr,num){
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]===num){
+//             return true
+//         }
+//     }
+//     return false
+// }
+
+// console.log(check([1, 2, 3, 4, 5], 3)) //➞ true
+// console.log(check([1, 1, 2, 1, 1], 3)) //➞ false
+// console.log(check([5, 5, 5, 6], 5)) //➞ true
+// console.log(check([], 5)) //➞ false
+// --------------------------------------------------------------------------------------------------------------------
+
+// // Question)=> Create a function that takes an array of numbers or letters and returns a string.
+
+// // Examples
+// // arrayToString([1, 2, 3, 4, 5, 6]) ➞ "123456"
+
+// // arrayToString(["a", "b", "c", "d", "e", "f"]) ➞ "abcdef"
+
+// // arrayToString([1, 2, 3, "a", "s", "dAAAA"]) ➞ "123asdAAAA"
+// // Notes
+// // ans)=>
+
+// // function arrayToString(arr){
+// //     return arr.join("")
+// // }
+
+// function arrayToString(arr){
+//     let res = ""
+//     for(let i=0;i<arr.length;i++){
+//         res += arr[i]
+//     }
+//     return res
+// }
+
+// console.log(arrayToString([1, 2, 3, 4, 5, 6])) //➞ "123456"
+// console.log(arrayToString(["a", "b", "c", "d", "e", "f"])) //➞ "abcdef"
+// console.log(arrayToString([1, 2, 3, "a", "s", "dAAAA"])) //➞ "123asdAAAA"
+// -------------------------------------------------------------------------------------------------------------------
+
+// // Question)=> Create a function that finds the index of a given item.
+
+// // Examples
+// // search([1, 5, 3], 5) ➞ 1
+
+// // search([9, 8, 3], 3) ➞ 2
+
+// // search([1, 2, 3], 4) ➞ -1
+// // Notes
+// // If the item is not present, return -1.
+// // ans)=>
+// // function search(arr,num){
+// //     return arr.indexOf(num)
+// // }
+
+// function search(arr,num){
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]===num){
+//             return i
+//         }
+//     }
+//     return -1
+// }
+
+// console.log(search([1, 5, 3], 5)) //➞ 1
+// console.log(search([9, 8, 3], 3)) //➞ 2
+// console.log(search([1, 2, 3], 4)) //➞ -1
+// -------------------------------------------------------------------------------------------------------------------------
+
+// // Question)=> Create a function that takes two numbers num1, num2, and an array arr and returns an array containing all the numbers in arr greater than num1 and less than num2.
+
+// // Examples
+// // arrBetween(3, 8, [1, 5, 95, 0, 4, 7]) ➞ [5, 4, 7]
+
+// // arrBetween(1, 10, [1, 10, 25, 8, 11, 6]) ➞ [8, 6]
+
+// // arrBetween(7, 32, [1, 2, 3, 78]) ➞ []
+// // Notes
+// // N/A
+// // ans)=>
+
+// // function arrBetween(num1,num2,arr){
+// //     return arr.filter(item => item>num1 && item<num2)
+// // }
+
+// function arrBetween(num1,num2,arr){
+//     let res = [];
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]>num1 && arr[i]<num2){
+//             res.push(arr[i])
+//         }
+//     }
+//     return res
+// }
+
+// console.log(arrBetween(3, 8, [1, 5, 95, 0, 4, 7])) // ➞ [5, 4, 7]
+// console.log(arrBetween(1, 10, [1, 10, 25, 8, 11, 6])) // ➞ [8, 6]
+// console.log(arrBetween(7, 32, [1, 2, 3, 78])) // ➞ []
