@@ -1066,23 +1066,50 @@
 // console.log(evenOrOdd([])) //➞ "even"
 // console.log(evenOrOdd([0, 1, 5])) //➞ "even"
 // --------------------------------------------------------------------------------------------------------------------------------
-// Question)=> Given an array, rotate the values clockwise by one (the last value is sent to the first position).
+// // Question)=> Given an array, rotate the values clockwise by one (the last value is sent to the first position).
 
-// Check the examples for a better understanding.
+// // Check the examples for a better understanding.
 
-// Examples
-// rotateByOne([1, 2, 3, 4, 5]) ➞ [5, 1, 2, 3, 4]
+// // Examples
+// // rotateByOne([1, 2, 3, 4, 5]) ➞ [5, 1, 2, 3, 4]
 
-// rotateByOne([6, 5, 8, 9, 7]) ➞ [7, 6, 5, 8, 9]
+// // rotateByOne([6, 5, 8, 9, 7]) ➞ [7, 6, 5, 8, 9]
 
-// rotateByOne([20, 15, 26, 8, 4]) ➞ [4, 20, 15, 26, 8]
-// Notes
-// N/A
-function rotateByOne(arr){
-    let lastElement = arr.pop()
-    arr.unshift(lastElement)
-    return arr
-}
-console.log(rotateByOne([1, 2, 3, 4, 5])) //➞ [5, 1, 2, 3, 4]
-console.log(rotateByOne([6, 5, 8, 9, 7])) //➞ [7, 6, 5, 8, 9]
-console.log(rotateByOne([20, 15, 26, 8, 4])) //➞ [4, 20, 15, 26, 8]
+// // rotateByOne([20, 15, 26, 8, 4]) ➞ [4, 20, 15, 26, 8]
+// // Notes
+// // N/A
+// function rotateByOne(arr){
+//     let lastElement = arr.pop()
+//     arr.unshift(lastElement)
+//     return arr
+// }
+// console.log(rotateByOne([1, 2, 3, 4, 5])) //➞ [5, 1, 2, 3, 4]
+// console.log(rotateByOne([6, 5, 8, 9, 7])) //➞ [7, 6, 5, 8, 9]
+// console.log(rotateByOne([20, 15, 26, 8, 4])) //➞ [4, 20, 15, 26, 8]
+// ---------------------------------------------------------------------------------------------------------------
+// // Question)=> Create a function that takes as a parameter an array of "stringified" numbers and returns an array of numbers.
+
+// // Example:
+
+// // ["1", "3", "3.6"] ➞ [1, 3, 3.6]
+// // Examples
+// // toNumberArray(["9.4", "4.2"]) ➞ [9.4, 4.2]
+
+// // toNumberArray(["91", "44"]) ➞ [91, 44]
+
+// // toNumberArray(["9.5", "8.8"]) ➞ [9.5, 8.8]
+
+// // function toNumberArray(arr){
+// //     return arr.map(item => item = Number(item))
+// // }
+
+// function toNumberArray(arr){
+//     for(let i=0;i<arr.length;i++){
+//         arr[i] = Number(arr[i])
+//     }
+//     return arr
+// }
+
+// console.log(toNumberArray(["9.4", "4.2"])) // ➞ [9.4, 4.2]
+// console.log(toNumberArray(["91", "44"])) // ➞ [91, 44]
+// console.log(toNumberArray(["9.5", "8.8"]) ) //➞ [9.5, 8.8]
