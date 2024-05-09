@@ -792,3 +792,125 @@
 // console.log(arrBetween(3, 8, [1, 5, 95, 0, 4, 7])) // ➞ [5, 4, 7]
 // console.log(arrBetween(1, 10, [1, 10, 25, 8, 11, 6])) // ➞ [8, 6]
 // console.log(arrBetween(7, 32, [1, 2, 3, 78])) // ➞ []
+// ---------------------------------------------------------------------------------------------
+
+// // Question)=> Given an index and an array, return the value of the array with the given index.
+
+// // Examples
+// // valueAt([1, 2, 3, 4, 5, 6], 10 / 2) ➞ 6
+
+// // valueAt([1, 2, 3, 4, 5, 6], 8.0 / 2) ➞ 5
+
+// // valueAt([1, 2, 3, 4], 6.535355314 / 2) ➞ 4
+// // Notes
+// // Math.floor() can be helpful.
+// // ans)=>
+// function valueAt(arr,num){
+//     let index = eval(num)
+//     return arr[Math.floor(index)]
+// }
+
+// console.log(valueAt([1, 2, 3, 4, 5, 6], 10 / 2)) // ➞ 6
+// console.log(valueAt([1, 2, 3, 4, 5, 6], 8.0 / 2)) //➞ 5
+// console.log(valueAt([1, 2, 3, 4], 6.535355314 / 2)) // ➞ 4
+// ------------------------------------------------------------------------------------------------------------
+
+// // Question)=> Create a function that takes an array and returns the types of values (data types) in a new array.
+
+// // Examples
+// // arrayValuesTypes([1, 2, "null", []])
+// // ➞ ["number", "number", "string", "object"]
+
+// // arrayValuesTypes(["214", true, false, 2, 2.15, [], null])
+// // ➞ ["string", "boolean", "boolean", "number", "number", "object", "object"]
+
+// // arrayValuesTypes([21.1, "float", "array", ["I am array"], null, true, 214])
+// // ➞ ["number", "string", "string", "object", "object", "boolean", "number"]
+// // Notes
+// // Check the Resources tab for help if needed.
+// // Remember Arrays & Null in JS are treated as object, hence the examples
+// // ans)=>
+
+// // function arrayValuesTypes(arr){
+// //     return arr.map(item => typeof item)
+// // }
+
+// function arrayValuesTypes(arr){
+//     let res = [];
+//     for(let i=0;i<arr.length;i++){
+//         res.push(typeof arr[i])
+//     }
+//     return res
+// }
+
+// console.log(arrayValuesTypes([1, 2, "null", []]))
+// // ➞ ["number", "number", "string", "object"]
+
+// console.log(arrayValuesTypes(["214", true, false, 2, 2.15, [], null]))
+// // ➞ ["string", "boolean", "boolean", "number", "number", "object", "object"]
+
+// console.log(arrayValuesTypes([21.1, "float", "array", ["I am array"], null, true, 214]))
+// // ➞ ["number", "string", "string", "object", "object", "boolean", "number"]
+// -------------------------------------------------------------------------------------------------------------------
+
+// // Qusetion)=> Given two arrays, which represent two sandwiches, return whether both sandwiches use the same type of bread. The bread will always be found at the start and end of the array.
+
+// // Examples
+// // hasSameBread(
+// //   ["white bread", "lettuce", "white bread"],
+// //   ["white bread", "tomato", "white bread"]
+// // ) ➞ true
+
+// // hasSameBread(
+// //   ["brown bread", "chicken", "brown bread"],
+// //   ["white bread", "chicken", "white bread"]
+// // ) ➞ false
+
+// // hasSameBread(
+// //   ["toast", "cheese", "toast"],
+// //   ["brown bread", "cheese", "toast"]
+// // ) ➞ false
+// // Notes
+// // The arrays will always be three elements long.
+// // The first piece of bread on one sandwich must be the same as the first piece of bread on the other sandwich. The same goes for the last piece of bread.
+// // ans)=>
+
+// function hasSameBread(arr1,arr2){
+//     let index = arr1.length-1
+//     return arr1[0]==arr2[0] && arr1[index]==arr2[index]
+// }
+
+// console.log(hasSameBread(
+//   ["white bread", "lettuce", "white bread"],
+//   ["white bread", "tomato", "white bread"]
+// )) //➞ true
+
+// console.log(hasSameBread(
+//   ["brown bread", "chicken", "brown bread"],
+//   ["white bread", "chicken", "white bread"]
+// )) //➞ false
+
+// console.log(hasSameBread(
+//   ["toast", "cheese", "toast"],
+//   ["brown bread", "cheese", "toast"]
+// )) //➞ false
+// --------------------------------------------------------------------------------------------------------------
+// Question)=> Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+
+// Examples
+// sumArray([1, 2, 3, 4, 5]) ➞ 15
+
+// sumArray([-1, 0, 1]) ➞ 0
+
+// sumArray([0, 4, 8, 12]) ➞ 24
+// Notes
+// READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+// Don't overthink this challenge; it's not supposed to be hard.
+// ans)=>
+function sumArray(arr){
+    let res = null
+    return arr.map(item => res += item)
+}
+console.log(sumArray([1, 2, 3, 4, 5])) // ➞ 15
+console.log(sumArray([-1, 0, 1])) // ➞ 0
+console.log(sumArray([0, 4, 8, 12])) // ➞ 24
