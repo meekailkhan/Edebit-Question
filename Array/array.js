@@ -895,22 +895,194 @@
 //   ["brown bread", "cheese", "toast"]
 // )) //➞ false
 // --------------------------------------------------------------------------------------------------------------
-// Question)=> Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+// // Question)=> Fix the code in the code tab to pass this challenge (only syntax errors). Look at the examples below to get an idea of what the function should do.
+
+// // Examples
+// // sumArray([1, 2, 3, 4, 5]) ➞ 15
+
+// // sumArray([-1, 0, 1]) ➞ 0
+
+// // sumArray([0, 4, 8, 12]) ➞ 24
+// // Notes
+// // READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+// // Don't overthink this challenge; it's not supposed to be hard.
+// // ans)=>
+
+// // function sumArray(arr){
+// //     let res = 0;
+// //     arr.map(item => res+=item)
+// //     return res
+// // }
+ 
+// function sumArray(arr){
+//     let res = 0
+//     for(let i=0;i<arr.length;i++){
+//         res += arr[i]
+//     }
+//     return res
+// }
+
+// console.log(sumArray([1, 2, 3, 4, 5])) //➞ 15
+// console.log(sumArray([-1, 0, 1])) // ➞ 0
+// console.log(sumArray([0, 4, 8, 12])) // ➞ 24
+// ----------------------------------------------------------------------------------------------------------
+// // Question)=> There is an easy way to assign to array values to the nth index by using rest parameter syntax.
+
+// // var [head, tail] = [1, 2, 3, 4]
+
+// // console.log(head) // outputs  1
+// // console.log(tail) // outputs 2
+// // But how could I make tail = [2, 3, 4] instead of tail = 2?
+
+// // Notes
+// // Check the Resources tab for more examples.
+// // ans)=>
+// let [head,...tail] = [1,2,3,4]
+// console.log(head)
+// console.log(tail)
+// --------------------------------------------------------------------------------------------------------------
+// // QUestion)=> Create a function that takes an array with numbers and return an array with the elements multiplied by two.
+
+// // Examples
+// // getMultipliedArr([2, 5, 3]) ➞ [4, 10, 6]
+
+// // getMultipliedArr([1, 86, -5]) ➞ [2, 172, -10]
+
+// // getMultipliedArr([5, 382, 0]) ➞ [10, 764, 0]
+// // Notes
+// // N/A
+
+// // function getMultipliedArr(arr){
+// //     return arr.map(item => item*2)
+// // }
+
+// function getMultipliedArr(arr){
+//     for(let i=0;i<arr.length;i++){
+//         arr[i] = arr[i]*2
+//     }
+//     return arr
+// }
+
+// console.log(getMultipliedArr([2, 5, 3]))// ➞ [4, 10, 6]
+// console.log(getMultipliedArr([1, 86, -5]))// ➞ [2, 172, -10]
+// console.log(getMultipliedArr([5, 382, 0]))// ➞ [10, 764, 0]
+
+// // -------------------------------------------------------------------------------------------------
+// // Question)=> Create a function that takes an array and returns the sum of all numbers in the array.
+
+// // Examples
+// // getSumOfItems([2, 7, 4]) ➞ 13
+
+// // getSumOfItems([45, 3, 0]) ➞ 48
+
+// // getSumOfItems([-2, 84, 23]) ➞ 105
+// // Notes
+// // N/A
+
+// // function getSumOfItems(arr){
+// //     let res = 0;
+// //     arr.map(item => res += item)
+// //     return res
+// // }
+
+// function getSumOfItems(arr){
+//     let res = 0;
+//     for(let i=0;i<arr.length;i++){
+//         res += arr[i]
+//     }
+//     return res
+// }
+
+// console.log(getSumOfItems([2, 7, 4]) )//➞ 13
+// console.log(getSumOfItems([45, 3, 0]))// ➞ 48
+// console.log(getSumOfItems([-2, 84, 23]) )//➞ 105
+// -----------------------------------------------------------------------------------------------------------------------
+// // Question)=> Create a function that takes an array of numbers arr and returns an inverted array.
+
+// // Examples
+// // invertArray([1, 2, 3, 4, 5]) ➞ [-1, -2, -3, -4, -5]
+
+// // invertArray([1, -2, 3, -4, 5]) ➞ [-1, 2, -3, 4, -5]
+
+// // invertArray([]) ➞ []
+// // Notes
+// // Don't forget to return the result.
+// // If you get stuck on a challenge, find help in the Resources tab.
+// // If you're really stuck, unlock solutions in the Solutions tab.
+
+// // function invertArray(arr){
+// //     return arr.map(item => item = item*-1)
+// // }
+
+// function invertArray(arr){
+//     for(let i=0;i<arr.length;i++){
+//         arr[i] = arr[i]*-1
+//     }
+//     return arr
+// }
+
+// console.log(invertArray([1, 2, 3, 4, 5])) // ➞ [-1, -2, -3, -4, -5]
+// console.log(invertArray([1, -2, 3, -4, 5]) ) //➞ [-1, 2, -3, 4, -5]
+// console.log(invertArray([]) ) //➞ []
+// -------------------------------------------------------------------------------------------------------------
+// // Question)=> Given an array of integers, determine whether the sum of its elements is even or odd.
+
+// // The return value should be a string ("odd" or "even").
+
+// // If the input array is empty, consider it as an array with a zero ([0]).
+
+// // Examples
+// // evenOrOdd([0]) ➞ "even"
+
+// // evenOrOdd([1]) ➞ "odd"
+
+// // evenOrOdd([]) ➞ "even"
+
+// // evenOrOdd([0, 1, 5]) ➞ "even"
+// // Notes
+// // N/A
+// // function evenOrOdd(arr){
+// //     if(arr.length == 0){
+// //         return "even"
+// //     }
+// //     let sum = 0;
+// //     for(let i=0;i<arr.length;i++){
+// //         sum += arr[i]
+// //     }
+// //     return sum%2 == 0?"even":"odd";
+// // }
+// function evenOrOdd(arr){
+//     if(arr.length == 0){
+//         return "even"
+//     }
+//     let sum = arr.reduce((item1,item2)=> item1 + item2,0 );
+   
+//     return sum%2 == 0?"even":"odd";
+// }
+
+
+// console.log(evenOrOdd([0])) //➞ "even"
+// console.log(evenOrOdd([1])) //➞ "odd"
+// console.log(evenOrOdd([])) //➞ "even"
+// console.log(evenOrOdd([0, 1, 5])) //➞ "even"
+// --------------------------------------------------------------------------------------------------------------------------------
+// Question)=> Given an array, rotate the values clockwise by one (the last value is sent to the first position).
+
+// Check the examples for a better understanding.
 
 // Examples
-// sumArray([1, 2, 3, 4, 5]) ➞ 15
+// rotateByOne([1, 2, 3, 4, 5]) ➞ [5, 1, 2, 3, 4]
 
-// sumArray([-1, 0, 1]) ➞ 0
+// rotateByOne([6, 5, 8, 9, 7]) ➞ [7, 6, 5, 8, 9]
 
-// sumArray([0, 4, 8, 12]) ➞ 24
+// rotateByOne([20, 15, 26, 8, 4]) ➞ [4, 20, 15, 26, 8]
 // Notes
-// READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
-// Don't overthink this challenge; it's not supposed to be hard.
-// ans)=>
-function sumArray(arr){
-    let res = null
-    return arr.map(item => res += item)
+// N/A
+function rotateByOne(arr){
+    let lastElement = arr.pop()
+    arr.unshift(lastElement)
+    return arr
 }
-console.log(sumArray([1, 2, 3, 4, 5])) // ➞ 15
-console.log(sumArray([-1, 0, 1])) // ➞ 0
-console.log(sumArray([0, 4, 8, 12])) // ➞ 24
+console.log(rotateByOne([1, 2, 3, 4, 5])) //➞ [5, 1, 2, 3, 4]
+console.log(rotateByOne([6, 5, 8, 9, 7])) //➞ [7, 6, 5, 8, 9]
+console.log(rotateByOne([20, 15, 26, 8, 4])) //➞ [4, 20, 15, 26, 8]
