@@ -34,11 +34,58 @@ function checkSquareAndCube(arr){
 // N/A
 function length(str){
     let lastIndex ;
-    for(let  i=0;str[i];++i){
+    for(let  i=0;str[i];i++){
         lastIndex = i+1
     }
     return lastIndex
 }
-console.log(length("Hello World")) //➞ 11
-console.log(length("Edabit")) //➞ 6
-console.log(length("wash your hands!")) //➞ 16
+// console.log(length("Hello World")) //➞ 11
+// console.log(length("Edabit")) //➞ 6
+// console.log(length("wash your hands!")) //➞ 16
+// ------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a number and return an array of three numbers: half of the number, quarter of the number and an eighth of the number.
+
+// Examples
+// halfQuarterEighth(6) ➞ [3, 1.5, 0.75]
+
+// halfQuarterEighth(22) ➞ [11, 5.5, 2.75]
+
+// halfQuarterEighth(25) ➞ [12.5, 6.25, 3.125]
+// Notes
+// The order of the array is: half, quarter, eighth.
+function halfQuarterEighth(num){
+    let half = num/2;
+    let quarter = half/2;
+    let eighth = quarter/2;
+    return [half,quarter,eighth];
+}
+// console.log(halfQuarterEighth(6)) //➞ [3, 1.5, 0.75]
+// console.log(halfQuarterEighth(22)) //➞ [11, 5.5, 2.75]
+// console.log(halfQuarterEighth(25)) //➞ [12.5, 6.25, 3.125]
+// --------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a whole number as input and returns the shape with that number's amount of sides. Here are the expected outputs to get from these inputs.
+
+// Inputs	Outputs
+// 1	"circle"
+// 2	"semi-circle"
+// 3	"triangle"
+// 4	"square"
+// 5	"pentagon"
+// 6	"hexagon"
+// 7	"heptagon"
+// 8	"octagon"
+// 9	"nonagon"
+// 10	"decagon"
+// Examples
+// nSidedShape(3) ➞ "triangle"
+
+// nSidedShape(1) ➞ "circle"
+
+// nSidedShape(9) ➞ "nonagon"
+function nSidedShape(n){
+    let arr = ["circle","semi-circle","triangle","square","pentagon","hexagon","heptagon","octagon","nonagon","decagon"];
+    return arr[n-1]
+}
+// console.log(nSidedShape(3)) //➞ "triangle"
+// console.log(nSidedShape(1)) //➞ "circle"
+// console.log(nSidedShape(9)) //➞ "nonagon"
