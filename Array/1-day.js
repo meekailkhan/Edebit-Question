@@ -89,3 +89,39 @@ function nSidedShape(n){
 // console.log(nSidedShape(3)) //➞ "triangle"
 // console.log(nSidedShape(1)) //➞ "circle"
 // console.log(nSidedShape(9)) //➞ "nonagon"
+// ------------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array of words and transforms it into an array of each word's length.
+
+// Examples
+// wordLengths(["hello", "world"]) ➞ [5, 5]
+
+// wordLengths(["Halloween", "Thanksgiving", "Christmas"]) ➞ [9, 12, 9]
+
+// wordLengths(["She", "sells", "seashells", "down", "by", "the", "seashore"]) ➞ [3, 5, 9, 4, 2, 3, 8]
+// Notes
+// No test case will contain punctuation.
+// Arrays can be of various lengths.
+function sporter(str){
+    return str.length
+}
+
+function wordLengths(arr){
+    let lengthArr = [];
+    for(let i=0;i<arr.length;i++){
+        lengthArr.push(sporter(arr[i]))
+    }
+    return lengthArr;
+}
+function wordLengths(arr){
+    return arr.map(item => item = item.length)
+}
+function wordLengths(arr){
+    for(let i=0;i<arr.length;i++){
+        arr[i] = arr[i].length
+    }
+    return arr;
+}
+
+// console.log(wordLengths(["hello", "world"])) //➞ [5, 5]
+// console.log(wordLengths(["Halloween", "Thanksgiving", "Christmas"])) //➞ [9, 12, 9]
+// console.log(wordLengths(["She", "sells", "seashells", "down", "by", "the", "seashore"])) //➞ [3, 5, 9, 4, 2, 3, 8]
