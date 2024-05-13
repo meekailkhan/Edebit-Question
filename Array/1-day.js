@@ -210,3 +210,27 @@ function sumFive(arr){
 // console.log(sumFive([1, 5, 20, 30, 4, 9, 18])) //➞ 77
 // console.log(sumFive([1, 2, 3, 4])) //➞ 0
 // console.log(sumFive([10, 12, 28, 47, 55, 100])) //➞ 252
+// ---------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns an array of booleans from a given number by iterating through the number one digit at a time and appending true into the array if the digit is 1 and false otherwise.
+
+// Examples
+// integerBoolean("100101") ➞ [true, false, false, true, false, true]
+
+// integerBoolean("10") ➞ [true, false]
+
+// integerBoolean("001") ➞ [false, false, true]
+// Notes
+// Expect numbers with 0 and 1 only.
+// function integerBoolean(str){
+//     let res = [];
+//     for(let i=0;i<str.length;i++){
+//         str[i]==1 ? res.push(true) : res.push(false);
+//     }
+//     return res;
+// }
+function integerBoolean(number) {
+  return number.split("").map(digit => parseInt(digit) === 1);
+}
+console.log(integerBoolean("100101")) //➞ [true, false, false, true, false, true]
+console.log(integerBoolean("10")) //➞ [true, false]
+console.log(integerBoolean("001")) //➞ [false, false, true]
