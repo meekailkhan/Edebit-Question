@@ -12,8 +12,8 @@
 // // If you're stuck, check the Resources for a hint.
 // // ans)=>
 
-function checkSquareAndCube(arr){
-    if(Math.sqrt(arr[0])**3 === arr[1]){
+function checkSquareAndCube(arr) {
+    if (Math.sqrt(arr[0]) ** 3 === arr[1]) {
         return true;
     }
     return false
@@ -32,10 +32,10 @@ function checkSquareAndCube(arr){
 // length("wash your hands!") ➞ 16
 // Notes
 // N/A
-function length(str){
-    let lastIndex ;
-    for(let  i=0;str[i];i++){
-        lastIndex = i+1
+function length(str) {
+    let lastIndex;
+    for (let i = 0; str[i]; i++) {
+        lastIndex = i + 1
     }
     return lastIndex
 }
@@ -53,11 +53,11 @@ function length(str){
 // halfQuarterEighth(25) ➞ [12.5, 6.25, 3.125]
 // Notes
 // The order of the array is: half, quarter, eighth.
-function halfQuarterEighth(num){
-    let half = num/2;
-    let quarter = half/2;
-    let eighth = quarter/2;
-    return [half,quarter,eighth];
+function halfQuarterEighth(num) {
+    let half = num / 2;
+    let quarter = half / 2;
+    let eighth = quarter / 2;
+    return [half, quarter, eighth];
 }
 // console.log(halfQuarterEighth(6)) //➞ [3, 1.5, 0.75]
 // console.log(halfQuarterEighth(22)) //➞ [11, 5.5, 2.75]
@@ -82,9 +82,9 @@ function halfQuarterEighth(num){
 // nSidedShape(1) ➞ "circle"
 
 // nSidedShape(9) ➞ "nonagon"
-function nSidedShape(n){
-    let arr = ["circle","semi-circle","triangle","square","pentagon","hexagon","heptagon","octagon","nonagon","decagon"];
-    return arr[n-1]
+function nSidedShape(n) {
+    let arr = ["circle", "semi-circle", "triangle", "square", "pentagon", "hexagon", "heptagon", "octagon", "nonagon", "decagon"];
+    return arr[n - 1]
 }
 // console.log(nSidedShape(3)) //➞ "triangle"
 // console.log(nSidedShape(1)) //➞ "circle"
@@ -101,22 +101,22 @@ function nSidedShape(n){
 // Notes
 // No test case will contain punctuation.
 // Arrays can be of various lengths.
-function eachLength(str){
+function eachLength(str) {
     return str.length
 }
 
-function wordLengths(arr){
+function wordLengths(arr) {
     let lengthArr = [];
-    for(let i=0;i<arr.length;i++){
+    for (let i = 0; i < arr.length; i++) {
         lengthArr.push(eachLength(arr[i]))
     }
     return lengthArr;
 }
-function wordLengths(arr){
+function wordLengths(arr) {
     return arr.map(item => item = item.length)
 }
-function wordLengths(arr){
-    for(let i=0;i<arr.length;i++){
+function wordLengths(arr) {
+    for (let i = 0; i < arr.length; i++) {
         arr[i] = arr[i].length
     }
     return arr;
@@ -139,12 +139,12 @@ function wordLengths(arr){
 // toNumberArray(["9.5", "8.8"]) ➞ [9.5, 8.8]
 // Notes
 // Some inputs are floats.
-function toNumberArray(arr){
+function toNumberArray(arr) {
     return arr.map(item => item = +item)
 }
 
-function toNumberArray(arr){
-    for(let i=0;i<arr.length;i++){
+function toNumberArray(arr) {
+    for (let i = 0; i < arr.length; i++) {
         arr[i] = +arr[i];
     }
     return arr;
@@ -165,15 +165,15 @@ function toNumberArray(arr){
 // Notes
 // You'll only get numbers in the array.
 
-function addIndexes(arr){
-    for(let i=0;i<arr.length;i++){
-        arr[i] = arr[i]+i
+function addIndexes(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i] + i
     }
     return arr;
 }
 
-function addIndexes(arr){
-    return arr.map((item,index) => item = item+index)
+function addIndexes(arr) {
+    return arr.map((item, index) => item = item + index)
 }
 
 // console.log(addIndexes([0, 0, 0, 0, 0])) //➞ [0, 1, 2, 3, 4]
@@ -191,19 +191,19 @@ function addIndexes(arr){
 // Notes
 // Find all the elements greater than 5, not the elements greater than or equal to 5.
 
-function sumFive(arr){
+function sumFive(arr) {
     let res = 0;
-    for(let i=0;i<arr.length;i++){
-        if(arr[i]>5){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 5) {
             res += arr[i]
         }
     }
     return res;
 }
 
-function sumFive(arr){
+function sumFive(arr) {
     let res = 0;
-    arr.map(item => item>5 ? res+= item : res)
+    arr.map(item => item > 5 ? res += item : res)
     return res;
 }
 
@@ -221,16 +221,73 @@ function sumFive(arr){
 // integerBoolean("001") ➞ [false, false, true]
 // Notes
 // Expect numbers with 0 and 1 only.
-// function integerBoolean(str){
-//     let res = [];
-//     for(let i=0;i<str.length;i++){
-//         str[i]==1 ? res.push(true) : res.push(false);
-//     }
-//     return res;
-// }
-function integerBoolean(number) {
-  return number.split("").map(digit => parseInt(digit) === 1);
+function integerBoolean(str) {
+    let res = [];
+    for (let i = 0; i < str.length; i++) {
+        str[i] == 1 ? res.push(true) : res.push(false);
+    }
+    return res;
 }
-console.log(integerBoolean("100101")) //➞ [true, false, false, true, false, true]
-console.log(integerBoolean("10")) //➞ [true, false]
-console.log(integerBoolean("001")) //➞ [false, false, true]
+function integerBoolean(number) {
+    return number.split("").map(digit => parseInt(digit) === 1);
+}
+// console.log(integerBoolean("100101")) //➞ [true, false, false, true, false, true]
+// console.log(integerBoolean("10")) //➞ [true, false]
+// console.log(integerBoolean("001")) //➞ [false, false, true]
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that accepts the width and height (m, n) and an optional proc s and generates an array with m elements. Each element is a string consisting of either:
+
+// The default character (hash #) repeating n times (if no proc is given).
+// The character passed in through the proc repeating n times.
+// Examples
+// makeRug(3, 5) ➞ [
+//   "#####",
+//   "#####",
+//   "#####"
+// ]
+
+// makeRug(3, 5, '$')  ➞ [
+//   "$$$$$",
+//   "$$$$$",
+//   "$$$$$"
+// ]
+
+// makeRug(2, 2, 'A')  ➞ [
+//   "AA",
+//   "AA"
+// ]
+// Notes
+// You can set a value for the parameter when creating the function e.g. function (x = 3)
+
+function eachContains(quantity,word){
+    let str = "";
+    for (let i = 0;i<quantity;i++){
+        str += word
+    }
+    return str
+}
+
+function makeRug(height, width, contain = "#") {
+    let res = [];
+    for (let i = 0;i<height;i++){
+        res.push(eachContains(width,contain))
+    }
+    return res;
+}
+
+// console.log(makeRug(3, 5))// ➞ [
+//   "#####",
+//   "#####",
+//   "#####"
+// ]
+
+// console.log(makeRug(3, 5, '$')) // ➞ [
+//   "$$$$$",
+//   "$$$$$",
+//   "$$$$$"
+// ]
+
+// console.log(makeRug(2, 2, 'A')) // ➞ [
+//   "AA",
+//   "AA"
+// ]
