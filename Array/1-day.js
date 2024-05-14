@@ -259,9 +259,9 @@ function integerBoolean(number) {
 // Notes
 // You can set a value for the parameter when creating the function e.g. function (x = 3)
 
-function eachContains(quantity,word){
+function eachContains(quantity, word) {
     let str = "";
-    for (let i = 0;i<quantity;i++){
+    for (let i = 0; i < quantity; i++) {
         str += word
     }
     return str
@@ -269,8 +269,8 @@ function eachContains(quantity,word){
 
 function makeRug(height, width, contain = "#") {
     let res = [];
-    for (let i = 0;i<height;i++){
-        res.push(eachContains(width,contain))
+    for (let i = 0; i < height; i++) {
+        res.push(eachContains(width, contain))
     }
     return res;
 }
@@ -291,3 +291,73 @@ function makeRug(height, width, contain = "#") {
 //   "AA",
 //   "AA"
 // ]
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a base number and an exponent number and returns the calculation.
+
+// Examples
+// calculateExponent(5, 5) ➞ 3125
+
+// calculateExponent(10, 10) ➞ 10000000000
+
+// calculateExponent(3, 3) ➞ 27
+// Notes
+// All test inputs will be positive integers
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function calculateExponent(num, power) {
+    return num ** power
+}
+
+// console.log(calculateExponent(5, 5)) //➞ 3125
+// console.log(calculateExponent(10, 10)) //➞ 10000000000
+// console.log(calculateExponent(3, 3)) //➞ 27
+// ----------------------------------------------------------------------------------------------------------------
+// Question)=> However, if the year is a multiple of 100 (1800, 1900, etc), the year must be divisible by 400.
+
+// Write a function that determines if the year is a leap year or not.
+
+// Examples
+// leapYear(2020) ➞ true
+
+// leapYear(2021) ➞ false
+
+// leapYear(1968) ➞ true
+// Notes
+// N/A
+function leapYear(year) {
+    return year % 4 === 0 ? true : false;
+}
+// console.log(leapYear(2020)) //➞ true
+// console.log(leapYear(2021)) //➞ false
+// console.log(leapYear(1968)) //➞ true
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes two arguments of an array of numbers arr and a constant number n and returns the n largest numbers from the given array.
+
+// Examples
+// largestNumbers(2, [4, 3, 2, 1]) ➞ [3, 4]
+
+// largestNumbers(1, [7, 19, 4, 2]) ➞ [19]
+
+// largestNumbers(3, [14, 12, 57, 11, 18, 16]) ➞ [16, 18, 57]
+
+// largestNumbers(0, [1, 3, 4, 2]) ➞ []
+// Notes
+// The returned array must be sorted in ascending order.
+function largestNumbers(posi, arr) {
+    let res = arr.sort((a, b) => a - b);
+    let array = [];
+    for (let i = arr.length-posi;i<arr.length;i++){
+        array.push(arr[i])
+    }
+    return array
+}
+function largestNumbers(posi, arr) {
+    let res = arr.sort((a, b) => b - a);
+    let largest = res.slice(0, posi);
+    return largest.sort((a, b) => a - b)
+}
+// console.log(largestNumbers(2, [4, 3, 2, 1])) //➞ [3, 4]
+// console.log(largestNumbers(1, [7, 19, 4, 2])) //➞ [19]
+// console.log(largestNumbers(3, [14, 12, 57, 11, 18, 16])) //➞ [16, 18, 57]
+// console.log(largestNumbers(0, [1, 3, 4, 2])) //➞ []
