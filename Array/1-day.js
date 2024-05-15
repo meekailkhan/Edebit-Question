@@ -361,3 +361,55 @@ function largestNumbers(posi, arr) {
 // console.log(largestNumbers(1, [7, 19, 4, 2])) //➞ [19]
 // console.log(largestNumbers(3, [14, 12, 57, 11, 18, 16])) //➞ [16, 18, 57]
 // console.log(largestNumbers(0, [1, 3, 4, 2])) //➞ []
+// ---------------------------------------------------------------------------------------------------------------------
+// Create a function that takes a 2D array arr and returns the sum of the minimum value in each row.
+
+// Examples
+// sumMinimums([
+//   [1, 2, 3, 4, 5],
+//   [5, 6, 7, 8, 9],
+//   [20, 21, 34, 56, 100]
+// ]) ➞ 26
+
+// // minimum value of the first row is 1
+// // minimum value of the second row is 5
+// // minimum value of the third row is 20
+// Notes
+// N/A
+
+function smallest(arr){
+    let res = arr.sort((a,b)=>a-b)
+    return res[0]
+}
+
+function sumMinimums(arr){
+    let res = 0;
+    for(let i = 0;i<arr.length;i++){
+        res += smallest(arr[i]);
+    }
+    return res;
+}
+// console.log(sumMinimums([
+//   [1, 2, 3, 4, 5],
+//   [5, 6, 7, 8, 9],
+//   [20, 21, 34, 56, 100]
+// ])) //➞ 26
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns the last value of the last item in an array or string.
+
+// Examples
+// lastItem([0, 4, 19, 34, 50, -9, 2]) ➞ 2
+
+// lastItem("The quick brown fox jumped over the lazy dog") ➞ "g"
+
+// lastItem([]) ➞ undefined
+// Notes
+// Arrays/strings will be of varying size.
+// Return undefined if array/string is empty.
+
+function lastItem(value){
+    return value[value.length-1]
+}
+// console.log(lastItem([0, 4, 19, 34, 50, -9, 2])) //➞ 2
+// console.log(lastItem("The quick brown fox jumped over the lazy dog")) //➞ "g"
+// console.log(lastItem([])) //➞ undefined
