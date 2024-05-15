@@ -347,7 +347,7 @@ function leapYear(year) {
 function largestNumbers(posi, arr) {
     let res = arr.sort((a, b) => a - b);
     let array = [];
-    for (let i = arr.length-posi;i<arr.length;i++){
+    for (let i = arr.length - posi; i < arr.length; i++) {
         array.push(arr[i])
     }
     return array
@@ -377,14 +377,14 @@ function largestNumbers(posi, arr) {
 // Notes
 // N/A
 
-function smallest(arr){
-    let res = arr.sort((a,b)=>a-b)
+function smallest(arr) {
+    let res = arr.sort((a, b) => a - b)
     return res[0]
 }
 
-function sumMinimums(arr){
+function sumMinimums(arr) {
     let res = 0;
-    for(let i = 0;i<arr.length;i++){
+    for (let i = 0; i < arr.length; i++) {
         res += smallest(arr[i]);
     }
     return res;
@@ -407,9 +407,54 @@ function sumMinimums(arr){
 // Arrays/strings will be of varying size.
 // Return undefined if array/string is empty.
 
-function lastItem(value){
-    return value[value.length-1]
+function lastItem(value) {
+    return value[value.length - 1]
 }
 // console.log(lastItem([0, 4, 19, 34, 50, -9, 2])) //➞ 2
 // console.log(lastItem("The quick brown fox jumped over the lazy dog")) //➞ "g"
 // console.log(lastItem([])) //➞ undefined
+// -------------------------------------------------------------------------------------------------------------
+// Question)=> You are counting points for a basketball game, given the amount of 2-pointers scored and 3-pointers scored, find the final points for the team and return that value.
+
+// Examples
+// console.log(points(1, 1)) //➞ 5
+
+// console.log(points(7, 5)) //➞ 29
+
+// console.log(points(38, 8)) //➞ 100
+// Notes
+// N/A
+function points(num1, num2) {
+    return num1 * 2 + num2 * 3
+}
+// ---------------------------------------------------------------------------------------------------------------------------
+// Question=> Given two numbers, return true if the sum of both numbers is less than 100. Otherwise return false.
+
+// Examples
+// console.log(lessThan100(22, 15)) //➞ true
+// // // 22 + 15 = 37
+
+// console.log(lessThan100(83, 34)) //➞ false
+// // // 83 + 34 = 117
+
+// console.log(lessThan100(3, 77)) //➞ true
+// Notes
+// N/A
+function lessThan100(num1, num2) {
+    return num1 + num2 < 100 ? true : false;
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array arr of numbers and moves all zeros to the end, preserving the order of the other elements.
+
+// Examples
+console.log(moveZeros([1, 0, 1, 2, 0, 1, 3])) //➞ [1, 1, 2, 1, 3, 0, 0]
+
+console.log(moveZeros([0, 1, null, 2, false, 1, 0])) //➞ [1, null, 2, false, 1, 0, 0]
+
+console.log(moveZeros(['a', 0, 0, 'b', 'c', 'd', 0, 1, 0, 1, 0, 3, 0, 1, 9, 0, 0, 0, 0, 9])) //➞ ['a', 'b', 'c', 'd', 1, 1, 3, 1, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+function moveZeros(arr){
+    let res = [];
+    arr.map(item => item!==0?res.unshift(item):res.push(item))
+    return res;
+}
