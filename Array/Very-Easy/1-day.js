@@ -447,14 +447,400 @@ function lessThan100(num1, num2) {
 // Question)=> Create a function that takes an array arr of numbers and moves all zeros to the end, preserving the order of the other elements.
 
 // Examples
-console.log(moveZeros([1, 0, 1, 2, 0, 1, 3])) //➞ [1, 1, 2, 1, 3, 0, 0]
+// console.log(moveZeros([1, 0, 1, 2, 0, 1, 3])) //➞ [1, 1, 2, 1, 3, 0, 0]
 
-console.log(moveZeros([0, 1, null, 2, false, 1, 0])) //➞ [1, null, 2, false, 1, 0, 0]
+// console.log(moveZeros([0, 1, null, 2, false, 1, 0])) //➞ [1, null, 2, false, 1, 0, 0]
 
-console.log(moveZeros(['a', 0, 0, 'b', 'c', 'd', 0, 1, 0, 1, 0, 3, 0, 1, 9, 0, 0, 0, 0, 9])) //➞ ['a', 'b', 'c', 'd', 1, 1, 3, 1, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+// console.log(moveZeros(['a', 0, 0, 'b', 'c', 'd', 0, 1, 0, 1, 0, 3, 0, 1, 9, 0, 0, 0, 0, 9])) //➞ ['a', 'b', 'c', 'd', 1, 1, 3, 1, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-function moveZeros(arr){
+function moveZeros(arr) {
     let res = [];
-    arr.map(item => item!==0?res.unshift(item):res.push(item))
+    arr.map(item => item !== 0 ? res.unshift(item) : res.push(item))
     return res;
+}
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns an array of all the integers between two given numbers start and end.
+
+// Examples
+// console.log(rangeOfNum(2, 4)) //➞ [3]
+
+// console.log(rangeOfNum(5, 9)) //➞ [6, 7, 8]
+
+// console.log(rangeOfNum(2, 11)) //➞ [3, 4, 5, 6, 7, 8, 9, 10]
+// Notes
+// start will always be <= end.
+// start and end are NOT included in the final array.
+// If start == end, return an empty array.
+function rangeOfNum(start, end) {
+    let res = [];
+    for (let i = start + 1; i < end; i++) {
+        res.push(i)
+    }
+    return res;
+}
+// ---------------------------------------------------------------------------------------------------------------
+// Question)=> Given a letter and an array of words, return whether the letter does not appear in any of the words.
+
+// Examples
+// console.log(forbiddenLetter("r", ["rock", "paper", "scissors"])) //➞ false
+
+// console.log(forbiddenLetter("a", ["spoon", "fork", "knife"])) //➞ true
+
+// console.log(forbiddenLetter("m", [])) //➞ true
+// Notes
+// All inputs given will be in lowercase.
+// You will always be given a forbidden letter, but there may be empty arrays.
+function forbiddenLetter(letter, arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(letter)) {
+            return false
+        }
+    }
+    return true
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function to calculate how many characters in total are needed to make up the shape. You will be given an array of strings which make up a shape in the compiler (i.e. a square, a rectangle or a line).
+
+// // Examples
+// console.log(countCharacters([
+//   "###",
+//   "###",
+//   "###"
+// ])) //➞ 9
+
+// console.log(countCharacters([
+//   "22222222",
+//   "22222222",
+// ])) //➞ 16
+
+// console.log(countCharacters([
+//   "------------------"
+// ])) //➞ 18
+
+// console.log(countCharacters([])) //➞ 0
+
+// console.log(countCharacters(["", ""])) //➞ 0
+// // Notes
+// // Return 0 if the given array is empty.
+function countCharacters(arr) {
+    let res = 0;
+    arr.map(item => res += item.length)
+    return res;
+}
+function countCharacters(arr) {
+    let res = 0;
+    for (let i = 0; i < arr.length; i++) {
+        res += arr[i].length
+    }
+    return res;
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string str and returns an array of two-paired characters. If the string has an odd number of characters, add an asterisk * in the final pair.
+
+// See the below examples for a better understanding:
+
+// // Examples
+// console.log(stringPairs("mubashir")) //➞ ["mu", "ba", "sh", "ir"]
+
+// console.log(stringPairs("edabit")) //➞ ["ed", "ab", "it"]
+
+// console.log(stringPairs("airforces")) //➞ ["ai", "rf", "or", "ce", "s*"]
+// // Notes
+// Return [] if the given string is empty.
+
+
+function stringPairs(str) {
+    let res = [];
+    for (let i = 1; i < str.length; i += 2) {
+        res.push(str[i - 1] + str[i])
+    }
+    return res
+}
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> Given an array with an even amount of numbers, return true if the sum of two numbers in the array is even and false if the sum of two numbers in the array is odd.
+
+// To illustrate:
+
+// 11, 15, 6, 8, 9, 10
+// 11 + 15 = 26 = true
+// 15 + 6 = 21 = false
+// 6 + 8 = 14 = true
+// 8+ 9 = 17 = false
+// 9 + 10 = 19 = false
+// Therefore, solution = [true, false, true, false, false]
+// Examples
+// console.log(oddSum([11, 15, 6, 8, 9, 10])) //➞ [true, false, true, false, false]
+
+// console.log(oddSum([12, 21, 5, 9, 65, 32])) //➞ [false, true, true, true, false]
+
+// console.log(oddSum([1, 2, 3, 4, 5, 6])) //➞ [false, false, false, false, false]
+// Notes
+// Remember that the length of all the arrays will be an even number, so it is not necessary to measure lengths.
+function oddSum(arr) {
+    let res = [];
+    for (let i = 0; i < arr.length - 1; i++) {
+        let total = arr[i] + arr[i + 1]
+        total % 2 == 0 ? res.push(true) : res.push(false);
+    }
+    return res
+}
+function oddSum(arr) {
+    let res = [];
+    arr.map((item, index) => {
+        let total = item + arr[index + 1];
+        total % 2 == 0 ? res.push(true) : res.push(false)
+    })
+    res.pop();
+    return res;
+}
+// ----------------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that returns true if two rooks can attack each other, and false otherwise.
+
+// Examples
+// console.log(canCapture(["A8", "E8"])) //➞ true
+
+// console.log(canCapture(["A1", "B2"])) //➞ false
+
+// console.log(canCapture(["H4", "H3"])) //➞ true
+
+// console.log(canCapture(["F5", "C8"])) //➞ false
+// Notes
+// Assume no blocking pieces.
+// Two rooks can attack each other if they share the same row (letter) or column (number).
+function eachChar(char1, char2) {
+    for (let i = 0; i < char1.length; i++) {
+        if (char1[0] == char2[0] || char1[1] == char2[1]) {
+            return true
+        }
+    }
+    return false
+}
+
+function canCapture(arr) {
+    return eachChar(arr[0], arr[1])
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a number as an argument and returns an array of numbers counting down from this number to zero.
+
+// Examples
+// console.log(countdown(5)) //➞ [5, 4, 3, 2, 1, 0]
+
+// console.log(countdown(1)) //➞ [1, 0]
+
+// console.log(countdown(0)) //➞ [0]
+// Notes
+// The argument will always be greater than or equal to zero.
+function countdown(count){
+    let res = [];
+    for (let i = count ; i >= 0 ; i--){
+        res.push(i)
+    }
+    return res;
+}
+function countdown(count) {
+    return Array.from({ length: count + 1 }, (_, index) => count - index)
+}
+// ----------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array and returns the difference between the biggest and smallest numbers.
+
+// // Examples
+// console.log(diffMaxMin([10, 4, 1, 4, -10, -50, 32, 21])) //➞ 82
+// // // Smallest number is -50, biggest is 32.
+
+// console.log(diffMaxMin([44, 32, 86, 19])) //➞ 67
+// // Smallest number is 19, biggest is 86.
+// Notes
+// N/A
+
+function diffMaxMin(arr){
+    let min = arr[0];
+    let max = arr[0]
+    for(let i = 0; i < arr.length;i++){
+        if(arr[i] > max){
+            max = arr[i]
+        }
+        if(arr[i] < min){
+            min = arr[i]
+        }
+    }
+    return max-min
+}
+
+function diffMaxMin(arr){
+    let res = arr.sort((a,b)=>a-b);
+    return arr[arr.length-1]-arr[0]
+}
+// ----------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that takes an array of strings and a pattern (string) and returns the strings that contain the pattern in alphabetical order. If the pattern is an empty string, return all the strings passed in the input array.
+
+// Examples
+// console.log(cmsSelector(["WordPress", "Joomla", "Drupal"], "W")) //➞ ["WordPress"]
+
+// console.log(cmsSelector(["WordPress", "Joomla", "Drupal", "Magento"], "ru")) //➞ ["Drupal"]
+
+// console.log(cmsSelector(["WordPress", "Joomla", "Drupal", "Magento"], "")) //➞ ["Drupal", "Joomla", "Magento", "WordPress"]
+// Notes
+// The given letter(s) are case sensitive and can be more than one.
+// In the case of an empty string, return the entire array.
+// A CMS is a Content Management System.
+function cmsSelector(arr,pettern){
+    if(pettern == ""){
+        return arr.sort()
+    }
+    let filterArr = arr.filter(str => str.includes(pettern))
+    return filterArr.sort()
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> Wild Roger is tasked with shooting down 6 bottles with 6 shots as fast as possible. Here are the different types of shots he could make:
+
+// He could use one pistol to shoot a bottle with a "Bang!" in 0.5 seconds.
+// Or he could use both pistols at once with a "BangBang!" to shoot two bottles in 0.5 seconds.
+// Given an array of strings, return the time (in seconds) it took to shoot down all 6 bottles. Make sure to only count Bangs and BangBangs. Anything else doesn't count.
+
+// // Examples
+// console.log(rogerShots(["Bang!", "Bang!", "Bang!", "Bang!", "Bang!", "Bang!"])) //➞ 3
+
+// console.log(rogerShots(["Bang!", "Bang!", "Bang!", "Bang!", "BangBang!"])) //➞ 2.5
+
+// console.log(rogerShots(["Bang!", "BangBangBang!", "Boom!", "Bang!", "BangBang!", "BangBang!"])) //➞ 2
+// Notes
+// All the bottles will be shot down in all the tests.
+function rogerShots(arr) {
+    let time = 0;
+    let bottlesShot = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "Bang!") {
+            time += 0.5;
+            bottlesShot += 1;
+        } else if (arr[i] === "BangBang!") {
+            time += 0.5;
+            bottlesShot += 2;
+        }
+    }
+
+    return time;
+}
+// // --------------------------------------------------------------------------------------------------------------------------------
+// Question)=> Levers are simple machines with a rigid beam and a fulcrum. From the picture below, you can see that there are 3-types of levers: first class, second class and third class.
+
+// In a first class lever, the fulcrum is situated in the middle with the effort and the load being positioned opposite of each other.
+// In a second class lever, the fulcrum is situated in the right with the effort on the left and the load in the middle.
+// In a third class lever, the fulcrum is situated in the left with the effort being in the middle and the load being on the right.
+
+
+// Given an array that contains the fulcrum "f", the effort "e", and the load "l", write a function that determines whether or not the array shows a first class lever, second class lever, or a third class lever.
+
+// // Examples
+// console.log(determineLever(["e", "f", "l"])) //➞ "first class lever"
+
+// console.log(determineLever(["e", "l", "f"])) //➞ "second class lever"
+
+// console.log(determineLever(["f", "e", "l"])) //➞ "third class lever"
+// // Notes
+// A pair of scissors is a first class lever, a nutcracker is a second class lever and a broom is a third class lever.
+function determineLever(arr){
+    let lever = arr.indexOf("f");
+    if(lever == 2){
+        return "second class lever"
+    }else if(lever == 1){
+        return "first class lever"
+    }else if(lever == 0){
+        return "third class lever"
+    }
+}
+function determineLever(arr){
+    if(arr[2] == "f"){
+        return "second class lever"
+    }else if(arr[1] == "f"){
+        return "first class lever"
+    }else if(arr[0] == "f"){
+        return "third class lever"
+    }
+}
+// ---------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns the original value from a matrix with too many sub-arrays.
+
+// Examples
+// console.log(deNest([[[[[[[[[[[[3]]]]]]]]]]]])) //➞ 3
+
+// console.log(deNest([[[[[[[true]]]]]]])) //➞ true
+
+// console.log(deNest([[[[[[[[[[[[[[[[["edabit"]]]]]]]]]]]]]]]]])) //➞ "edabit"
+// Notes
+// You only need to retrieve one element.
+function deNest(arr){
+    return arr.join()
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return "March", because March is the 3rd month.
+
+// Number	Month Name
+// 1	January
+// 2	February
+// 3	March
+// 4	April
+// 5	May
+// 6	June
+// 7	July
+// 8	August
+// 9	September
+// 10	October
+// 11	November
+// 12	December
+// Examples
+// console.log(monthName(3)) //➞ "March"
+
+// console.log(monthName(12)) //➞ "December"
+
+// console.log(monthName(6)) //➞ "June"
+// Notes
+// You can expect only integers ranging from 1 to 12 as test input.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function monthName(num){
+    let months = [
+        '',
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ]
+    return months[num]
+}
+// -----------------------------------------------------------------------------------------------------
+// Question)=> Write a function that returns true if the product of an array is divisible by the sum of that same array. Otherwise, return false.
+
+// Examples
+console.log(divisible([3, 2, 4, 2])) //➞ false
+
+console.log(divisible([4, 2, 6])) //➞ true
+// // 4 * 2 * 6 / (4 + 2 + 6)
+
+console.log(divisible([3, 5, 1])) //➞ false
+// Notes
+// N/A
+// function divisible(arr){
+//     let num1 = 1;
+//     let num2 = 0;
+//     arr.map(item => num1 *= item)
+//     arr.map(item => num2 += item)
+//     return num1%num2 == 0 ? true : false
+// }
+function divisible(arr){
+    let num1 = 1;
+    let num2 = 0;
+    for(let i = 0;i<arr.length;i++){
+        num1 *= arr[i];
+        num2 += arr[i]
+    }
+    return num1%num2 == 0 ? true : false
 }
