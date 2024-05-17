@@ -828,13 +828,13 @@ console.log(divisible([4, 2, 6])) //➞ true
 console.log(divisible([3, 5, 1])) //➞ false
 // Notes
 // N/A
-// function divisible(arr){
-//     let num1 = 1;
-//     let num2 = 0;
-//     arr.map(item => num1 *= item)
-//     arr.map(item => num2 += item)
-//     return num1%num2 == 0 ? true : false
-// }
+function divisible(arr){
+    let num1 = 1;
+    let num2 = 0;
+    arr.map(item => num1 *= item)
+    arr.map(item => num2 += item)
+    return num1%num2 == 0 ? true : false
+}
 function divisible(arr){
     let num1 = 1;
     let num2 = 0;
