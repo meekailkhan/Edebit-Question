@@ -630,9 +630,9 @@ function canCapture(arr) {
 // console.log(countdown(0)) //➞ [0]
 // Notes
 // The argument will always be greater than or equal to zero.
-function countdown(count){
+function countdown(count) {
     let res = [];
-    for (let i = count ; i >= 0 ; i--){
+    for (let i = count; i >= 0; i--) {
         res.push(i)
     }
     return res;
@@ -652,23 +652,23 @@ function countdown(count) {
 // Notes
 // N/A
 
-function diffMaxMin(arr){
+function diffMaxMin(arr) {
     let min = arr[0];
     let max = arr[0]
-    for(let i = 0; i < arr.length;i++){
-        if(arr[i] > max){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
             max = arr[i]
         }
-        if(arr[i] < min){
+        if (arr[i] < min) {
             min = arr[i]
         }
     }
-    return max-min
+    return max - min
 }
 
-function diffMaxMin(arr){
-    let res = arr.sort((a,b)=>a-b);
-    return arr[arr.length-1]-arr[0]
+function diffMaxMin(arr) {
+    let res = arr.sort((a, b) => a - b);
+    return arr[arr.length - 1] - arr[0]
 }
 // ----------------------------------------------------------------------------------------------------------------
 // Question)=> Write a function that takes an array of strings and a pattern (string) and returns the strings that contain the pattern in alphabetical order. If the pattern is an empty string, return all the strings passed in the input array.
@@ -683,8 +683,8 @@ function diffMaxMin(arr){
 // The given letter(s) are case sensitive and can be more than one.
 // In the case of an empty string, return the entire array.
 // A CMS is a Content Management System.
-function cmsSelector(arr,pettern){
-    if(pettern == ""){
+function cmsSelector(arr, pettern) {
+    if (pettern == "") {
         return arr.sort()
     }
     let filterArr = arr.filter(str => str.includes(pettern))
@@ -739,22 +739,22 @@ function rogerShots(arr) {
 // console.log(determineLever(["f", "e", "l"])) //➞ "third class lever"
 // // Notes
 // A pair of scissors is a first class lever, a nutcracker is a second class lever and a broom is a third class lever.
-function determineLever(arr){
+function determineLever(arr) {
     let lever = arr.indexOf("f");
-    if(lever == 2){
+    if (lever == 2) {
         return "second class lever"
-    }else if(lever == 1){
+    } else if (lever == 1) {
         return "first class lever"
-    }else if(lever == 0){
+    } else if (lever == 0) {
         return "third class lever"
     }
 }
-function determineLever(arr){
-    if(arr[2] == "f"){
+function determineLever(arr) {
+    if (arr[2] == "f") {
         return "second class lever"
-    }else if(arr[1] == "f"){
+    } else if (arr[1] == "f") {
         return "first class lever"
-    }else if(arr[0] == "f"){
+    } else if (arr[0] == "f") {
         return "third class lever"
     }
 }
@@ -769,7 +769,7 @@ function determineLever(arr){
 // console.log(deNest([[[[[[[[[[[[[[[[["edabit"]]]]]]]]]]]]]]]]])) //➞ "edabit"
 // Notes
 // You only need to retrieve one element.
-function deNest(arr){
+function deNest(arr) {
     return arr.join()
 }
 // ---------------------------------------------------------------------------------------------------------------------
@@ -798,7 +798,7 @@ function deNest(arr){
 // You can expect only integers ranging from 1 to 12 as test input.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function monthName(num){
+function monthName(num) {
     let months = [
         '',
         "January",
@@ -819,28 +819,69 @@ function monthName(num){
 // -----------------------------------------------------------------------------------------------------
 // Question)=> Write a function that returns true if the product of an array is divisible by the sum of that same array. Otherwise, return false.
 
-// Examples
-console.log(divisible([3, 2, 4, 2])) //➞ false
+// // Examples
+// console.log(divisible([3, 2, 4, 2])) //➞ false
 
-console.log(divisible([4, 2, 6])) //➞ true
-// // 4 * 2 * 6 / (4 + 2 + 6)
+// console.log(divisible([4, 2, 6])) //➞ true
+// // // 4 * 2 * 6 / (4 + 2 + 6)
 
-console.log(divisible([3, 5, 1])) //➞ false
+// console.log(divisible([3, 5, 1])) //➞ false
 // Notes
 // N/A
-function divisible(arr){
+function divisible(arr) {
     let num1 = 1;
     let num2 = 0;
     arr.map(item => num1 *= item)
     arr.map(item => num2 += item)
-    return num1%num2 == 0 ? true : false
+    return num1 % num2 == 0 ? true : false
 }
-function divisible(arr){
+function divisible(arr) {
     let num1 = 1;
     let num2 = 0;
-    for(let i = 0;i<arr.length;i++){
+    for (let i = 0; i < arr.length; i++) {
         num1 *= arr[i];
         num2 += arr[i]
     }
-    return num1%num2 == 0 ? true : false
+    return num1 % num2 == 0 ? true : false
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a program that will take two arrays of integers, a and b. Each array will consist of 3 positive integers, representing the dimensions of cuboids a and b. Find the difference of the cuboids' volumes.
+
+// For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20. Therefore, the function should return 8.
+
+// // Examples
+// console.log(findDifference([ 28, 16, 29 ], [ 7, 8, 17 ])) //➞ 12040
+
+// console.log(findDifference([ 9, 22, 18 ], [ 16, 24, 10 ])) //➞ 276
+
+// console.log(findDifference([ 1, 9, 25 ], [ 10, 7, 9 ])) //➞ 405
+
+// console.log(findDifference([ 7, 6, 16 ], [ 26, 9, 26 ])) //➞ 5412
+// // Notes
+// Each array element is greater than 0.
+// function findDifference(arr1, arr2) {
+//     let num1 = 1;
+//     let num2 = 1;
+//     arr1.map(item => num1 *= item);
+//     arr2.map(item => num2 *= item);
+//     if(num1 < num2){
+//         return num2 - num1
+//     }else{
+//         return num1 - num2
+//     }
+// }
+function findDifference(arr1,arr2){
+    let num1 = 1;
+    let num2 = 1;
+    for (let i = 0 ; i < arr1.length;i++){
+        num1 *= arr1[i];
+    }
+    for (let i = 0 ; i < arr2.length;i++){
+        num2 *= arr2[i];
+    }
+    if(num1 < num2){
+        return num2 - num1
+    }else{
+        return num1 - num2
+    }
 }
