@@ -71,17 +71,17 @@ function unlucky13(arr) {
 // console.log(divisible([3, 5, 1])) //➞ false
 // Notes
 // N/A
-function divisible(arr){
+function divisible(arr) {
     let sum = 0;
     let product = 1;
     arr.map(item => product *= item)
-    arr.map(item => sum+= item);
-    return product % sum == 0 ? true : false;     
+    arr.map(item => sum += item);
+    return product % sum == 0 ? true : false;
 }
-function divisible(arr){
+function divisible(arr) {
     let sum = 0;
     let product = 1;
-    for (let i = 0 ; i < arr.length ; i++){
+    for (let i = 0; i < arr.length; i++) {
         sum += arr[i]
         product *= arr[i]
     }
@@ -96,21 +96,441 @@ function divisible(arr) {
 // Question)=> Write a function that searches an array of names (unsorted) for the name "Bob" and returns the location in the array. If Bob is not in the array, return -1.
 
 // Examples
-console.log(findBob(["Jimmy", "Layla", "Bob"])) //➞ 2
+// console.log(findBob(["Jimmy", "Layla", "Bob"])) //➞ 2
 
-console.log(findBob(["Bob", "Layla", "Kaitlyn", "Patricia"])) //➞ 0
+// console.log(findBob(["Bob", "Layla", "Kaitlyn", "Patricia"])) //➞ 0
 
-console.log(findBob(["Jimmy", "Layla", "James"])) //➞ -1
+// console.log(findBob(["Jimmy", "Layla", "James"])) //➞ -1
 // Notes
 // Assume all names start with a capital letter and are lowercase thereafter (i.e. don't worry about finding "BOB" or "bob").
-function findBob(arr){
+function findBob(arr) {
     return arr.indexOf("Bob")
 }
-function findBob(arr){
-    for (let i = 0 ; i < arr.length ; i++){
-        if(arr[i] == "Bob"){
+function findBob(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == "Bob") {
             return i
         }
     }
     return -1
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array. This array will contain numbers represented as strings.
+
+// Your function should split this array into two new arrays. The first array should contain only even numbers. The second only odd. Then, wrap these two arrays in one main array and return it.
+
+// Return an empty array if there are no even numbers, or odd.
+
+// Examples
+// console.log(cleanUpArray(["8"])) //➞ [[8], []]
+
+// console.log(cleanUpArray(["11"])) //➞ [[], [11]]
+
+// console.log(cleanUpArray(["7", "4", "8"])) //➞ [[4, 8], [7]]
+
+// console.log(cleanUpArray(["9", "4", "5", "8"])) //➞ [[4, 8], [9, 5]]
+// Notes
+// All numbers will be positive integers.
+
+function cleanUpArray(arr) {
+    let even = [];
+    let odd = [];
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] % 2 == 0 ? even.push(+arr[i]) : odd.push(+arr[i])
+    }
+    return [even, odd]
+}
+
+function cleanUpArray(arr) {
+    let even = [];
+    let odd = [];
+    arr.map(item => item % 2 == 0 ? even.push(+item) : odd.push(+item))
+    return [even, odd]
+}
+// -----------------------------------------------------------------------------------------------------------------------
+// Create a function that takes two arguments of an array of numbers arr and a constant number n and returns the n largest numbers from the given array.
+
+// Examples
+// console.log(largestNumbers(2, [4, 3, 2, 1])) //➞ [3, 4]
+
+// console.log(largestNumbers(1, [7, 19, 4, 2])) //➞ [19]
+
+// console.log(largestNumbers(3, [14, 12, 57, 11, 18, 16])) //➞ [16, 18, 57]
+
+// console.log(largestNumbers(0, [1, 3, 4, 2])) //➞ []
+// Notes
+// The returned array must be sorted in ascending order.
+function largestNumbers(n, arr) {
+    let sortedArr = arr.sort((a, b) => b - a);
+    let largestNum = sortedArr.slice(0, n);
+    return largestNum.reverse()
+}
+function largestNumbers(n, arr) {
+    let sortedArr = arr.sort((a, b) => b - a);
+    let largestNum = [];
+    for (let i = n - 1; i >= 0; i--) {
+        largestNum.push(sortedArr[i])
+    }
+    return largestNum
+}
+// -------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array of numbers. Return the largest number in the array.
+
+// Examples
+// console.log(findLargestNum([4, 5, 1, 3])) //➞ 5
+
+// console.log(findLargestNum([300, 200, 600, 150]))// ➞ 600
+// 
+// console.log(findLargestNum([1000, 1001, 857, 1])) //➞ 1001
+// Notes
+// Expect either a positive number or zero (there are no negative numbers).
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function findLargestNum(arr) {
+    let res = arr.sort((a, b) => b - a)
+    // return res[0]
+    return res.shift()
+}
+function findLargestNum(arr) {
+    let res = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (res < arr[i]) {
+            res = arr[i]
+        }
+    }
+    return res
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> You're in the midst of creating a typing game.
+
+// Create a function that takes in two arrays: the array of user-typed words, and the array of correctly-typed words and outputs an array containing 1s (correctly-typed words) and -1s (incorrectly-typed words).
+
+// Inputs:
+// User-typed Array: ["cat", "blue", "skt", "umbrells", "paddy"]
+// Correct Array: ["cat", "blue", "sky", "umbrella", "paddy"]
+
+// Output: [1, 1, -1, -1, 1]
+// Examples
+// console.log(correctStream(
+//   ["it", "is", "find"],
+//   ["it", "is", "fine"]
+// )) //➞ [1, 1, -1]
+
+// console.log(correctStream(
+//   ["april", "showrs", "bring", "may", "flowers"],
+//   ["april", "showers", "bring", "may", "flowers"]
+// )) //➞ [1, -1, 1, 1, 1]
+// Notes
+// The input array lengths will always be the same.
+function correctStream(arr1, arr2) {
+    let res = [];
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] === arr2[i]) {
+            res.push(1)
+        } else {
+            res.push(-1)
+        }
+    }
+    return res
+}
+
+function correctStream(arr1, arr2) {
+    let res = [];
+    arr1.map((item, index) => {
+        item === arr2[index] ? res.push(1) : res.push(-1);
+    })
+    return res;
+}
+// -----------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array of strings and returns the words that are exactly four letters.
+
+// // Examples
+// console.log(isFourLetters(["Tomato", "Potato", "Pair"])) //➞ ["Pair"]
+
+// console.log(isFourLetters(["Kangaroo", "Bear", "Fox"])) //➞ ["Bear"]
+
+// console.log(isFourLetters(["Ryan", "Kieran", "Jason", "Matt"])) //➞ ["Ryan", "Matt"]
+// Notes
+// You can expect valid strings for all test cases.
+function isFourLetters(arr) {
+    let res = [];
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].length == 4 ? res.push(arr[i]) : i
+    }
+    return res;
+}
+function isFourLetters(arr) {
+    let res = [];
+    arr.map(item => item.length === 4 ? res.push(item) : item)
+    return res
+}
+// ---------------------------------------------------------------------------------------------------------------
+// Question)=> Given an array of numbers, negate all elements contained within.
+
+// Negating a positive value -+n will return -n, because all +'s are removed.
+// Negating a negative value --n will return n, because the first - turns the second minus into a +.
+// Examples
+// console.log(negate([1, 2, 3, 4])) //➞ [-1, -2, -3, -4]
+
+// console.log(negate([-1, 2, -3, 4])) //➞ [1, -2, 3, -4]
+
+// negate([]) ➞ []
+// Notes
+// If you get an empty array, return an empty array: []
+function negate(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i] * -1
+    }
+    return arr
+}
+
+function negate(arr) {
+    return arr.map(item => item)
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Given an array of integers, return the difference between the largest and smallest integers in the array.
+
+// Examples
+// console.log(difference([10, 15, 20, 2, 10, 6])) //➞ 18
+// // // 20 - 2 = 18
+
+// console.log(difference([-3, 4, -9, -1, -2, 15])) //➞ 24
+// // // 15 - (-9) = 24
+
+// console.log(difference([4, 17, 12, 2, 10, 2])) //➞ 15
+// Notes
+// N/A
+function difference(arr) {
+    let min = arr[0];
+    let max = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (min > arr[i]) {
+            min = arr[i]
+        }
+        if (max < arr[i]) {
+            max = arr[i]
+        }
+    }
+    return max - min
+}
+
+function difference(arr) {
+    let sortedArr = arr.sort((a, b) => a - b)
+    // return sortedArr[sortedArr.length-1] - sortedArr[0]
+    return sortedArr.pop() - sortedArr.shift()
+
+}
+// -----------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array of numbers and returns only the even values.
+
+// Examples
+// console.log(noOdds([1, 2, 3, 4, 5, 6, 7, 8])) //➞ [2, 4, 6, 8]
+
+// console.log(noOdds([43, 65, 23, 89, 53, 9, 6])) // ➞ [6]
+
+// console.log(noOdds([718, 991, 449, 644, 380, 440])) //➞ [718, 644, 380, 440]
+// Notes
+// Return all even numbers in the order they were given.
+// All test cases contain valid numbers ranging from 1 to 3000.
+function noOdds(arr) {
+    let res = [];
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] % 2 == 0 ? res.push(arr[i]) : i;
+    }
+    return res
+}
+function noOdds(arr) {
+    let res = [];
+    arr.map(item => item % 2 == 0 ? res.push(item) : item)
+    return res;
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function to multiply all of the values in an array by the amount of values in the given array.
+
+// Examples
+// console.log(multiplyByLength([2, 3, 1, 0])) //➞ [8, 12, 4, 0]
+
+// console.log(multiplyByLength([4, 1, 1])) //➞ ([12, 3, 3])
+
+// console.log(multiplyByLength([1, 0, 3, 3, 7, 2, 1])) //➞  [7, 0, 21, 21, 49, 14, 7]
+
+// console.log(multiplyByLength([0])) //➞ ([0])
+// Notes
+// All of the values given are numbers.
+// All arrays will have at least one element.
+// Don't forget to return the result.
+
+function multiplyByLength(arr){
+    let len = arr.length
+    for(let i = 0 ; i < len ; i++){
+        arr[i] = arr[i]*len
+    }
+    return arr
+}
+function multiplyByLength(arr){
+    let len = arr.length
+    return arr.map(item => item = item*len)
+    
+}
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array of hurdle heights and a jumper's jump height, and determine whether or not the hurdler can clear all the hurdles.
+
+// A hurdler can clear a hurdle if their jump height is greater than or equal to the hurdle height.
+
+// Examples
+// console.log(hurdleJump([1, 2, 3, 4, 5], 5)) //➞ true
+
+// console.log(hurdleJump([5, 5, 3, 4, 5], 3)) //➞ false
+
+// console.log(hurdleJump([5, 4, 5, 6], 10)) //➞ true
+
+// console.log(hurdleJump([1, 2, 1], 1)) //➞ false
+// Notes
+// Return true for the edge case of an empty array of hurdles. (Zero hurdles means that any jump height can clear them).
+
+function hurdleJump(arr,hurdle){
+    return arr.length > hurdle ? false : true ;
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function to remove all null values from an array.
+
+// Examples
+// console.log(removeNull(["a", null, "b", null])) //➞ ["a", "b"]
+
+// console.log(removeNull([null, null, null, null, null])) //➞ []
+
+// console.log(removeNull([7, 8, null, 9])) //➞ [7, 8, 9]
+// Notes
+// N/A
+function removeNull(arr){
+    let res = [];
+    for (let i = 0 ; i < arr.length ; i++){
+        if(arr[i] !== null){
+            res.push(arr[i])
+        }
+    }
+    return res
+}
+function removeNull(arr){
+    let res = [];
+    arr.map(item => item !== null ? res.push(item) : item)
+    return res;
+}
+// -----------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array of values and returns the first and last values in a new array.
+
+// Examples
+// console.log(firstLast([5, 10, 15, 20, 25])) //➞ [5, 25]
+
+// console.log(firstLast(["edabit", 13, null, false, true])) //➞ ["edabit", true]
+
+// console.log(firstLast([undefined, 4, "6", "hello", null])) //➞ [undefined, null]
+// Notes
+// Test input will always contain a minimum of two elements within the array.
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function firstLast(arr){
+    return [arr.shift(),arr.pop()]
+}
+function firstLast(arr) {
+    return [arr[0],arr[arr.length-1]]
+}
+// ------------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that applies a discount d to every number in the array.
+
+// Examples
+// console.log(getDiscounts([2, 4, 6, 11], "50%")) //➞ [1, 2, 3, 5.5]
+
+// console.log(getDiscounts([10, 20, 40, 80], "75%")) //➞ [7.5, 15, 30, 60]
+
+// console.log(getDiscounts([100], "45%")) //➞ [45]
+// Notes
+// The discount is the percentage of the original price (i.e the discount of "75%" to 12 would be 9 as opposed to taking off 75% (making 3)).
+// There won't be any awkward decimal numbers, only 0.5 to deal with.
+function getDiscounts(arr,discount){
+    let discountPercent = parseFloat(discount) / 100
+    for(let i = 0 ; i < arr.length ; i++){
+        arr[i] = arr[i]*discountPercent
+    }
+    return arr
+}
+function getDiscounts(arr,discount){
+    let discountPercent = parseFloat(discount) / 100
+    return arr.map(item => item = item*discountPercent)
+}
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> the item that needs repeating while the second argument (times) is the number of times the item is to be repeated. Return the result in an array.
+
+// Examples
+// console.log(repeat("edabit", 3)) //➞ ["edabit", "edabit", "edabit"]
+
+// console.log(repeat(13, 5))// ➞ [13, 13, 13, 13, 13]
+
+// console.log(repeat("7", 2)) //➞ ["7", "7"]
+
+// console.log(repeat(0, 0)) //➞ []
+// Notes
+// item can be either a string or a number.
+// times will always be a number.
+function repeat(value,n){
+    let res = [];
+    for (let i = 0 ; i < n ; i++){
+        res.push(value)
+    }
+    return res;
+}
+// -------------------------------------------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that takes an array of elements and returns only the integers.
+
+// // Examples
+// console.log(returnOnlyInteger([9, 2, "space", "car", "lion", 16])) //➞ [9, 2, 16]
+
+// console.log(returnOnlyInteger(["hello", 81, "basketball", 123, "fox"])) //➞ [81, 123]
+
+// console.log(returnOnlyInteger([10, "121", 56, 20, "car", 3, "lion"])) //➞ [10, 56, 20, 3]
+
+// console.log(returnOnlyInteger(["String",  true,  3.3,  1])) //➞ [1]
+// Notes
+// N/A
+function returnOnlyInteger(arr){
+    let res = [];
+    for (let i = 0 ; i < arr.length ; i++){
+        typeof arr[i] == "number" ? res.push(arr[i]) : i ;
+    }
+    return res
+}
+function returnOnlyInteger(arr){
+    let res = [];
+    arr.map(item => typeof item == "number" ? res.push(item) : item)
+    return res
+}
+// ----------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that adds a string ending to each member in an array.
+
+// Examples
+console.log(addEnding(["clever", "meek", "hurried", "nice"], "ly"))
+// ➞ ["cleverly", "meekly", "hurriedly", "nicely"]
+
+console.log(addEnding(["new", "pander", "scoop"], "er"))
+// ➞ ["newer", "panderer", "scooper"]
+
+console.log(addEnding(["bend", "sharpen", "mean"], "ing"))
+// ➞ ["bending", "sharpening", "meaning"]
+// Notes
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function addEnding(arr,char){
+    for (let i = 0 ; i < arr.length ; i++){
+        arr[i] = arr[i]+char
+    }
+    return arr
+}
+function addEnding(arr,char){
+    return arr.map(item => item = item+char)
+}
+function addEnding(arr,char){
+    let res = arr.reduce((accu,val) => accu = val+char)
+    return res
 }
