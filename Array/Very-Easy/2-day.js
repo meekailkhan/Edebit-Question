@@ -526,13 +526,13 @@ function addEnding(arr, char) {
 // ------------------------------------------------------------------------------------------------------------------
 // Question)=> In the Code tab is a function which is meant to return how many uppercase letters there are in a list of various words. Fix the list comprehension so that the code functions normally!
 
-// Examples
-console.log(countUppercase(["SOLO", "hello", "Tea", "wHat"])) //➞ 6
+// // Examples
+// console.log(countUppercase(["SOLO", "hello", "Tea", "wHat"])) //➞ 6
 
-console.log(countUppercase(["little", "lower", "down"])) //➞ 0
+// console.log(countUppercase(["little", "lower", "down"])) //➞ 0
 
-console.log(countUppercase(["EDAbit", "Educate", "Coding"])) //➞ 5
-// Notes
+// console.log(countUppercase(["EDAbit", "Educate", "Coding"])) //➞ 5
+// // Notes
 // Check the Resources for some array methods that might be helpful.
 // This is originally a loose translation of a Python problem. However, the Pythonic List Comprehension syntax was never really adopted in JavaScript, so I elected to make our Uppercase counter broken in a few other ways.
 // A lot of people (including me!) have rewritten the function entirely. I'm gonna make an executive decision and say that's fine here (even though complete rewrites are generally not a good idea!).
@@ -552,6 +552,150 @@ function countUppercase(arr) {
     let res = 0;
     for (let i = 0; i < arr.length; i++) {
         res += itemItera(arr[i])
+    }
+    return res
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that returns true if there exists at least one number that is larger than or equal to n.
+
+// Examples
+// console.log(existsHigher([5, 3, 15, 22, 4], 10)) //➞ true
+
+// console.log(existsHigher([1, 2, 3, 4, 5], 8)) //➞ false
+
+// console.log(existsHigher([4, 3, 3, 3, 2, 2, 2], 4)) //➞ true
+
+// console.log(existsHigher([], 5)) //➞ false
+// Notes
+// Return false for an empty array [].
+function existsHigher(arr,maxNum){
+    for (let i = 0 ; i < arr.length ; i++){
+        if(arr[i] >= maxNum){
+            return true
+        }
+    }
+    return false
+}
+function existsHigher(arr,maxNum){
+    return arr.some(item => item >= maxNum)
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> This is a reverse coding challenge. Normally you're given explicit directions with how to create a function. Here, you must generate your own function to satisfy the relationship between the inputs and outputs.
+
+// Your task is to create a function that, when fed the inputs below, produces the sample outputs shown.
+
+// Examples
+// [5, 7, 8, 2, 1], 2 ➞ [1, 1, 0, 0, 1]
+
+// [9, 8, 16, 47], 4 ➞ [1, 0, 0, 3]
+
+// [17, 11, 99, 55, 23, 1], 5 ➞ [2, 1, 4, 0, 3, 1]
+
+// [6, 1], 7 ➞ [6, 1]
+
+// [3, 2, 9], 3 ➞ [0, 2, 0]
+
+// [48, 22, 0, 19, 33, 100], 10 ➞ [8, 2, 0, 9, 3, 0]
+// Notes
+// If you get stuck, see Comments for a hint.
+function reverse(arr,modulNum){
+    for (let i = 0 ; i < arr.length ; i++){
+        arr[i] = arr[i] % modulNum
+    }
+    return arr
+}
+function reverse(arr,modulNum){
+    return arr.map(item => item = item % modulNum)
+}
+// console.log(reverse([5, 7, 8, 2, 1], 2)) //➞ [1, 1, 0, 0, 1]
+
+// console.log(reverse([9, 8, 16, 47], 4)) //➞ [1, 0, 0, 3]
+
+// console.log(reverse([17, 11, 99, 55, 23, 1], 5)) //➞ [2, 1, 4, 0, 3, 1]
+
+// console.log(reverse([6, 1], 7)) //➞ [6, 1]
+
+// console.log(reverse([3, 2, 9], 3)) //➞ [0, 2, 0]
+
+// console.log(reverse([48, 22, 0, 19, 33, 100], 10)) //➞ [8, 2, 0, 9, 3, 0]
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that filters out an array to include numbers that only have a certain number of digits.
+
+// Examples
+// console.log(filterDigitLength([88, 232, 4, 9721, 555], 3)) //➞ [232, 555]
+// // // Include only numbers with 3 digits.
+
+// console.log(filterDigitLength([2, 7, 8, 9, 1012], 1)) //➞ [2, 7, 8, 9]
+// // // Include only numbers with 1 digit.
+
+// console.log(filterDigitLength([32, 88, 74, 91, 300, 4050], 1)) //➞ []
+// // // No numbers with only 1 digit exist => return empty array.
+
+// console.log(filterDigitLength([5, 6, 8, 9], 1)) //➞ [5, 6, 8, 9]
+// // All numbers in the array have 1 digit only => return original array.
+// Notes
+// If no numbers of the specified digit length exist, return an empty array.
+// If all numbers in the array have the specified digit length, return the original array.
+// The sub-array returned should have the same relative order as the original array.
+function filterDigitLength(arr,len){
+    let res = [];
+    for (let i = 0 ; i < arr.length ; i++){
+        if(arr[i].toString().length == len){
+            res.push(arr[i])
+        }
+    }
+    return res
+}
+function filterDigitLength(arr,len){
+    return arr.filter(item => item.toString().length == len )
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that returns true if all integers in an array are factors of a number, and false otherwise.
+
+// Examples
+// console.log(checkFactors([2, 3, 4], 12)) //➞ true
+// // // Since 2, 3, and 4 are all factors of 12.
+
+// console.log(checkFactors([1, 2, 3, 8], 12)) //➞ false
+// // // 8 is not a factor of 12.
+
+// console.log(checkFactors([1, 2, 50], 100)) //➞ true
+
+// console.log(checkFactors([3, 6], 9)) //➞ false
+// Notes
+// N/A
+function checkFactors(arr,factor){
+    return arr.every(item => factor % item == 0)
+}
+function checkFactors(arr,factor){
+    for(let i = 0 ; i < arr.length ; i++){
+        if(factor % arr[i] !== 0){
+            return false
+        }
+    }
+    return true
+}
+// --------------------------------------------------------------------------------------------------------
+// Questin)=> Write a function that maps files to their extension names.
+
+// Examples
+console.log(getExtension(["code.html", "code.css"]))
+// ➞ ["html", "css"]
+
+console.log(getExtension(["project1.jpg", "project1.pdf", "project1.mp3"]))
+// ➞ ["jpg", "pdf", "mp3"]
+
+console.log(getExtension(["ruby.rb", "cplusplus.cpp", "python.py", "javascript.js"]))
+// ➞ ["rb", "cpp", "py", "js"]
+// Notes
+// N/A
+function getExtension(arr){
+    return arr.map(item => item.split(".").pop())
+}
+function getExtension(arr){
+    let res = [];
+    for(let i = 0 ; i < arr.length ; i++){
+        res.push(arr[i].split(".").pop())
     }
     return res
 }
