@@ -360,17 +360,17 @@ function noOdds(arr) {
 // All arrays will have at least one element.
 // Don't forget to return the result.
 
-function multiplyByLength(arr){
+function multiplyByLength(arr) {
     let len = arr.length
-    for(let i = 0 ; i < len ; i++){
-        arr[i] = arr[i]*len
+    for (let i = 0; i < len; i++) {
+        arr[i] = arr[i] * len
     }
     return arr
 }
-function multiplyByLength(arr){
+function multiplyByLength(arr) {
     let len = arr.length
-    return arr.map(item => item = item*len)
-    
+    return arr.map(item => item = item * len)
+
 }
 // -----------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that takes an array of hurdle heights and a jumper's jump height, and determine whether or not the hurdler can clear all the hurdles.
@@ -388,8 +388,8 @@ function multiplyByLength(arr){
 // Notes
 // Return true for the edge case of an empty array of hurdles. (Zero hurdles means that any jump height can clear them).
 
-function hurdleJump(arr,hurdle){
-    return arr.length > hurdle ? false : true ;
+function hurdleJump(arr, hurdle) {
+    return arr.length > hurdle ? false : true;
 }
 // -------------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function to remove all null values from an array.
@@ -402,16 +402,16 @@ function hurdleJump(arr,hurdle){
 // console.log(removeNull([7, 8, null, 9])) //➞ [7, 8, 9]
 // Notes
 // N/A
-function removeNull(arr){
+function removeNull(arr) {
     let res = [];
-    for (let i = 0 ; i < arr.length ; i++){
-        if(arr[i] !== null){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== null) {
             res.push(arr[i])
         }
     }
     return res
 }
-function removeNull(arr){
+function removeNull(arr) {
     let res = [];
     arr.map(item => item !== null ? res.push(item) : item)
     return res;
@@ -430,11 +430,11 @@ function removeNull(arr){
 // Don't forget to return the result.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function firstLast(arr){
-    return [arr.shift(),arr.pop()]
+function firstLast(arr) {
+    return [arr.shift(), arr.pop()]
 }
 function firstLast(arr) {
-    return [arr[0],arr[arr.length-1]]
+    return [arr[0], arr[arr.length - 1]]
 }
 // ------------------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that applies a discount d to every number in the array.
@@ -448,16 +448,16 @@ function firstLast(arr) {
 // Notes
 // The discount is the percentage of the original price (i.e the discount of "75%" to 12 would be 9 as opposed to taking off 75% (making 3)).
 // There won't be any awkward decimal numbers, only 0.5 to deal with.
-function getDiscounts(arr,discount){
+function getDiscounts(arr, discount) {
     let discountPercent = parseFloat(discount) / 100
-    for(let i = 0 ; i < arr.length ; i++){
-        arr[i] = arr[i]*discountPercent
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i] * discountPercent
     }
     return arr
 }
-function getDiscounts(arr,discount){
+function getDiscounts(arr, discount) {
     let discountPercent = parseFloat(discount) / 100
-    return arr.map(item => item = item*discountPercent)
+    return arr.map(item => item = item * discountPercent)
 }
 // ------------------------------------------------------------------------------------------------------------------------
 // Question)=> the item that needs repeating while the second argument (times) is the number of times the item is to be repeated. Return the result in an array.
@@ -473,9 +473,9 @@ function getDiscounts(arr,discount){
 // Notes
 // item can be either a string or a number.
 // times will always be a number.
-function repeat(value,n){
+function repeat(value, n) {
     let res = [];
-    for (let i = 0 ; i < n ; i++){
+    for (let i = 0; i < n; i++) {
         res.push(value)
     }
     return res;
@@ -493,14 +493,14 @@ function repeat(value,n){
 // console.log(returnOnlyInteger(["String",  true,  3.3,  1])) //➞ [1]
 // Notes
 // N/A
-function returnOnlyInteger(arr){
+function returnOnlyInteger(arr) {
     let res = [];
-    for (let i = 0 ; i < arr.length ; i++){
-        typeof arr[i] == "number" ? res.push(arr[i]) : i ;
+    for (let i = 0; i < arr.length; i++) {
+        typeof arr[i] == "number" ? res.push(arr[i]) : i;
     }
     return res
 }
-function returnOnlyInteger(arr){
+function returnOnlyInteger(arr) {
     let res = [];
     arr.map(item => typeof item == "number" ? res.push(item) : item)
     return res
@@ -508,29 +508,50 @@ function returnOnlyInteger(arr){
 // ----------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that adds a string ending to each member in an array.
 
-// Examples
-console.log(addEnding(["clever", "meek", "hurried", "nice"], "ly"))
-// ➞ ["cleverly", "meekly", "hurriedly", "nicely"]
-
-console.log(addEnding(["new", "pander", "scoop"], "er"))
-// ➞ ["newer", "panderer", "scooper"]
-
-console.log(addEnding(["bend", "sharpen", "mean"], "ing"))
-// ➞ ["bending", "sharpening", "meaning"]
+// // Examples)
+//// ➞ ["bending", "sharpening", "meaning"]
 // Notes
 // Don't forget to return the result.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function addEnding(arr,char){
-    for (let i = 0 ; i < arr.length ; i++){
-        arr[i] = arr[i]+char
+function addEnding(arr, char) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i] + char
     }
     return arr
 }
-function addEnding(arr,char){
-    return arr.map(item => item = item+char)
+function addEnding(arr, char) {
+    return arr.map(item => item = item + char)
 }
-function addEnding(arr,char){
-    let res = arr.reduce((accu,val) => accu = val+char)
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> In the Code tab is a function which is meant to return how many uppercase letters there are in a list of various words. Fix the list comprehension so that the code functions normally!
+
+// Examples
+console.log(countUppercase(["SOLO", "hello", "Tea", "wHat"])) //➞ 6
+
+console.log(countUppercase(["little", "lower", "down"])) //➞ 0
+
+console.log(countUppercase(["EDAbit", "Educate", "Coding"])) //➞ 5
+// Notes
+// Check the Resources for some array methods that might be helpful.
+// This is originally a loose translation of a Python problem. However, the Pythonic List Comprehension syntax was never really adopted in JavaScript, so I elected to make our Uppercase counter broken in a few other ways.
+// A lot of people (including me!) have rewritten the function entirely. I'm gonna make an executive decision and say that's fine here (even though complete rewrites are generally not a good idea!).
+function itemItera(val) {
+    let res = 0;
+    for (let i = 0; i < val.length; i++) {
+        if (val[i] == val[i].toUpperCase()) {
+            res += 1
+        } else {
+            res += 0
+        }
+    }
+    return res;
+}
+
+function countUppercase(arr) {
+    let res = 0;
+    for (let i = 0; i < arr.length; i++) {
+        res += itemItera(arr[i])
+    }
     return res
 }
