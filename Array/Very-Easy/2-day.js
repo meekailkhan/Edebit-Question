@@ -679,13 +679,13 @@ function checkFactors(arr,factor){
 // Questin)=> Write a function that maps files to their extension names.
 
 // Examples
-console.log(getExtension(["code.html", "code.css"]))
-// ➞ ["html", "css"]
+// console.log(getExtension(["code.html", "code.css"]))
+// // ➞ ["html", "css"]
 
-console.log(getExtension(["project1.jpg", "project1.pdf", "project1.mp3"]))
-// ➞ ["jpg", "pdf", "mp3"]
+// console.log(getExtension(["project1.jpg", "project1.pdf", "project1.mp3"]))
+// // ➞ ["jpg", "pdf", "mp3"]
 
-console.log(getExtension(["ruby.rb", "cplusplus.cpp", "python.py", "javascript.js"]))
+// console.log(getExtension(["ruby.rb", "cplusplus.cpp", "python.py", "javascript.js"]))
 // ➞ ["rb", "cpp", "py", "js"]
 // Notes
 // N/A
@@ -699,3 +699,33 @@ function getExtension(arr){
     }
     return res
 }
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that finds the sum of an array. Make your function recursive.
+
+// Examples
+// console.log(sum([1, 2, 3, 4])) //➞ 10
+
+// console.log(sum([1, 2])) //➞ 3
+
+// console.log(sum([1])) //➞ 1
+
+// console.log(sum([])) //➞ 0
+// Notes
+// Return 0 for an empty array.
+// Check the Resources tab for info on recursion.
+function sum(arr){
+    return arr.reduce((acc,val) => acc + val ,0)
+}
+function sum(arr){
+    let res = 0;
+    for (let i = 0 ; i < arr.length ; i++){
+        res += arr[i]
+    }
+    return res
+}
+function sum(arr){
+    let res = 0;
+    arr.map(item => res+=item)
+    return res;
+}
+// --------------------------------------------------------------------------------------------------------------
