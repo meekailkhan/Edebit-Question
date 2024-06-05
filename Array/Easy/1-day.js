@@ -337,3 +337,344 @@ function formatPhoneNumber(arr){
     return `(${arr[0]}${arr[1]}${arr[2]}) ${arr[4]}${arr[5]}${arr[6]}-${arr[7]}${arr[8]}${arr[9]}`
 }
 // ---------------------------------------------------------------------------------------------------------------
+// In this challenge, you must generate a sequence of consecutive numbers, from a lower bound that will always be equal to 1, up to a variable given higher bound (including the bounds in the sequence).
+
+// Each number of the sequence that can be exactly divided by 4 must be amplified by 10 (see notes below).
+
+// Given a higher bound num, implement a function that returns an array with the sequence of numbers, after that every multiple of 4 has been amplified.
+
+// // Examples
+// console.log(amplify(4)) //➞ [1, 2, 3, 40]
+// // // Create a sequence from 1 to 4
+// // // 4 is exactly divisible by 4, so it will be 4*10 = 40
+
+// console.log(amplify(3)) //➞ [1, 2, 3]
+// // // Create a sequence from 1 to 3
+// // // There are no numbers that can be exactly divided by 4
+
+// console.log(amplify(25)) //➞ [1, 2, 3, 40, 5, 6, 7, 80, 9, 10, 11, 120, 13, 14, 15, 160, 17, 18, 19, 200, 21, 22, 23, 240, 25]
+// // Create a sequence from 1 to 25
+// // The numbers exactly divisible by 4 are: 4 (4*10 = 40), 8 (8 * 10 = 80)... and so on.
+// Notes
+// The given parameter num will always be equal to or greater than 1.
+// Remember to include the num as the higher bound of the sequence (see the Examples) above.
+// A number a amplified by a factor b can also be read as: a * b.
+// A number a is exactly divisible by a number b when the remainder of the division a / b is equal to 0.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function amplify(num){
+    let res =[];
+    for(let i = 1 ; i <= num ; i++){
+        if(i % 4 == 0){
+            res.push(i*10)
+        }else{
+            res.push(i)
+        }
+    }
+    return res
+}
+// -----------------------------------------------------------------------------------------------------
+// Question)=> A group of friends have decided to start a secret society. The name will be the first letter of each of their names, sorted in alphabetical order.
+
+// Create a function that takes in an array of names and returns the name of the secret society.
+
+// Examples
+// console.log(societyName(["Adam", "Sarah", "Malcolm"])) //➞ "AMS"
+
+// console.log(societyName(["Harry", "Newt", "Luna", "Cho"])) //➞ "CHLN"
+
+// console.log(societyName(["Phoebe", "Chandler", "Rachel", "Ross", "Monica", "Joey"])) //➞ "CJMPRR"
+// Notes
+// The secret society's name should be entirely uppercased.
+function societyName(arr){
+    arr.sort()
+    let name = ""
+    for(names of arr){
+        name += names[0].toUpperCase()
+    }
+    return name
+}
+// ---------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes three parameters where:
+
+// x is the start of the range (inclusive).
+// y is the end of the range (inclusive).
+// n is the divisor to be checked against.
+// Return an ordered array with numbers in the range that are divisible by the third parameter n. Return an empty array if there are no numbers that are divisible by n.
+
+// // Examples
+// console.log(arrayOperation(1, 10, 3)) //➞ [3, 6, 9]
+
+// console.log(arrayOperation(7, 9, 2)) //➞ [8]
+
+// console.log(arrayOperation(15, 20, 7)) //➞ []
+// Notes
+// N/A
+function arrayOperation(x,y,n){
+    let res = [];
+    for (let i = x ; i <= y ; i++){
+        if(i % n == 0){
+            res.push(i)
+        }
+    }
+    return res
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Given an array of 10 numbers, return the maximum possible total made by summing just 5 of the 10 numbers.
+
+// // Examples
+// console.log(maxTotal([1, 1, 0, 1, 3, 10, 10, 10, 10, 1])) //➞ 43
+
+// console.log(maxTotal([0, 0, 0, 0, 0, 0, 0, 0, 0, 100])) //➞ 100
+
+// console.log(maxTotal([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])) //➞ 40
+// Notes
+// You can select any 5 numbers from the given array to form maximum possible total.
+function maxTotal(arr){
+    let sortedArr = arr.sort((a,b) => b-a)
+    let res = 0;
+    for(let i = 0 ; i < 5 ; i++){
+        res += sortedArr[i]
+    }
+    return res
+}
+// -------------------------------------------------------------------------------------------------------------
+// Question)=> A value is omnipresent if it exists in every subarray inside the main array.
+
+// To illustrate:
+
+// [[3, 4], [8, 3, 2], [3], [9, 3], [5, 3], [4, 3]]
+// // 3 exists in every element inside this array, so is omnipresent.
+// Create a function that determines whether an input value is omnipresent for a given array.
+
+// Examples
+// console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 1)) //➞ true
+
+// console.log(isOmnipresent([[1, 1], [1, 3], [5, 1], [6, 1]], 6)) //➞ false
+
+// console.log(isOmnipresent([[5], [5], [5], [6, 5]], 5)) //➞ true
+
+// console.log(isOmnipresent([[5], [5], [5], [6, 5]], 6)) //➞ false
+// Notes
+// Sub-arrays can be any length.
+function isOmnipresent(arr,char){
+    return arr.every(item => item.includes(char))
+}
+
+function isOmnipresent(arr,char){
+    for(let i = 0 ; i < arr.length ; i++){
+        if(!arr[i].includes(char)){
+            return false
+        }
+
+    }
+    return true
+}
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> The insurance guy calls again and apologizes. They found another policy made by your spouse, but this one is limited to cover a particular maximum in losses (for example, 50,000€). You send a bill to your spouse for the difference you lost.
+
+// Given an object of the stolen items and a limit, return the difference between the total value of those items and the limit of the policy.
+
+// // Examples
+// console.log(calculateDifference({ "baseball bat": 20 }, 5)) //➞ 15
+
+// console.log(calculateDifference({ skate: 10, painting: 20 }, 19)) //➞ 11
+
+// console.log(calculateDifference({ skate: 200, painting: 200, shoes: 1 }, 400)) //➞ 1
+// Notes
+// The object will always contain items (no empty objects).
+// The sum of the items will always be greater than the limit.
+function calculateDifference(obj,limit){
+    let res = 0;
+    res += Object.values(obj).reduce((acc,val) => acc + val ,0)
+    return res - limit
+}
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Question)=> A set is a collection of unique items. A set can be formed from an array by removing all duplicate items.
+
+// [1, 3, 3, 5, 5, 5]
+// // original array
+
+// [1, 3, 5]
+// // original array transformed into a set
+// Create a function that sorts an array and removes all duplicate items from it.
+
+// Examples
+// console.log(set([1, 3, 3, 5, 5])) //➞ [1, 3, 5]
+
+// console.log(set([4, 4, 4, 4])) //➞ [4]
+
+// console.log(set([5, 7, 8, 9, 10, 15])) //➞ [5, 7, 8, 9, 10, 15]
+
+// console.log(set([3, 3, 3, 2, 1])) //➞ [1, 2, 3]
+// Notes
+// For this question, output an array, not a set. These are two distinctly different data structures in JavaScript (although they can be converted from one to the other).
+// See resources for a hint if you get stuck.
+function set(arr){
+    let res = [];
+    for(let i = 0 ; i < arr.length ; i++){
+        if(!res.includes(arr[i])){
+            res.push(arr[i])
+        }
+    }
+    return res;
+}
+function set(arr){
+    let res = [];
+    arr.map(item => res.includes(item) ? item : res.push(item));
+    return res
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Write two functions:
+
+// toArray(), which converts a number to an array of its digits.
+// toNumber(), which converts an array of digits back to its number.
+// // Examples
+// console.log(toArray(235)) //➞ [2, 3, 5]
+
+// console.log(toArray(0)) //➞ [0]
+
+// console.log(toNumber([2, 3, 5])) //➞ 235
+
+// console.log(toNumber([0])) //➞ 0
+// Notes
+// All test cases will be weakly positive numbers: >= 0
+function toNumber(arr){
+    return parseInt(arr.join(""))
+}
+function toArray(num){
+    let str = String(num);
+    let res = [];
+    for(let i = 0 ; i < str.length ; i++){
+        res.push(Number(str[i]))
+    }
+    return res
+}
+function toArray(num){
+    return [...String(num)].map(item => Number(item))
+}
+// --------------------------------------------------------------------------------------------------------------------------
+// Question)=> According to the lodash documentation, _.dropRight Creates a slice of an array with n elements dropped from the end.
+
+// This challenge requires you to write your own version of this function without using lodash so that you can better understand it works.
+
+// Examples
+// console.log(dropRight([1, 2, 3])) //➞ [1, 2]
+
+// console.log(dropRight([1, 2, 3], 2)) //➞ [1]
+
+// console.log(dropRight([1, 2, 3], 5)) //➞ []
+
+// console.log(dropRight([1, 2, 3], 0)) //➞ [1, 2, 3]
+// Notes
+// Do not attempt to import lodash; you are simply writing your own version.
+// This entire series of challenges can be found here.
+function dropRight(arr,drop=1){
+    if(drop < 0){
+        return arr
+    }
+    if(drop >= arr.length){
+        return []
+    }
+    return arr.slice(0,arr.length - drop)
+}
+// ---------------------------------------------------------------------------------------------------------------
+// Question)=> Given an array and an integer n, return the sum of the first n numbers in the array.
+
+// Worked Example
+// sliceSum([9, 8, 7, 6], 3) ➞ 24
+// // The parameter n is specified as 3.
+// // The first 3 numbers in the list are 9, 8 and 7.
+// // The sum of these 3 numbers is 24 (9 + 8 + 7).
+// // Return the answer.
+// Examples
+// console.log(sliceSum([1, 3, 2], 2)) //➞ 4
+
+// console.log(sliceSum([4, 2, 5, 7], 4)) //➞ 18
+
+// console.log(sliceSum([3, 6, 2], 0)) //➞ 0
+// Notes
+// If n is larger than the length of the array, return the sum of the whole array.
+function sliceSum(arr,slice){
+    let sliceArr = arr.slice(0,slice)
+    return sliceArr.reduce((acc,val) => acc + val ,0)
+}
+function sliceSum(arr,slice){
+    let res = 0;
+    for(let i = 0 ; i < slice ; i++){
+        res += arr[i]
+    }
+    return res
+}
+function sliceSum(arr,slice){
+    let res = 0;
+    arr.map((item,index)=>{
+        if(index < slice){
+            res += item
+        }
+    })
+    return res
+}
+function sliceSum(arr,slice){
+     let filterArray = arr.filter((item,index) => index < slice)
+     return filterArray.reduce((acc,val) => acc + val ,0)
+}
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// Create a function to count the number of 1s in a 2D array.
+
+// Examples
+// console.log(countOnes([
+//   [1, 0],
+//   [0, 0]
+// ])) //➞ 1
+
+// console.log(countOnes([
+//   [1, 1, 1],
+//   [0, 0, 1],
+//   [1, 1, 1]
+// ])) //➞ 7
+
+// console.log(countOnes([
+//   [1, 2, 3],
+//   [0, 2, 1],
+//   [5, 7, 33]
+// ])) //➞ 2
+// Notes
+// N/A
+
+function havaOnes(item){
+    // let res = 0 ;
+    // for(let i = 0 ; i < item.length ; i++){
+    //     if(item[i] === 1){
+    //         res++
+    //     }
+    // }
+    // item.map(item => item === 1 ? res++ : item)
+    let res = item.filter(val => val === 1)
+    return res.reduce((acc,val) => acc + val ,0)
+}
+
+function countOnes(arr){
+    let res = 0 ;
+    for (let i = 0 ; i < arr.length ; i++){
+        res += havaOnes(arr[i]) 
+    }
+    return res
+}
+function countOnes(arr){
+    let res = 0 ;
+    for(let i = 0 ; i < arr.length ; i++){
+        let item = arr[i];
+        for(let j = 0 ; j < item.length ; j++){
+            if(item[j] === 1){
+                res++
+            }
+        }
+    }
+    return res
+}
+let obj = {
+    name : "meekail",
+    age : 18
+}
+console.log(obj.valueOf)
