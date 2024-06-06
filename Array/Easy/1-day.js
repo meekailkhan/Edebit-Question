@@ -795,13 +795,13 @@ function charIndex(str,char){
 // Array 1: [s, m, f] for Maurice.
 // Array 2: [s, m, f] for Steve.
 // Examples
-console.log(mauriceWins([3, 5, 10], [4, 7, 11])) //➞ true
-// // Since the matches are (3, 11), (5, 4) and (10, 7), Maurice wins 2 out of 3.
+// console.log(mauriceWins([3, 5, 10], [4, 7, 11])) //➞ true
+// // // Since the matches are (3, 11), (5, 4) and (10, 7), Maurice wins 2 out of 3.
 
-console.log(mauriceWins([6, 8, 9], [7, 12, 14])) //➞ false
-// // Since the matches are (6, 14), (8, 7) and (9, 12), Steve wins 2 out of 3.
+// console.log(mauriceWins([6, 8, 9], [7, 12, 14])) //➞ false
+// // // Since the matches are (6, 14), (8, 7) and (9, 12), Steve wins 2 out of 3.
 
-console.log(mauriceWins([1, 8, 20], [2, 9, 100])) //➞ true
+// console.log(mauriceWins([1, 8, 20], [2, 9, 100])) //➞ true
 // Notes
 // Maurice wins if his competing snail's speed strictly exceeds Steve's snail's speed.
 // Steve will always play in this order: [f, s, m].
@@ -828,3 +828,15 @@ function mauriceWins(maurice,steve){
     }
     return res >= 2
 }
+function mauriceWins(maurice,steve){
+    let [ms,mm,mf] = maurice;
+    let [ss,sm,sf] = steve
+
+    let wins = [
+        ms > sf,
+        mm > ss,
+        mf > sm
+    ].filter(Boolean).length
+    return wins >= 2
+}
+// ---------------------------------------------------------------------------------------------------------------
