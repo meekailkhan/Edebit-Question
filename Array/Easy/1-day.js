@@ -673,8 +673,158 @@ function countOnes(arr){
     }
     return res
 }
-let obj = {
-    name : "meekail",
-    age : 18
+// -------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns true if the first array is a subset of the second. Return false otherwise.
+
+// Examples
+// console.log(isSubset([3, 2, 5], [5, 3, 7, 9, 2])) //➞ true
+
+// console.log(isSubset([8, 9], [7, 1, 9, 8, 4, 5, 6])) //➞ true
+
+// console.log(isSubset([1, 2], [3, 5, 9, 1])) //➞ false
+// Notes
+// Both arrays will contain only unique values.
+function isSubset(subset,arr){
+    return subset.every(item => arr.includes(item))
 }
-console.log(obj.valueOf)
+function isSubset(subset,arr){
+    for(let i = 0 ; i < subset.length ; i++){
+        if(!arr.includes(subset[i])){
+            return false
+        }
+    }
+    return true
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that returns the number of users in a chatroom based on the following rules:
+
+// If there is no one, return "no one online".
+// If there is 1 person, return "user1 online".
+// If there are 2 people, return "user1 and user2 online".
+// If there are n>2 people, return the first two names and add "and n-2 more online".
+// For example, if there are 5 users, return:
+
+// "user1, user2 and 3 more online"
+// Examples
+// console.log(chatroomStatus([])) //➞ "no one online"
+
+// console.log(chatroomStatus(["paRIE_to"])) //➞ "paRIE_to online"
+
+// console.log(chatroomStatus(["s234f", "mailbox2"])) //➞ "s234f and mailbox2 online"
+
+// console.log(chatroomStatus(["pap_ier44", "townieBOY", "panda321", "motor_bike5", "sandwichmaker833", "violinist91"]))
+//// ➞ "pap_ier44, townieBOY and 4 more online"
+// Notes
+// N/A
+function chatroomStatus(arr){
+    if(arr.length == 0){
+        return "no one online"
+    }
+    if(arr.length <= 2){
+        return `${arr.join(" and ")} online`
+    }
+    return `${arr.slice(0,2).flat()} and ${arr.length-2} online`
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Create a function which takes in a word and spells it out, by consecutively adding letters until the full word is completed.
+
+// Examples
+// console.log(spelling("bee")) //➞ ["b", "be", "bee"]
+
+// console.log(spelling("happy")) //➞ ["h", "ha", "hap", "happ", "happy"]
+
+// console.log(spelling("eagerly")) //➞ ["e", "ea", "eag", "eage", "eager", "eagerl", "eagerly"]
+// // Notes
+// N/A
+function spelling(str){
+    let res = [];
+    for(let i = 1 ; i <= str.length ; i++){
+        res.push(str.slice(0,i))
+    }
+    return res
+}
+// // ---------------------------------------------------------------------------------------------------------------------
+// Given a word, write a function that returns the first index and the last index of a character.
+
+// // Examples
+// console.log(charIndex("hello", "l")) //➞ [2, 3]
+// // // The first "l" has index 2, the last "l" has index 3.
+
+// console.log(charIndex("circumlocution", "c")) //➞ [0, 8]
+// // // The first "c" has index 0, the last "c" has index 8.
+
+// console.log(charIndex("happy", "h")) //➞ [0, 0]
+// // // Only one "h" exists, so the first and last index is 0.
+
+// console.log(charIndex("happy", "e")) //➞ undefined
+// // "e" does not exist in "happy", so we return undefined.
+// Notes
+// If the character does not exist in the word, return undefined.
+// If only one instance of the character exists, the first and last index will be the same.
+// Check the Resources tab for hints.
+function charIndex(str,char){
+    return [str.indexOf(char),str.lastIndexOf(char)]
+}
+function charIndex(str,char){
+    let res = []
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] == char && res.length == 0){
+            res.push(i)
+        }
+    }
+    for(let i = str.length ; i >= 0 ; i--){
+        if(str[i] == char && res.length == 1){
+            res.push(i)
+        }
+    }
+    if(res.length == 0){
+        return undefined
+    }
+    return res
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Steve and Maurice have racing snails. They each have three, a slow s, medium m and fast f one. Although Steve's snails are all a bit stronger than Maurice's, Maurice has a trick up his sleeve. His plan is
+
+// Round 1: [s, f] Sacrifice his slowest snail against Steve's fastest.
+// Round 2: [m, s] Use his middle snail against Steve's slowest.
+// Round 3: [f, m] Use his fastest snail against Steve's middle.
+// Create a function that determines whether Maurice's plan will work by outputting true if Maurice wins 2/3 games.
+
+// The function inputs:
+
+// Array 1: [s, m, f] for Maurice.
+// Array 2: [s, m, f] for Steve.
+// Examples
+console.log(mauriceWins([3, 5, 10], [4, 7, 11])) //➞ true
+// // Since the matches are (3, 11), (5, 4) and (10, 7), Maurice wins 2 out of 3.
+
+console.log(mauriceWins([6, 8, 9], [7, 12, 14])) //➞ false
+// // Since the matches are (6, 14), (8, 7) and (9, 12), Steve wins 2 out of 3.
+
+console.log(mauriceWins([1, 8, 20], [2, 9, 100])) //➞ true
+// Notes
+// Maurice wins if his competing snail's speed strictly exceeds Steve's snail's speed.
+// Steve will always play in this order: [f, s, m].
+// The order you'll get the snails is always in ascending order.
+function mauriceWins(maurice,steve){
+    let ms = maurice[0];
+    let sf = steve[2];
+
+    let mm = maurice[1];
+    let ss = steve[0];
+
+    let mf = maurice[2];
+    let sm = steve[1];
+
+    let res = 0;
+    if(ms > sf){
+        res++
+    }
+    if(mm > ss){
+        res++
+    }
+    if(mf > sm){
+        res++
+    }
+    return res >= 2
+}
