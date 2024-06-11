@@ -200,15 +200,15 @@ function arrayToString(arr){
 // ------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that takes an array and a string as arguments and returns the index of the string.
 
-// Examples
-console.log(findIndex(["hi", "edabit", "fgh", "abc"], "fgh")) //➞ 2
+// // Examples
+// console.log(findIndex(["hi", "edabit", "fgh", "abc"], "fgh")) //➞ 2
 
-console.log(findIndex(["Red", "blue", "Blue", "Green"], "blue")) //➞ 1
+// console.log(findIndex(["Red", "blue", "Blue", "Green"], "blue")) //➞ 1
 
-console.log(findIndex(["a", "g", "y", "d"], "d")) //➞ 3
+// console.log(findIndex(["a", "g", "y", "d"], "d")) //➞ 3
 
-console.log(findIndex(["Pineapple", "Orange", "Grape", "Apple"], "Pineapple")) //➞ 0
-// Notes
+// console.log(findIndex(["Pineapple", "Orange", "Grape", "Apple"], "Pineapple")) //➞ 0
+// // Notes
 // Don't forget to return the result.
 // If you are stuck, find help in the Resources tab.
 function findIndex(arr,char){
@@ -222,4 +222,162 @@ function findIndex(arr,char){
     }
     return -1
 }
+function findIndex(arr,char){
+    let res = -1;
+    arr.map((item,index) => item == char ? res = index : item)
+    return res
+}
 // ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns a number, based on the string provided. Here is a list of all digits:
+
+// String	Number
+// "one"	1
+// "two"	2
+// "three"	3
+// "four"	4
+// "five"	5
+// "six"	6
+// "seven"	7
+// "eight"	8
+// "nine"	9
+// "zero"	0
+// Examples
+// console.log(word("one")) //➞ 1
+
+// console.log(word("two")) //➞ 2
+
+// console.log(word("nine")) //➞ 9
+// Notes
+// All numbers will be single digit positive integers.
+function word(str){
+    let obj = {
+        "one" : 1,
+        "two" : 2,
+        "three" : 3,
+        "four" : 4,
+        "five" : 5,
+        "six" : 6,
+        "seven" : 7,
+        "eight" : 8,
+        "nine" : 9,
+        "ten" : 10
+    }
+    return obj[str]
+}
+function word(str){
+    switch(str){
+        case "one":
+            return 1;
+        case "two":
+            return 2;
+        case "three":
+            return 3;
+        case "four":
+            return 4;
+        case "five":
+            return 5;
+        case "six":
+            return 6;
+        case "seven":
+            return 7;
+        case "eight":
+            return 8;
+        case "nine":
+            return 9;
+        case "ten":
+            return 10;
+        default:
+            throw new Error("invalid input number")
+    }
+}
+// ------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns true if a string contains any spaces.
+
+    // // Examples
+    // console.log(hasSpaces("hello")) //➞ false
+
+    // console.log(hasSpaces("hello, world")) //➞ true
+
+    // console.log(hasSpaces(" ")) //➞ true
+
+    // console.log(hasSpaces("")) //➞ false
+
+    // console.log(hasSpaces(",./!@#")) //➞ false
+// Notes
+// An empty string does not contain any spaces.
+// Try doing this without RegEx.
+function hasSpaces(str){
+    return str.includes(" ") ? true : false;
+}
+function hasSpaces(str){
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] == " "){
+            return true
+        }
+    }
+    return false
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string (a random name). If the last character of the name is an "n", return true, otherwise return false.
+
+// Examples
+// console.log(isLastCharacterN("Aiden")) //➞ true
+
+// console.log(isLastCharacterN("Piet")) //➞ false
+
+// console.log(isLastCharacterN("Bert")) //➞ false
+
+// console.log(isLastCharacterN("Dean")) //➞ true
+// Notes
+// The function must return a boolean value ( i.e. true or false).
+function isLastCharacterN(str){
+    return str[str.length-1] === "n" ? true : false;
+}
+// ---------------------------------------------------------------------------------------------------------------
+// Questoion)=> Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
+
+// Person	Relation
+// Darth Vader	father
+// Leia	sister
+// Han	brother in law
+// R2D2	droid
+// Example
+// relationToLuke("Darth Vader") ➞ "Luke, I am your father."
+
+// relationToLuke("Leia") ➞ "Luke, I am your sister."
+
+// relationToLuke("Han") ➞ "Luke, I am your brother in law."
+// Notes
+// N/A
+function relationToLuke(str){
+    switch(str){
+        case "Darth Vader" :
+            return "Luke, I am your father.";
+        case "Leia" :
+            return "Luke, I am your sister.";
+        case "Han" :
+            return "Luke, I am your brother in law.";
+        case "R2D2" :
+            return "Luke, I am your droid"
+    }
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string; we'll say that the front is the first three characters of the string. If the string length is less than three characters, the front is whatever is there. Return a new string, which is three copies of the front.
+
+// Examples
+// console.log(frontThree("Python")) //➞ "PytPytPyt"
+
+// console.log(frontThree("Cucumber")) //➞ "CucCucCuc"
+
+// console.log(frontThree("bioshock")) //➞ "biobiobio"
+// Notes
+// Don't forget to return the result.
+
+function frontThree(str){
+    let res = "";
+    for(let i = 0 ; i < 3 ; i++){
+        res += str.slice(0,3)
+    }
+    return res
+}
+// ------------------------------------------------------------------------------------------------------------------
