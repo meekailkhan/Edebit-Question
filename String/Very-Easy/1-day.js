@@ -538,13 +538,13 @@ function ctoa(char){
 // Question)=> For this challenge, you will NOT be given a string. Your task isn't to add "Do not" before the given string. If there is no given string, you will not return "Do not do anything." Do not check the examples to know how to do this challenge.
 
 // Examples
-console.log(reversePsychology("wash the dishes")) //➞ "Do not wash the dishes."
+// console.log(reversePsychology("wash the dishes")) //➞ "Do not wash the dishes."
 
-console.log(reversePsychology("eat your lunch")) //➞ "Do not eat your lunch."
+// console.log(reversePsychology("eat your lunch")) //➞ "Do not eat your lunch."
 
-console.log(reversePsychology("go to school")) //➞ "Do not go to school."
+// console.log(reversePsychology("go to school")) //➞ "Do not go to school."
 
-console.log(reversePsychology())
+// console.log(reversePsychology())
 // Notes
 // Are available.
 function reversePsychology(str){
@@ -555,4 +555,240 @@ function reversePsychology(str){
 }
 function reversePsychology(str = "do anything"){
     return "Do not "+str
+}
+// ----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string txt and a number n and returns the repeated string n number of times.
+
+// If given argument txt is not a string, return Not A String !!
+
+// Examples
+// console.log(repeatString("Mubashir", 2)) //➞ "MubashirMubashir"
+
+// console.log(repeatString("Matt", 3)) //➞ "MattMattMatt"
+
+// console.log(repeatString(1990, 7)) //➞ "Not A String !!"
+// // Notes
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function repeatString(str,rTime){
+    if(typeof str !== "string"){
+        return "Not A String !!"
+    }
+    let res = "";
+    for(let i = 0 ; i < rTime ; i++){
+        res += str
+    }
+    return res
+}
+function repeatString(str,rTime){
+    if(typeof str !== "string"){
+        return "Not A String !!"
+    }
+    for(let i = 1 ; i < rTime ; i++){
+        str += str
+    }
+    return str
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that validates whether two strings are identical. Make it case insensitive.
+
+// Examples
+// console.log(match("hello", "hELLo")) //➞ true
+
+// console.log(match("motive", "emotive")) //➞ false
+
+// console.log(match("venom", "VENOM")) //➞ true
+
+// console.log(match("mask", "mAskinG")) //➞ false
+function match(str1,str2){
+    let a = str1.toUpperCase()
+    let b = str2.toUpperCase()
+    return a == b ? true : false
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that checks if the argument is an integer or a string. Return "int" if it's an integer and "str" if it's a string.
+
+// // Examples
+// console.log(intOrString(8)) //➞ "int"
+
+// console.log(intOrString("Hello")) //➞ "str"
+
+// console.log(intOrString(9843532)) //➞ "int"
+// Notes
+// Input will either be an integer or a string.
+function intOrString(val){
+    if(typeof val == "string"){
+        return "str"
+    }else if(typeof val == "number"){
+        return "int"
+    }
+}
+// --------------------------------------------------------------------------------------------------------------
+// Create a function that will put the first argument, a character, between every word in the second argument, a string.
+
+// Examples
+// console.log(add("R", "javascript is fun")) //➞ "javascriptRisRfun"
+
+// console.log(add("#", "hello world!")) //➞ "hello#world!"
+
+// console.log(add("#", " ")) //➞ "#"
+// Notes
+// Make sure there are no spaces between words when returning the function.
+function add(char,str){
+    let res = str.split(" ")
+    return res.join(char)
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> After an amazing performance, the crowd goes wild! People clap enthusiastically and most claps overlap with each other to create one homogeneous sound.
+
+// An overlapped clap is a clap which starts but doesn't finish, as in "ClaClap" (The first clap is cut short and there are overall 2 claps)
+
+// Given a string of what the overlapping claps sounded like, return how many claps were made in total.
+
+// Examples
+// console.log(countClaps("ClaClaClaClap!")) //➞ 4
+
+// console.log(countClaps("ClClClaClaClaClap!")) //➞ 6
+
+// console.log(countClaps("CCClaClClap!Clap!ClClClap!")) //➞ 9
+// Notes
+// Each clap starts with a capital "C".
+function countClaps(str){
+    let res = 0;
+    for(let i = 0 ; i < str.length ; i++){
+        str[i] == "C" ? res += 1 : i;
+    }
+    return res
+}
+// ----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function which returns "upper" if all the letters in a word are uppercase, "lower" if lowercase and "mixed" for any mix of the two.
+
+// Examples
+// console.log(getCase("whisper...")) //➞ "lower"
+
+// console.log(getCase("SHOUT!")) //➞ "upper"
+
+// console.log(getCase("Indoor Voice")) //➞ "mixed"
+// Notes
+// Ignore punctuation, spaces and numbers.
+function getCase(str){
+    if(str == str.toUpperCase()){
+        return "upper"
+    }else if(str == str.toLowerCase()){
+        return "lower"
+    }else{
+        return "mixed"
+    }
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Write two functions:
+
+// toInt() : A function to convert a string to an integer.
+// toStr() : A function to convert an integer to a string.
+// Examples
+// console.log(toInt("77")) //➞ 77
+
+// console.log(toInt("532")) //➞ 532
+
+// console.log(toStr(77)) //➞ "77"
+
+// console.log(toStr(532)) //➞ "532"
+// Notes
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function toInt(str) {
+    return parseInt(str, 10);
+}
+
+function toStr(num) {
+    return num.toString();
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns the string "Burp" with the amount of "r's" determined by the input parameters of the function.
+
+// Examples
+// console.log(longBurp(3)) //➞ "Burrrp"
+
+// console.log(longBurp(5)) //➞ "Burrrrrp"
+
+// console.log(longBurp(9)) //➞ "Burrrrrrrrrp"
+// Notes
+// Expect num to always be >= 1.
+// Remember to use a capital "B".
+// Don't forget to return the result
+function longBurp(n){
+    return `Bu${'r'.repeat(n)}p`
+}
+// ----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string and returns a string with spaces in between all of the characters.
+
+// Examples
+// console.log(spaceMeOut("space")) //➞ "s p a c e"
+
+// console.log(spaceMeOut("far out")) //➞ "f a r   o u t"
+
+// console.log(spaceMeOut("elongated musk")) //➞ "e l o n g a t e d   m u s k"
+// Notes
+// Treat a space as its own character (i.e. leave three spaces between words).
+function spaceMeOut(str){
+    let res = ""
+    for(let i = 0 ; i < str.length ; i++){
+        res += `${str[i]} `
+    }
+    return res
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function which makes the last character of a string repeat n number of times.
+
+// Examples
+// console.log(modifyLast("Hello", 3)) //➞ "Hellooo"
+
+// console.log(modifyLast("hey", 6)) //➞ "heyyyyyy"
+
+// console.log(modifyLast("excuse me what?", 5)) //➞ "excuse me what?????"
+// Notes
+// Tests will include numbers and punctuation.
+// Make sure your code is not case sensitive.
+function modifyLast(str,n){
+    return `${str}${str[str.length-1].repeat(n-1)}` 
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string and changes the word amazing to not amazing. Return the string without any change if the word edabit is part of the string.
+
+// Examples
+// console.log(amazingEdabit("edabit is amazing.")) //➞ "edabit is amazing."
+
+// console.log(amazingEdabit("Mubashir is amazing.")) //➞ "Mubashir is not amazing."
+
+// console.log(amazingEdabit("Infinity is amazing.")) //➞ "Infinity is not amazing."
+// Notes
+// Edabit is amazing :)
+function amazingEdabit(str){
+    if(str.includes("edabit")){
+        return str
+    }else{
+        return str.replace("amazing","not amzing")
+    }
+}
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that counts how many D's are in a sentence.
+
+// Examples
+console.log(countDs("My friend Dylan got distracted in school.")) //➞ 4
+
+console.log(countDs("Debris was scattered all over the yard.")) //➞ 3
+
+console.log(countDs("The rodents hibernated in their den.")) //➞ 3
+// Notes
+// Your function must be case-insensitive.
+// Remember to return the result.
+// Check the Resources for help.
+function countDs(str){
+    let res = 0 ;
+    for(let i = 0 ; i < str.length ; i++){
+        str[i].toUpperCase() == "D" ? res++ : i
+    }
+    return res
 }
