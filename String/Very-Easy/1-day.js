@@ -381,3 +381,178 @@ function frontThree(str){
     return res
 }
 // ------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an object as an argument and returns a string with facts about the city. The city facts will need to be extracted from the object's three properties:
+
+// name
+// population
+// continent
+// The string should have the following format: X has a population of Y and is situated in Z (where X is the city name, Y is the population and Z is the continent the city is situated in).
+
+// // Examples
+// console.log(cityFacts({
+//   name: "Paris",
+//   population: "2,140,526",
+//   continent: "Europe"
+// })) //➞ "Paris has a population of 2,140,526 and is situated in Europe"
+
+// console.log(cityFacts({
+//   name: "Tokyo",
+//   population: "13,929,286",
+//   continent: "Asia"
+// })) //➞ "Tokyo has a population of 13,929,286 and is situated in Asia"
+// Notes
+// Don't add a period at the end.
+function cityFacts(obj){
+    return `${obj.name} has a population of ${obj.population} and is situated in ${obj.continent}`
+}
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes in a word and determines whether or not it is plural. A plural word is one that ends in "s".
+
+// Examples
+// console.log(isPlural("changes")) //➞ true
+
+// console.log(isPlural("change")) //➞ false
+
+// console.log(isPlural("dudes")) //➞ true
+
+// console.log(isPlural("magic")) //➞ false
+// Notes
+// Don't forget to return the result.
+// Remember that return true (boolean) is not the same as return "true" (string).
+// This is an oversimplification of the English language. We are ignoring edge cases like "goose" and "geese", "fungus" and "fungi", etc.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function isPlural(str){
+    return str[str.length-1] === "s" ? true : false;
+}
+function isPlural(str){
+    return str.slice(-1 ) === "s" ? true : false;
+}
+
+// ------------------------------------------------------------------------------------------------------------------
+// Create a function that takes a string and returns the concatenated first and last character.
+
+// Examples
+// console.log(firstLast("ganesh")) //➞ "gh"
+
+// console.log(firstLast("kali")) //➞ "ki"
+
+// console.log(firstLast("shiva")) //➞ "sa"
+
+// console.log(firstLast("vishnu")) //➞ "vu"
+
+// console.log(firstLast("durga")) //➞ "da"
+// Notes
+// There is no empty string.
+function firstLast(str){
+    return `${str[0]}${str.slice(-1)}`
+}
+// ---------------------------------------------------------------------------------------------------------------------
+//  Questin)=> Create a function that takes as a parameter an array of "stringified" numbers and returns an array of numbers.
+
+// Example:
+
+// ["1", "3", "3.6"] ➞ [1, 3, 3.6]
+// Examples
+// console.log(toNumberArray(["9.4", "4.2"])) //➞ [9.4, 4.2]
+
+// console.log(toNumberArray(["91", "44"])) //➞ [91, 44]
+
+// console.log(toNumberArray(["9.5", "8.8"])) //➞ [9.5, 8.8]
+// Notes
+// Some inputs are floats.
+function toNumberArray(arr){
+    for(let i = 0 ; i < arr.length ; i++){
+        arr[i] = Number(arr[i])
+    }
+    return arr
+}
+function toNumberArray(arr){
+    return arr.map(item => item = Number(item))
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Given a fraction as a string, return whether or not it is greater than 1 when evaluated.
+
+// Examples
+// console.log(greaterThanOne("1/2")) //➞ false
+
+// console.log(greaterThanOne("7/4")) //➞ true
+
+// console.log(greaterThanOne("10/10")) //➞ false
+// Notes
+// Fractions must be strictly greater than 1 (see example #3).
+function greaterThanOne(str){
+    return eval(str) > 1 ? true : false ;
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes in a current mood and return a sentence in the following format: "Today, I am feeling {mood}". However, if no argument is passed, return "Today, I am feeling neutral".
+
+// Examples
+// console.log(moodToday("happy")) //➞ "Today, I am feeling happy"
+
+// console.log(moodToday("sad")) //➞ "Today, I am feeling sad"
+
+// console.log(moodToday()) //➞ "Today, I am feeling neutral"
+// Notes
+// Check the Resources tab for some helpful information.
+function moodToday(mood = "neutral"){
+    return `Today, I am feeling ${mood}`
+}
+function moodToday(mood = 'neutral'){
+    return "Today, I am feeling " + mood
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns the number of syllables in a simple string. The string is made up of short repeated words like "Lalalalalalala" (which would have 7 syllables).
+
+// Examples
+// console.log(countSyllables("Hehehehehehe")) //➞ 6
+
+// console.log(countSyllables("bobobobobobobobo")) //➞ 8
+
+// console.log(countSyllables("NANANA")) //➞ 3
+// Notes
+// For simplicity, please note that each syllable will consist of two letters only.
+// Your code should accept strings of any case (upper, lower and mixed case).
+function countSyllables(str){
+    return str.length/2
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Create a function that returns the ASCII value of the passed in character.
+
+// Examples
+// console.log(ctoa("A")) //➞ 65
+
+// console.log(ctoa("m")) //➞ 109
+
+// console.log(ctoa("[")) //➞ 91
+
+// console.log(ctoa("/")) //➞ 47
+// Notes
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function ctoa(char){
+    return char.charCodeAt(0);
+}
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> For this challenge, you will NOT be given a string. Your task isn't to add "Do not" before the given string. If there is no given string, you will not return "Do not do anything." Do not check the examples to know how to do this challenge.
+
+// Examples
+console.log(reversePsychology("wash the dishes")) //➞ "Do not wash the dishes."
+
+console.log(reversePsychology("eat your lunch")) //➞ "Do not eat your lunch."
+
+console.log(reversePsychology("go to school")) //➞ "Do not go to school."
+
+console.log(reversePsychology())
+// Notes
+// Are available.
+function reversePsychology(str){
+    return "Do not ".concat(str)
+}
+function reversePsychology(str){
+    return `Do not ${str}`
+}
+function reversePsychology(str = "do anything"){
+    return "Do not "+str
+}
