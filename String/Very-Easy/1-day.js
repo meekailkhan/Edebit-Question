@@ -775,12 +775,12 @@ function amazingEdabit(str){
 // ------------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that counts how many D's are in a sentence.
 
-// Examples
-console.log(countDs("My friend Dylan got distracted in school.")) //➞ 4
+// // Examples
+// console.log(countDs("My friend Dylan got distracted in school.")) //➞ 4
 
-console.log(countDs("Debris was scattered all over the yard.")) //➞ 3
+// console.log(countDs("Debris was scattered all over the yard.")) //➞ 3
 
-console.log(countDs("The rodents hibernated in their den.")) //➞ 3
+// console.log(countDs("The rodents hibernated in their den.")) //➞ 3
 // Notes
 // Your function must be case-insensitive.
 // Remember to return the result.
@@ -791,4 +791,95 @@ function countDs(str){
         str[i].toUpperCase() == "D" ? res++ : i
     }
     return res
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that takes an integer and:
+
+// If the number is a multiple of 3, return "Hello".
+// If the number is a multiple of 5, return "World".
+// If the number is a multiple of both 3 and 5, return "Hello World".
+// Examples
+// console.log(helloWorld(3)) //➞ "Hello"
+
+// console.log(helloWorld(5)) //➞ "World"
+
+// console.log(helloWorld(15)) //➞ "Hello World"
+// Notes
+// Don't forget to return the result.
+function helloWorld(n){
+    let res = ""
+    if(n % 3 === 0){
+        res += "Hello "
+    }
+    if(n % 5 === 0){
+        res += "World"
+    }
+    return res
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that flips M's to W's (all uppercase).
+
+// Examples
+// console.log(wumbo("I LOVE MAKING CHALLENGES")) //➞ "I LOVE WAKING CHALLENGES"
+
+// console.log(wumbo("MEET ME IN WARSAW")) //➞ "WEET WE IN WARSAW"
+
+// console.log(wumbo("WUMBOLOGY")) //➞ "WUWBOLOGY"
+// Notes
+// N/A
+function wumbo(str){
+    let res = ""
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] == "M"){
+            res += "W"
+        }else{
+            res += str[i]
+        }
+    }
+    return res
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Many IDS (for emails or Google ID) are created using the person's name.
+
+// Create a function that will return a four-character ID using the person's first name and last name. The first character will be the first letter of the first name but in lowercase. The next three characters will be the first three characters of the last name, but the first letter will be capitalized and the other two will be in lower case.
+
+// // Examples
+// console.log(createID("mary", "lamb")) //➞ "mLam"
+
+// console.log(createID("John", "SMITH")) //➞ "jSmi"
+
+// console.log(createID("mary", "smith")) //➞ "mSmi"
+// Notes
+// There is always one character in the first name and at least three in the last name.
+function createID(str1,str2){
+    let res = "";
+    res += str1[0].toLowerCase();
+    res += str2[0].toUpperCase();
+    res += str2.slice(1,3).toLowerCase()
+    return res
+}
+// ---------------------------------------------------------------------------------------------------------------
+// Question)=> A strong Scottish accent makes every vowel similar to an "e", so you should replace every vowel with an "e". Additionally, it is being screamed, so it should be in block capitals.
+
+// Create a function that takes a string and returns a string.
+
+// Examples
+console.log(toScottishScreaming("hello world")) //➞ "HELLE WERLD"
+
+console.log(toScottishScreaming("Mr. Fox was very naughty")) //➞ "MR. FEX WES VERY NEEGHTY"
+
+console.log(toScottishScreaming("Butterflies are beautiful!")) //➞ "BETTERFLEES ERE BEEETEFEL!"
+// Notes
+// Make sure to include all punctuation that is in the original string.
+// You don't need any more namespaces than are already given.
+function toScottishScreaming(str){
+    let res = "";
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] == "a" || str[i] == "i" || str[i] == "o" || str[i] == "u" ){
+            res += "e"
+        }else{
+            res += str[i]
+        }
+    }
+    return res.toUpperCase()
 }
