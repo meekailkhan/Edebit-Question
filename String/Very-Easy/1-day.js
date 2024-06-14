@@ -864,12 +864,12 @@ function createID(str1,str2){
 // Create a function that takes a string and returns a string.
 
 // Examples
-console.log(toScottishScreaming("hello world")) //➞ "HELLE WERLD"
+// console.log(toScottishScreaming("hello world")) //➞ "HELLE WERLD"
 
-console.log(toScottishScreaming("Mr. Fox was very naughty")) //➞ "MR. FEX WES VERY NEEGHTY"
+// console.log(toScottishScreaming("Mr. Fox was very naughty")) //➞ "MR. FEX WES VERY NEEGHTY"
 
-console.log(toScottishScreaming("Butterflies are beautiful!")) //➞ "BETTERFLEES ERE BEEETEFEL!"
-// Notes
+// console.log(toScottishScreaming("Butterflies are beautiful!")) //➞ "BETTERFLEES ERE BEEETEFEL!"
+// // Notes
 // Make sure to include all punctuation that is in the original string.
 // You don't need any more namespaces than are already given.
 function toScottishScreaming(str){
@@ -882,4 +882,35 @@ function toScottishScreaming(str){
         }
     }
     return res.toUpperCase()
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array of strings and numbers, and filters out the array so that it returns an array of integers only.
+
+// Examples
+console.log(filterArray([1, 2, 3, "a", "b", 4])) //➞ [1, 2, 3, 4]
+
+console.log(filterArray(["A", 0, "Edabit", 1729, "Python", "1729"])) //➞ [0, 1729]
+
+console.log(filterArray(["Nothing", "here"])) //➞ []
+// Notes
+// N/A
+function filterArray(arr){
+    return arr.filter(item => typeof item == "number")
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that determines if the temp of the water is considered boiling or not. temp will be measured in Fahrenheit and Celsius.
+
+// Examples
+console.log(isBoiling("212F")) //➞ true
+
+console.log(isBoiling("100C")) //➞ true
+
+console.log(isBoiling("0F")) //➞ false
+// Notes
+// The boiling point of water is 212F in Fahrenheit and 100C in Celsius.
+function isBoiling(str){
+    if(str == "212F" || str == "100C"){
+        return true
+    }
+    return false
 }

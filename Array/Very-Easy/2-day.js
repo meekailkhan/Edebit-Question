@@ -568,15 +568,15 @@ function countUppercase(arr) {
 // console.log(existsHigher([], 5)) //➞ false
 // Notes
 // Return false for an empty array [].
-function existsHigher(arr,maxNum){
-    for (let i = 0 ; i < arr.length ; i++){
-        if(arr[i] >= maxNum){
+function existsHigher(arr, maxNum) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= maxNum) {
             return true
         }
     }
     return false
 }
-function existsHigher(arr,maxNum){
+function existsHigher(arr, maxNum) {
     return arr.some(item => item >= maxNum)
 }
 // -------------------------------------------------------------------------------------------------------------------
@@ -598,13 +598,13 @@ function existsHigher(arr,maxNum){
 // [48, 22, 0, 19, 33, 100], 10 ➞ [8, 2, 0, 9, 3, 0]
 // Notes
 // If you get stuck, see Comments for a hint.
-function reverse(arr,modulNum){
-    for (let i = 0 ; i < arr.length ; i++){
+function reverse(arr, modulNum) {
+    for (let i = 0; i < arr.length; i++) {
         arr[i] = arr[i] % modulNum
     }
     return arr
 }
-function reverse(arr,modulNum){
+function reverse(arr, modulNum) {
     return arr.map(item => item = item % modulNum)
 }
 // console.log(reverse([5, 7, 8, 2, 1], 2)) //➞ [1, 1, 0, 0, 1]
@@ -637,17 +637,17 @@ function reverse(arr,modulNum){
 // If no numbers of the specified digit length exist, return an empty array.
 // If all numbers in the array have the specified digit length, return the original array.
 // The sub-array returned should have the same relative order as the original array.
-function filterDigitLength(arr,len){
+function filterDigitLength(arr, len) {
     let res = [];
-    for (let i = 0 ; i < arr.length ; i++){
-        if(arr[i].toString().length == len){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].toString().length == len) {
             res.push(arr[i])
         }
     }
     return res
 }
-function filterDigitLength(arr,len){
-    return arr.filter(item => item.toString().length == len )
+function filterDigitLength(arr, len) {
+    return arr.filter(item => item.toString().length == len)
 }
 // -------------------------------------------------------------------------------------------------------------------------
 // Question)=> Write a function that returns true if all integers in an array are factors of a number, and false otherwise.
@@ -664,12 +664,12 @@ function filterDigitLength(arr,len){
 // console.log(checkFactors([3, 6], 9)) //➞ false
 // Notes
 // N/A
-function checkFactors(arr,factor){
+function checkFactors(arr, factor) {
     return arr.every(item => factor % item == 0)
 }
-function checkFactors(arr,factor){
-    for(let i = 0 ; i < arr.length ; i++){
-        if(factor % arr[i] !== 0){
+function checkFactors(arr, factor) {
+    for (let i = 0; i < arr.length; i++) {
+        if (factor % arr[i] !== 0) {
             return false
         }
     }
@@ -689,12 +689,12 @@ function checkFactors(arr,factor){
 // ➞ ["rb", "cpp", "py", "js"]
 // Notes
 // N/A
-function getExtension(arr){
+function getExtension(arr) {
     return arr.map(item => item.split(".").pop())
 }
-function getExtension(arr){
+function getExtension(arr) {
     let res = [];
-    for(let i = 0 ; i < arr.length ; i++){
+    for (let i = 0; i < arr.length; i++) {
         res.push(arr[i].split(".").pop())
     }
     return res
@@ -713,19 +713,39 @@ function getExtension(arr){
 // Notes
 // Return 0 for an empty array.
 // Check the Resources tab for info on recursion.
-function sum(arr){
-    return arr.reduce((acc,val) => acc + val ,0)
-}
-function sum(arr){
-    let res = 0;
-    for (let i = 0 ; i < arr.length ; i++){
+// function sum(arr){
+//     return arr.reduce((acc,val) => acc + val ,0)
+// }
+// function sum(arr){
+//     let res = 0;
+//     for (let i = 0 ; i < arr.length ; i++){
+//         res += arr[i]
+//     }
+//     return res
+// }
+// function sum(arr){
+//     let res = 0;
+//     arr.map(item => res+=item)
+//     return res;
+// }
+let i = 0;
+let res = 0;
+function sum(arr) {
+    if (i < arr.length) {
         res += arr[i]
+        i++
+        sum(arr)
     }
+    i = 0
+    
     return res
 }
-function sum(arr){
-    let res = 0;
-    arr.map(item => res+=item)
-    return res;
-}
+res = 0
+console.log(sum([1, 2, 3, 4])) //➞ 10
+
+console.log(sum([1, 2])) //➞ 3
+
+console.log(sum([1])) //➞ 1
+
+console.log(sum([])) //➞ 0
 // --------------------------------------------------------------------------------------------------------------
