@@ -887,11 +887,11 @@ function toScottishScreaming(str){
 // Question)=> Create a function that takes an array of strings and numbers, and filters out the array so that it returns an array of integers only.
 
 // Examples
-console.log(filterArray([1, 2, 3, "a", "b", 4])) //➞ [1, 2, 3, 4]
+// console.log(filterArray([1, 2, 3, "a", "b", 4])) //➞ [1, 2, 3, 4]
 
-console.log(filterArray(["A", 0, "Edabit", 1729, "Python", "1729"])) //➞ [0, 1729]
+// console.log(filterArray(["A", 0, "Edabit", 1729, "Python", "1729"])) //➞ [0, 1729]
 
-console.log(filterArray(["Nothing", "here"])) //➞ []
+// console.log(filterArray(["Nothing", "here"])) //➞ []
 // Notes
 // N/A
 function filterArray(arr){
@@ -901,11 +901,11 @@ function filterArray(arr){
 // Question)=> Create a function that determines if the temp of the water is considered boiling or not. temp will be measured in Fahrenheit and Celsius.
 
 // Examples
-console.log(isBoiling("212F")) //➞ true
+// console.log(isBoiling("212F")) //➞ true
 
-console.log(isBoiling("100C")) //➞ true
+// console.log(isBoiling("100C")) //➞ true
 
-console.log(isBoiling("0F")) //➞ false
+// console.log(isBoiling("0F")) //➞ false
 // Notes
 // The boiling point of water is 212F in Fahrenheit and 100C in Celsius.
 function isBoiling(str){
@@ -913,4 +913,88 @@ function isBoiling(str){
         return true
     }
     return false
+}
+// ---------------------------------------------------------------------------------------------------------------
+// Question)=>
+// console.log(height(2)) //➞ 17.3 mm
+
+// console.log(height(5)) //➞ 43.3 mm
+
+// console.log(height(6.2)) //➞ 53.7 mm
+// Notes
+// Return the answer rounded to one decimal place and in the format shown in the examples above.
+function height(num){
+    let m = 8.67;
+    let c = -0.04;
+    let result = m * num + c;
+    return result.toFixed(1)+" mm"
+}
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function based on the input and output. Look at the examples, there is a pattern.
+
+// Examples
+// console.log(secret("div*2")) //➞ "<div></div><div></div>"
+
+// console.log(secret("p*1")) //➞ "<p></p>"
+
+// console.log(secret("li*3")) //➞ "<li></li><li></li><li></li>"
+// Notes
+// Input is a string.
+function secret(str){
+    let [tag,count] = str.split("*")
+
+    let res = ""
+    for(let i = 0 ; i < count ; i ++){
+        res += `<${tag}></${tag}>`
+    }
+    return res
+}
+// --------------------------------------------------------------------------------------------------------------
+// Question)=> Mubashir wants to remove numbers from a given string!
+
+// Help him by fixing the code in the code tab to pass this challenge. Look at the examples below to get an idea of what the function should do.
+
+// // Examples
+// console.log(removeNumbers("mubashir1")) //➞ "mubashir"
+
+// console.log(removeNumbers("12ma23tt")) //➞ "matt"
+
+// console.log(removeNumbers("e1d2a3b4i5t6")) //➞ "edabit"
+// Notes
+// READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
+// Don't overthink this challenge; it's not supposed to be hard.
+function removeNumbers(str){
+    return str.split("").filter(item => isNaN(item)).join("")
+}
+function removeNumbers(str){
+    let res = "";
+    for(let i = 0 ; i < str.length ; i++){
+        if(isNaN(str[i])){
+            res += str[i]
+        }
+    }
+    return res;
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> The insurance guy calls again. Apparently, they were informed by your spouse that some items were not stolen at all and you failed to mention this detail to them. This is a fraud attempt! You freeze and mumble something unintelligible. Find out what you said.
+
+// Given an object, return a string that concatenates all the values and adds the 2nd key at the end. Make sure you keep an empty space between them but not at the beginning or end of the string. Look at the examples for a clearer picture.
+
+// Examples
+console.log(repeatSecond({ 1: "Mommy", 2: "please", 3: "help" })) //➞ "Mommy please help please"
+
+console.log(repeatSecond({ 1: "Me", 2: "innocent", 3: "is" })) //➞ "Me innocent is innocent"
+
+console.log(repeatSecond({ 1: "Must", 2: "lawyer", 3: "call" })) //➞ "Must lawyer call lawyer"
+// Notes
+// The keys will always be 1: 2: 3: in this order. Don't mistake keys with indexes.
+// I'm rating the challenge very easy because it can be hardcoded but try to do it dynamically, that is, imagine tomorrow you receive an object with 4 keys instead, your function would still work.
+// Check the Resources for tips if needed.
+function repeatSecond(obj){
+    let values = Object.values(obj);
+    let secondValue = values[1]
+    let str = values.join();
+    let res = str+" "+secondValue
+    
+    return res
 }
