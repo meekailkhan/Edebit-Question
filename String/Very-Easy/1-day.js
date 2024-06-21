@@ -980,12 +980,12 @@ function removeNumbers(str){
 
 // Given an object, return a string that concatenates all the values and adds the 2nd key at the end. Make sure you keep an empty space between them but not at the beginning or end of the string. Look at the examples for a clearer picture.
 
-// Examples
-console.log(repeatSecond({ 1: "Mommy", 2: "please", 3: "help" })) //➞ "Mommy please help please"
+// // Examples
+// console.log(repeatSecond({ 1: "Mommy", 2: "please", 3: "help" })) //➞ "Mommy please help please"
 
-console.log(repeatSecond({ 1: "Me", 2: "innocent", 3: "is" })) //➞ "Me innocent is innocent"
+// console.log(repeatSecond({ 1: "Me", 2: "innocent", 3: "is" })) //➞ "Me innocent is innocent"
 
-console.log(repeatSecond({ 1: "Must", 2: "lawyer", 3: "call" })) //➞ "Must lawyer call lawyer"
+// console.log(repeatSecond({ 1: "Must", 2: "lawyer", 3: "call" })) //➞ "Must lawyer call lawyer"
 // Notes
 // The keys will always be 1: 2: 3: in this order. Don't mistake keys with indexes.
 // I'm rating the challenge very easy because it can be hardcoded but try to do it dynamically, that is, imagine tomorrow you receive an object with 4 keys instead, your function would still work.
@@ -997,4 +997,25 @@ function repeatSecond(obj){
     let res = str+" "+secondValue
     
     return res
+}
+// -----------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns an array of booleans from a given number by iterating through the number one digit at a time and appending true into the array if the digit is 1 and false otherwise.
+
+// Examples
+console.log(integerBoolean("100101")) //➞ [true, false, false, true, false, true]
+
+console.log(integerBoolean("10")) //➞ [true, false]
+
+console.log(integerBoolean("001")) //➞ [false, false, true]
+// Notes
+// Expect numbers with 0 and 1 only.
+// function integerBoolean(num){
+//     let res = [];
+//     for(let i = 0 ; i < num.length ; i++){
+//         res.push(Boolean(parseInt(num[i])))
+//     }
+//     return res
+// }
+function integerBoolean(num){
+    return num.split("").map(item => item = Boolean(parseInt(item)))
 }
