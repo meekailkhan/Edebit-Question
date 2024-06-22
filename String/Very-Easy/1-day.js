@@ -8,11 +8,11 @@
 // giveMeSomething("something") ➞ "something something"
 // Notes
 // Assume an input is given.
-function giveMeSomething(str){
+function giveMeSomething(str) {
     return `something ${str}`
 }
-function giveMeSomething(str){
-    return "something"+ str
+function giveMeSomething(str) {
+    return "something" + str
 }
 // -------------------------------------------------------------------------------------------------------------------
 // Question)=> A student learning JavaScript was trying to make a function. His code should concatenate a passed string name with string "Edabit" and store it in a variable called result. He needs your help to fix this code.
@@ -27,13 +27,13 @@ function giveMeSomething(str){
 // Don't forget to return the result.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function nameString(str){
+function nameString(str) {
     return `${str}Edabit`
 }
-function nameString(str){
-    return str+"Edabit"
+function nameString(str) {
+    return str + "Edabit"
 }
-function nameString(str){
+function nameString(str) {
     return str.concat("Edabit")
 }
 // -----------------------------------------------------------------------------------------------------------------
@@ -47,17 +47,17 @@ function nameString(str){
 // Don't forget to return the result.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function boolToString(bool){
+function boolToString(bool) {
     return String(bool)
 }
-function boolToString(bool){
+function boolToString(bool) {
     return `${bool}`
 }
-function boolToString(bool){
+function boolToString(bool) {
     return "".concat(bool)
 }
-function boolToString(bool){
-    return bool+""
+function boolToString(bool) {
+    return bool + ""
 }
 // ------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that will handle simple math expressions. The input is an expression in the form of a string.
@@ -74,7 +74,7 @@ function boolToString(bool){
 // There will be no brackets in the input line.
 // No need to calculate mathematical functions (sin, cos, ln...).
 // There are no gaps in the expression.
-function calculator(str){
+function calculator(str) {
     return eval(str)
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -91,8 +91,8 @@ function calculator(str){
 // Notes
 // READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
 // Don't overthink this challenge; it's not supposed to be hard.
-function greeting(str){
-    if(str == "Mubashir"){
+function greeting(str) {
+    if (str == "Mubashir") {
         return `Hello, my Love!`
     }
     return `Hello, ${str}!`
@@ -112,7 +112,7 @@ function greeting(str){
 // oddOrEven("cherry") ➞ true
 // Notes
 // N/A
-function oddOrEven(str){
+function oddOrEven(str) {
     return str.length % 2 === 0 ? true : false;
 }
 // ------------------------------------------------------------------------------------------------------------------
@@ -127,9 +127,9 @@ function oddOrEven(str){
 // Notes
 // You will get bonus points if you manage to solve this without using toString, parseInt or parseFloat.
 function intToString(num) {
-    return num+""
+    return num + ""
 }
-function stringToInt(str){
+function stringToInt(str) {
     return +str
 }
 // ----------------------------------------------------------------------------------------------------------------------
@@ -143,12 +143,12 @@ function stringToInt(str){
 // console.log(newWord("plum")) //➞ "lum"
 // // Notes
 // The input is always a valid word.
-function newWord(str){
+function newWord(str) {
     return str.slice(1)
 }
-function newWord(str){
+function newWord(str) {
     let res = "";
-    for(let i = 1 ; i < str.length ; i++){
+    for (let i = 1; i < str.length; i++) {
         res += str[i]
     }
     return res
@@ -167,13 +167,13 @@ function newWord(str){
 // Don't forget the exclamation mark!
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function helloName(str){
+function helloName(str) {
     return `Hello ${str}!`
 }
-function helloName(str){
-    return "Hello "+str+"!"
+function helloName(str) {
+    return "Hello " + str + "!"
 }
-function helloName(str){
+function helloName(str) {
     return "Hello ".concat(`${str}!`)
 }
 // ------------------------------------------------------------------------------------------------------------------------------
@@ -187,12 +187,12 @@ function helloName(str){
 // console.log(arrayToString([1, 2, 3, "a", "s", "dAAAA"])) //➞ "123asdAAAA"
 // // Notes
 // N/A
-function arrayToString(arr){
+function arrayToString(arr) {
     return arr.join("")
 }
-function arrayToString(arr){
+function arrayToString(arr) {
     let res = ""
-    for(let i = 0 ; i < arr.length ; i++){
+    for (let i = 0; i < arr.length; i++) {
         res += arr[i]
     }
     return res
@@ -211,20 +211,20 @@ function arrayToString(arr){
 // // Notes
 // Don't forget to return the result.
 // If you are stuck, find help in the Resources tab.
-function findIndex(arr,char){
+function findIndex(arr, char) {
     return arr.indexOf(char)
 }
-function findIndex(arr,char){
-    for(let i = 0 ; i < arr.length ; i++){
-        if(arr[i] == char){
+function findIndex(arr, char) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == char) {
             return i
         }
     }
     return -1
 }
-function findIndex(arr,char){
+function findIndex(arr, char) {
     let res = -1;
-    arr.map((item,index) => item == char ? res = index : item)
+    arr.map((item, index) => item == char ? res = index : item)
     return res
 }
 // ---------------------------------------------------------------------------------------------------------------------
@@ -249,23 +249,23 @@ function findIndex(arr,char){
 // console.log(word("nine")) //➞ 9
 // Notes
 // All numbers will be single digit positive integers.
-function word(str){
+function word(str) {
     let obj = {
-        "one" : 1,
-        "two" : 2,
-        "three" : 3,
-        "four" : 4,
-        "five" : 5,
-        "six" : 6,
-        "seven" : 7,
-        "eight" : 8,
-        "nine" : 9,
-        "ten" : 10
+        "one": 1,
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
+        "ten": 10
     }
     return obj[str]
 }
-function word(str){
-    switch(str){
+function word(str) {
+    switch (str) {
         case "one":
             return 1;
         case "two":
@@ -293,25 +293,25 @@ function word(str){
 // ------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that returns true if a string contains any spaces.
 
-    // // Examples
-    // console.log(hasSpaces("hello")) //➞ false
+// // Examples
+// console.log(hasSpaces("hello")) //➞ false
 
-    // console.log(hasSpaces("hello, world")) //➞ true
+// console.log(hasSpaces("hello, world")) //➞ true
 
-    // console.log(hasSpaces(" ")) //➞ true
+// console.log(hasSpaces(" ")) //➞ true
 
-    // console.log(hasSpaces("")) //➞ false
+// console.log(hasSpaces("")) //➞ false
 
-    // console.log(hasSpaces(",./!@#")) //➞ false
+// console.log(hasSpaces(",./!@#")) //➞ false
 // Notes
 // An empty string does not contain any spaces.
 // Try doing this without RegEx.
-function hasSpaces(str){
+function hasSpaces(str) {
     return str.includes(" ") ? true : false;
 }
-function hasSpaces(str){
-    for(let i = 0 ; i < str.length ; i++){
-        if(str[i] == " "){
+function hasSpaces(str) {
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == " ") {
             return true
         }
     }
@@ -330,8 +330,8 @@ function hasSpaces(str){
 // console.log(isLastCharacterN("Dean")) //➞ true
 // Notes
 // The function must return a boolean value ( i.e. true or false).
-function isLastCharacterN(str){
-    return str[str.length-1] === "n" ? true : false;
+function isLastCharacterN(str) {
+    return str[str.length - 1] === "n" ? true : false;
 }
 // ---------------------------------------------------------------------------------------------------------------
 // Questoion)=> Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
@@ -349,15 +349,15 @@ function isLastCharacterN(str){
 // relationToLuke("Han") ➞ "Luke, I am your brother in law."
 // Notes
 // N/A
-function relationToLuke(str){
-    switch(str){
-        case "Darth Vader" :
+function relationToLuke(str) {
+    switch (str) {
+        case "Darth Vader":
             return "Luke, I am your father.";
-        case "Leia" :
+        case "Leia":
             return "Luke, I am your sister.";
-        case "Han" :
+        case "Han":
             return "Luke, I am your brother in law.";
-        case "R2D2" :
+        case "R2D2":
             return "Luke, I am your droid"
     }
 }
@@ -373,10 +373,10 @@ function relationToLuke(str){
 // Notes
 // Don't forget to return the result.
 
-function frontThree(str){
+function frontThree(str) {
     let res = "";
-    for(let i = 0 ; i < 3 ; i++){
-        res += str.slice(0,3)
+    for (let i = 0; i < 3; i++) {
+        res += str.slice(0, 3)
     }
     return res
 }
@@ -402,7 +402,7 @@ function frontThree(str){
 // })) //➞ "Tokyo has a population of 13,929,286 and is situated in Asia"
 // Notes
 // Don't add a period at the end.
-function cityFacts(obj){
+function cityFacts(obj) {
     return `${obj.name} has a population of ${obj.population} and is situated in ${obj.continent}`
 }
 // -----------------------------------------------------------------------------------------------------------------
@@ -422,11 +422,11 @@ function cityFacts(obj){
 // This is an oversimplification of the English language. We are ignoring edge cases like "goose" and "geese", "fungus" and "fungi", etc.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function isPlural(str){
-    return str[str.length-1] === "s" ? true : false;
+function isPlural(str) {
+    return str[str.length - 1] === "s" ? true : false;
 }
-function isPlural(str){
-    return str.slice(-1 ) === "s" ? true : false;
+function isPlural(str) {
+    return str.slice(-1) === "s" ? true : false;
 }
 
 // ------------------------------------------------------------------------------------------------------------------
@@ -444,7 +444,7 @@ function isPlural(str){
 // console.log(firstLast("durga")) //➞ "da"
 // Notes
 // There is no empty string.
-function firstLast(str){
+function firstLast(str) {
     return `${str[0]}${str.slice(-1)}`
 }
 // ---------------------------------------------------------------------------------------------------------------------
@@ -461,13 +461,13 @@ function firstLast(str){
 // console.log(toNumberArray(["9.5", "8.8"])) //➞ [9.5, 8.8]
 // Notes
 // Some inputs are floats.
-function toNumberArray(arr){
-    for(let i = 0 ; i < arr.length ; i++){
+function toNumberArray(arr) {
+    for (let i = 0; i < arr.length; i++) {
         arr[i] = Number(arr[i])
     }
     return arr
 }
-function toNumberArray(arr){
+function toNumberArray(arr) {
     return arr.map(item => item = Number(item))
 }
 // ------------------------------------------------------------------------------------------------------------------
@@ -481,8 +481,8 @@ function toNumberArray(arr){
 // console.log(greaterThanOne("10/10")) //➞ false
 // Notes
 // Fractions must be strictly greater than 1 (see example #3).
-function greaterThanOne(str){
-    return eval(str) > 1 ? true : false ;
+function greaterThanOne(str) {
+    return eval(str) > 1 ? true : false;
 }
 // --------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that takes in a current mood and return a sentence in the following format: "Today, I am feeling {mood}". However, if no argument is passed, return "Today, I am feeling neutral".
@@ -495,10 +495,10 @@ function greaterThanOne(str){
 // console.log(moodToday()) //➞ "Today, I am feeling neutral"
 // Notes
 // Check the Resources tab for some helpful information.
-function moodToday(mood = "neutral"){
+function moodToday(mood = "neutral") {
     return `Today, I am feeling ${mood}`
 }
-function moodToday(mood = 'neutral'){
+function moodToday(mood = 'neutral') {
     return "Today, I am feeling " + mood
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -513,8 +513,8 @@ function moodToday(mood = 'neutral'){
 // Notes
 // For simplicity, please note that each syllable will consist of two letters only.
 // Your code should accept strings of any case (upper, lower and mixed case).
-function countSyllables(str){
-    return str.length/2
+function countSyllables(str) {
+    return str.length / 2
 }
 // -------------------------------------------------------------------------------------------------------------------
 // Create a function that returns the ASCII value of the passed in character.
@@ -531,7 +531,7 @@ function countSyllables(str){
 // Don't forget to return the result.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function ctoa(char){
+function ctoa(char) {
     return char.charCodeAt(0);
 }
 // -------------------------------------------------------------------------------------------------------------------------
@@ -547,14 +547,14 @@ function ctoa(char){
 // console.log(reversePsychology())
 // Notes
 // Are available.
-function reversePsychology(str){
+function reversePsychology(str) {
     return "Do not ".concat(str)
 }
-function reversePsychology(str){
+function reversePsychology(str) {
     return `Do not ${str}`
 }
-function reversePsychology(str = "do anything"){
-    return "Do not "+str
+function reversePsychology(str = "do anything") {
+    return "Do not " + str
 }
 // ----------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that takes a string txt and a number n and returns the repeated string n number of times.
@@ -571,21 +571,21 @@ function reversePsychology(str = "do anything"){
 // Don't forget to return the result.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function repeatString(str,rTime){
-    if(typeof str !== "string"){
+function repeatString(str, rTime) {
+    if (typeof str !== "string") {
         return "Not A String !!"
     }
     let res = "";
-    for(let i = 0 ; i < rTime ; i++){
+    for (let i = 0; i < rTime; i++) {
         res += str
     }
     return res
 }
-function repeatString(str,rTime){
-    if(typeof str !== "string"){
+function repeatString(str, rTime) {
+    if (typeof str !== "string") {
         return "Not A String !!"
     }
-    for(let i = 1 ; i < rTime ; i++){
+    for (let i = 1; i < rTime; i++) {
         str += str
     }
     return str
@@ -601,7 +601,7 @@ function repeatString(str,rTime){
 // console.log(match("venom", "VENOM")) //➞ true
 
 // console.log(match("mask", "mAskinG")) //➞ false
-function match(str1,str2){
+function match(str1, str2) {
     let a = str1.toUpperCase()
     let b = str2.toUpperCase()
     return a == b ? true : false
@@ -617,10 +617,10 @@ function match(str1,str2){
 // console.log(intOrString(9843532)) //➞ "int"
 // Notes
 // Input will either be an integer or a string.
-function intOrString(val){
-    if(typeof val == "string"){
+function intOrString(val) {
+    if (typeof val == "string") {
         return "str"
-    }else if(typeof val == "number"){
+    } else if (typeof val == "number") {
         return "int"
     }
 }
@@ -635,7 +635,7 @@ function intOrString(val){
 // console.log(add("#", " ")) //➞ "#"
 // Notes
 // Make sure there are no spaces between words when returning the function.
-function add(char,str){
+function add(char, str) {
     let res = str.split(" ")
     return res.join(char)
 }
@@ -654,9 +654,9 @@ function add(char,str){
 // console.log(countClaps("CCClaClClap!Clap!ClClClap!")) //➞ 9
 // Notes
 // Each clap starts with a capital "C".
-function countClaps(str){
+function countClaps(str) {
     let res = 0;
-    for(let i = 0 ; i < str.length ; i++){
+    for (let i = 0; i < str.length; i++) {
         str[i] == "C" ? res += 1 : i;
     }
     return res
@@ -672,12 +672,12 @@ function countClaps(str){
 // console.log(getCase("Indoor Voice")) //➞ "mixed"
 // Notes
 // Ignore punctuation, spaces and numbers.
-function getCase(str){
-    if(str == str.toUpperCase()){
+function getCase(str) {
+    if (str == str.toUpperCase()) {
         return "upper"
-    }else if(str == str.toLowerCase()){
+    } else if (str == str.toLowerCase()) {
         return "lower"
-    }else{
+    } else {
         return "mixed"
     }
 }
@@ -718,7 +718,7 @@ function toStr(num) {
 // Expect num to always be >= 1.
 // Remember to use a capital "B".
 // Don't forget to return the result
-function longBurp(n){
+function longBurp(n) {
     return `Bu${'r'.repeat(n)}p`
 }
 // ----------------------------------------------------------------------------------------------------------------
@@ -732,9 +732,9 @@ function longBurp(n){
 // console.log(spaceMeOut("elongated musk")) //➞ "e l o n g a t e d   m u s k"
 // Notes
 // Treat a space as its own character (i.e. leave three spaces between words).
-function spaceMeOut(str){
+function spaceMeOut(str) {
     let res = ""
-    for(let i = 0 ; i < str.length ; i++){
+    for (let i = 0; i < str.length; i++) {
         res += `${str[i]} `
     }
     return res
@@ -751,8 +751,8 @@ function spaceMeOut(str){
 // Notes
 // Tests will include numbers and punctuation.
 // Make sure your code is not case sensitive.
-function modifyLast(str,n){
-    return `${str}${str[str.length-1].repeat(n-1)}` 
+function modifyLast(str, n) {
+    return `${str}${str[str.length - 1].repeat(n - 1)}`
 }
 // -------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that takes a string and changes the word amazing to not amazing. Return the string without any change if the word edabit is part of the string.
@@ -765,11 +765,11 @@ function modifyLast(str,n){
 // console.log(amazingEdabit("Infinity is amazing.")) //➞ "Infinity is not amazing."
 // Notes
 // Edabit is amazing :)
-function amazingEdabit(str){
-    if(str.includes("edabit")){
+function amazingEdabit(str) {
+    if (str.includes("edabit")) {
         return str
-    }else{
-        return str.replace("amazing","not amzing")
+    } else {
+        return str.replace("amazing", "not amzing")
     }
 }
 // ------------------------------------------------------------------------------------------------------------------------
@@ -785,9 +785,9 @@ function amazingEdabit(str){
 // Your function must be case-insensitive.
 // Remember to return the result.
 // Check the Resources for help.
-function countDs(str){
-    let res = 0 ;
-    for(let i = 0 ; i < str.length ; i++){
+function countDs(str) {
+    let res = 0;
+    for (let i = 0; i < str.length; i++) {
         str[i].toUpperCase() == "D" ? res++ : i
     }
     return res
@@ -806,12 +806,12 @@ function countDs(str){
 // console.log(helloWorld(15)) //➞ "Hello World"
 // Notes
 // Don't forget to return the result.
-function helloWorld(n){
+function helloWorld(n) {
     let res = ""
-    if(n % 3 === 0){
+    if (n % 3 === 0) {
         res += "Hello "
     }
-    if(n % 5 === 0){
+    if (n % 5 === 0) {
         res += "World"
     }
     return res
@@ -827,12 +827,12 @@ function helloWorld(n){
 // console.log(wumbo("WUMBOLOGY")) //➞ "WUWBOLOGY"
 // Notes
 // N/A
-function wumbo(str){
+function wumbo(str) {
     let res = ""
-    for(let i = 0 ; i < str.length ; i++){
-        if(str[i] == "M"){
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == "M") {
             res += "W"
-        }else{
+        } else {
             res += str[i]
         }
     }
@@ -851,11 +851,11 @@ function wumbo(str){
 // console.log(createID("mary", "smith")) //➞ "mSmi"
 // Notes
 // There is always one character in the first name and at least three in the last name.
-function createID(str1,str2){
+function createID(str1, str2) {
     let res = "";
     res += str1[0].toLowerCase();
     res += str2[0].toUpperCase();
-    res += str2.slice(1,3).toLowerCase()
+    res += str2.slice(1, 3).toLowerCase()
     return res
 }
 // ---------------------------------------------------------------------------------------------------------------
@@ -872,12 +872,12 @@ function createID(str1,str2){
 // // Notes
 // Make sure to include all punctuation that is in the original string.
 // You don't need any more namespaces than are already given.
-function toScottishScreaming(str){
+function toScottishScreaming(str) {
     let res = "";
-    for(let i = 0 ; i < str.length ; i++){
-        if(str[i] == "a" || str[i] == "i" || str[i] == "o" || str[i] == "u" ){
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == "a" || str[i] == "i" || str[i] == "o" || str[i] == "u") {
             res += "e"
-        }else{
+        } else {
             res += str[i]
         }
     }
@@ -894,7 +894,7 @@ function toScottishScreaming(str){
 // console.log(filterArray(["Nothing", "here"])) //➞ []
 // Notes
 // N/A
-function filterArray(arr){
+function filterArray(arr) {
     return arr.filter(item => typeof item == "number")
 }
 // ---------------------------------------------------------------------------------------------------------------------
@@ -908,8 +908,8 @@ function filterArray(arr){
 // console.log(isBoiling("0F")) //➞ false
 // Notes
 // The boiling point of water is 212F in Fahrenheit and 100C in Celsius.
-function isBoiling(str){
-    if(str == "212F" || str == "100C"){
+function isBoiling(str) {
+    if (str == "212F" || str == "100C") {
         return true
     }
     return false
@@ -923,11 +923,11 @@ function isBoiling(str){
 // console.log(height(6.2)) //➞ 53.7 mm
 // Notes
 // Return the answer rounded to one decimal place and in the format shown in the examples above.
-function height(num){
+function height(num) {
     let m = 8.67;
     let c = -0.04;
     let result = m * num + c;
-    return result.toFixed(1)+" mm"
+    return result.toFixed(1) + " mm"
 }
 // ------------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function based on the input and output. Look at the examples, there is a pattern.
@@ -940,11 +940,11 @@ function height(num){
 // console.log(secret("li*3")) //➞ "<li></li><li></li><li></li>"
 // Notes
 // Input is a string.
-function secret(str){
-    let [tag,count] = str.split("*")
+function secret(str) {
+    let [tag, count] = str.split("*")
 
     let res = ""
-    for(let i = 0 ; i < count ; i ++){
+    for (let i = 0; i < count; i++) {
         res += `<${tag}></${tag}>`
     }
     return res
@@ -963,13 +963,13 @@ function secret(str){
 // Notes
 // READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!
 // Don't overthink this challenge; it's not supposed to be hard.
-function removeNumbers(str){
+function removeNumbers(str) {
     return str.split("").filter(item => isNaN(item)).join("")
 }
-function removeNumbers(str){
+function removeNumbers(str) {
     let res = "";
-    for(let i = 0 ; i < str.length ; i++){
-        if(isNaN(str[i])){
+    for (let i = 0; i < str.length; i++) {
+        if (isNaN(str[i])) {
             res += str[i]
         }
     }
@@ -990,32 +990,218 @@ function removeNumbers(str){
 // The keys will always be 1: 2: 3: in this order. Don't mistake keys with indexes.
 // I'm rating the challenge very easy because it can be hardcoded but try to do it dynamically, that is, imagine tomorrow you receive an object with 4 keys instead, your function would still work.
 // Check the Resources for tips if needed.
-function repeatSecond(obj){
+function repeatSecond(obj) {
     let values = Object.values(obj);
     let secondValue = values[1]
     let str = values.join();
-    let res = str+" "+secondValue
-    
+    let res = str + " " + secondValue
+
     return res
 }
 // -----------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that returns an array of booleans from a given number by iterating through the number one digit at a time and appending true into the array if the digit is 1 and false otherwise.
 
 // Examples
-console.log(integerBoolean("100101")) //➞ [true, false, false, true, false, true]
+// console.log(integerBoolean("100101")) //➞ [true, false, false, true, false, true]
 
-console.log(integerBoolean("10")) //➞ [true, false]
+// console.log(integerBoolean("10")) //➞ [true, false]
 
-console.log(integerBoolean("001")) //➞ [false, false, true]
-// Notes
+// console.log(integerBoolean("001")) //➞ [false, false, true]
+// // Notes
 // Expect numbers with 0 and 1 only.
-// function integerBoolean(num){
-//     let res = [];
-//     for(let i = 0 ; i < num.length ; i++){
-//         res.push(Boolean(parseInt(num[i])))
-//     }
-//     return res
-// }
-function integerBoolean(num){
+function integerBoolean(num) {
+    let res = [];
+    for (let i = 0; i < num.length; i++) {
+        res.push(Boolean(parseInt(num[i])))
+    }
+    return res
+}
+function integerBoolean(num) {
     return num.split("").map(item => item = Boolean(parseInt(item)))
 }
+function integerBoolean(num) {
+    return num.split("").map(item => item = Boolean(+item))
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes two numbers and a mathematical operator and returns the result.
+
+// Examples
+// console.log(calculate(4, 9, "+")) //➞ 13
+
+// console.log(calculate(12, 5, "-")) //➞ 7
+
+// console.log(calculate(6, 3, "*")) //➞ 18
+
+// console.log(calculate(25, 5, "/")) //➞ 5
+
+// console.log(calculate(14, 3, "%")) //➞ 2
+// Notes
+// Numbers can be negative.
+// The only operations used are those in the examples above.
+function calculate(num1, num2, opre) {
+    return eval(`${num1}${opre}${num2}`)
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Given a letter and an array of words, return whether the letter does not appear in any of the words.
+
+// Examples
+// console.log(forbiddenLetter("r", ["rock", "paper", "scissors"])) //➞ false
+
+// console.log(forbiddenLetter("a", ["spoon", "fork", "knife"])) //➞ true
+
+// console.log(forbiddenLetter("m", [])) //➞ true
+// Notes
+// All inputs given will be in lowercase.
+// You will always be given a forbidden letter, but there may be empty arrays.
+function forbiddenLetter(word, arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(word)) {
+            return false
+        }
+    }
+    return true
+}
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> You are given an array of dates in the format Dec 11 and a monthin the format Dec as arguments. Each date represents a video that was uploaded on that day. Return the number of uploads for a given month.
+
+// Examples
+// console.log(uploadCount(["Sept 22", "Sept 21", "Oct 15"], "Sept")) //➞ 2
+
+// console.log(uploadCount(["Sept 22", "Sept 21", "Oct 15"], "Oct")) //➞ 1
+// Notes
+// If you only pay attention to the month and ignore the day, the challenge will become easier.
+function uploadCount(arr, char) {
+    let res = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(char)) {
+            res++
+        }
+    }
+    return res
+}
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array. This array will contain numbers represented as strings.
+
+// Your function should split this array into two new arrays. The first array should contain only even numbers. The second only odd. Then, wrap these two arrays in one main array and return it.
+
+// Return an empty array if there are no even numbers, or odd.
+
+// Examples
+// console.log(cleanUpArray(["8"])) //➞ [[8], []]
+
+// console.log(cleanUpArray(["11"])) //➞ [[], [11]]
+
+// console.log(cleanUpArray(["7", "4", "8"])) //➞ [[4, 8], [7]]
+
+// console.log(cleanUpArray(["9", "4", "5", "8"])) //➞ [[4, 8], [9, 5]]
+// Notes
+// All numbers will be positive integers.
+function cleanUpArray(arr) {
+    let even = [];
+    let odd = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 == 0) {
+            even.push(parseInt(arr[i]))
+        } else {
+            odd.push(parseInt(arr[i]))
+        }
+    }
+    return [even, odd]
+}
+function cleanUpArray(arr) {
+    let even = [];
+    let odd = [];
+    arr.map(item => item % 2 == 0 ? even.push(+item) : odd.push(+item))
+
+    return [even, odd]
+}
+// ----------------------------------------------------------------------------------------------------------------------
+// Question)=> Character recognition software often makes mistakes when documents (especially old ones written with a typewriter) are digitized.
+
+// Your task is to correct the errors in the digitized text. You only have to handle the following mistakes:
+
+// A is misinterpreted as 4
+// S is misinterpreted as 5
+// O is misinterpreted as 0
+// I is misinterpreted as 1
+// The test cases contain numbers only by mistake.
+
+// Examples
+// console.log(keyboardMistakes("MUB45H1R")) //➞ "MUBASHIR"
+
+// console.log(keyboardMistakes("DUBL1N")) //➞ "DUBLIN"
+
+// console.log(keyboardMistakes("51NG4P0RE")) //➞ "SINGAPORE"
+// Notes
+// N/A
+function keyboardMistakes(str) {
+    str = str.replace(/4/g, "A")
+    str = str.replace(/5/g, "S")
+    str = str.replace(/0/g, "O")
+    str = str.replace(/1/g, "I")
+
+    return str
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Qusetion)=> In mathematics, an Arithmetic Progression (AP) is a sequence of numbers such that the difference between the consecutive terms is constant. Create a function that takes three arguments:
+
+// First element of the sequence first
+// Constant difference between the elements diff
+// Total numbers in the sequence n
+// Return the first n elements of the sequence with the given common difference diff. The final result should be a string of numbers, separated by comma and space.
+
+// Examples
+// console.log(arithmeticProgression(1, 2, 5)) //➞ "1, 3, 5, 7, 9"
+
+// console.log(arithmeticProgression(1, 0, 5)) //➞ "1, 1, 1, 1, 1"
+
+// console.log(arithmeticProgression(1, -3, 10)) //➞ "1, -2, -5, -8, -11, -14, -17, -20, -23, -26"
+// Notes
+// N/A
+function arithmeticProgression(first, difference, n) {
+    let res = `${first}, `
+    for (let i = 1; i < n; i++) {
+        first += difference
+        res += `${first}, `
+    }
+    return res
+}
+// --------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns the last value of the last item in an array or string.
+
+// Examples
+// console.log(lastItem([0, 4, 19, 34, 50, -9, 2])) //➞ 2
+
+// console.log(lastItem("The quick brown fox jumped over the lazy dog")) //➞ "g"
+
+// console.log(lastItem([])) //➞ undefined
+// Notes
+// Arrays/strings will be of varying size.
+// Return undefined if array/string is empty.
+function lastItem(val) {
+    return val[val.length - 1]
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Given a one word lowercase string txt, return another string such that even-indexed and odd-indexed characters are grouped and groups are space-separated.
+
+// Examples
+console.log(evenOddString("mubashir")) //➞ "mbsi uahr"
+// // Letters at even indexes = "mbsi"
+// // Letters at odd indexes = "uahr"
+// // Join both strings with a space
+
+console.log(evenOddString("edabit")) //➞ "eai dbt"
+
+console.log(evenOddString("airforce")) //➞ "aroc ifre"
+// Notes
+// There will be no space in the given string.
+function evenOddString(str) {
+    let even = "";
+    let odd = "";
+    for (let i = 0; i < str.length; i++) {
+        i % 2 == 0 ? even += str[i] : odd += str[i]
+    }
+    return `${even} ${odd}`
+}
+// --------------------------------------------------------------------------------------------------------------------
