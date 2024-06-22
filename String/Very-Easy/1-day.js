@@ -1205,3 +1205,27 @@ function evenOddString(str) {
     return `${even} ${odd}`
 }
 // --------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes two lowercase strings str1 and str2 of letters from a to z and returns the sorted and longest string containing distinct letters.
+
+// Examples
+let = str1 = "mubashir"
+let = str2 = "edabit"
+
+console.log(longestString(str1, str2)) //➞ "abdehimrstu"
+// // Contains sorted and distinct letters of the given strings.
+
+str1 = "abcdefghijklmnopqrstuvwxyz"
+str2 = "abcdefghijklmnopqrstuvwxyz"
+
+console.log(longestString(str1, str2)) //➞ "abcdefghijklmnopqrstuvwxyz"
+// // Contains sorted and distinct letters of the given strings.
+// Notes
+// N/A
+function longestString(str1, str2) {
+    let combineStr = str1 + str1
+
+    let uniqueStr = new Set(combineStr)
+    let arr = Array.from(uniqueStr).sort()
+
+    return arr.join("")
+}
