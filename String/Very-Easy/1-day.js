@@ -1186,14 +1186,14 @@ function lastItem(val) {
 // Question)=> Given a one word lowercase string txt, return another string such that even-indexed and odd-indexed characters are grouped and groups are space-separated.
 
 // Examples
-console.log(evenOddString("mubashir")) //➞ "mbsi uahr"
-// // Letters at even indexes = "mbsi"
-// // Letters at odd indexes = "uahr"
-// // Join both strings with a space
+// console.log(evenOddString("mubashir")) //➞ "mbsi uahr"
+// // // Letters at even indexes = "mbsi"
+// // // Letters at odd indexes = "uahr"
+// // // Join both strings with a space
 
-console.log(evenOddString("edabit")) //➞ "eai dbt"
+// console.log(evenOddString("edabit")) //➞ "eai dbt"
 
-console.log(evenOddString("airforce")) //➞ "aroc ifre"
+// console.log(evenOddString("airforce")) //➞ "aroc ifre"
 // Notes
 // There will be no space in the given string.
 function evenOddString(str) {
@@ -1208,24 +1208,102 @@ function evenOddString(str) {
 // Question)=> Create a function that takes two lowercase strings str1 and str2 of letters from a to z and returns the sorted and longest string containing distinct letters.
 
 // Examples
-let = str1 = "mubashir"
-let = str2 = "edabit"
+// let = str1 = "mubashir"
+// let = str2 = "edabit"
 
-console.log(longestString(str1, str2)) //➞ "abdehimrstu"
-// // Contains sorted and distinct letters of the given strings.
+// console.log(longestString(str1, str2)) //➞ "abdehimrstu"
+// // // Contains sorted and distinct letters of the given strings.
 
-str1 = "abcdefghijklmnopqrstuvwxyz"
-str2 = "abcdefghijklmnopqrstuvwxyz"
+// str1 = "abcdefghijklmnopqrstuvwxyz"
+// str2 = "abcdefghijklmnopqrstuvwxyz"
 
-console.log(longestString(str1, str2)) //➞ "abcdefghijklmnopqrstuvwxyz"
-// // Contains sorted and distinct letters of the given strings.
+// console.log(longestString(str1, str2)) //➞ "abcdefghijklmnopqrstuvwxyz"
+// // // Contains sorted and distinct letters of the given strings.
 // Notes
 // N/A
 function longestString(str1, str2) {
-    let combineStr = str1 + str1
+    let combineStr = str1 + str2
 
     let uniqueStr = new Set(combineStr)
     let arr = Array.from(uniqueStr).sort()
 
     return arr.join("")
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function to calculate how many characters in total are needed to make up the shape. You will be given an array of strings which make up a shape in the compiler (i.e. a square, a rectangle or a line).
+
+// Examples
+// console.log(countCharacters([
+//     "###",
+//     "###",
+//     "###"
+// ])) //➞ 9
+
+// console.log(countCharacters([
+//     "22222222",
+//     "22222222",
+// ])) //➞ 16
+
+// console.log(countCharacters([
+//     "------------------"
+// ])) //➞ 18
+
+// console.log(countCharacters([])) //➞ 0
+
+// console.log(countCharacters(["", ""])) //➞ 0
+// Notes
+// Return 0 if the given array is empty.
+function countCharacters(arr) {
+    let res = 0;
+    arr.map(item => res += item.length)
+    return res
+}
+function countCharacters(arr) {
+    return arr.reduce((acc, val) => acc + val.length, 0)
+}
+function itemLength(item){
+    return item.length
+}
+function countCharacters(arr){
+    let res = 0 ;
+    for(let i = 0 ; i < arr.length ; i++){
+        res += itemLength(arr[i])
+    }
+    return res
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Wild Roger is participating in a Western Showdown, meaning he has to draw (pull out and shoot) his gun faster than his opponent in a gun standoff.
+
+// Given two strings,p1 and p2, return which person drew their gun the fastest. If both are drawn at the same time, return "tie".
+
+// Examples
+console.log(showdown(
+  "   Bang!        ",
+  "        Bang!   "
+)) //➞ "p1"
+
+// p1 draws his gun sooner than p2
+
+console.log(showdown(
+  "               Bang! ",
+  "             Bang!   "
+)) //➞ "p2"
+
+console.log(showdown(
+  "     Bang!   ",
+  "     Bang!   "
+)) //➞ "tie"
+// Notes
+// Both strings are the same length.
+function showdown(p1,p2){
+    let p1Position = p1.indexOf("Bang!")
+    let p2Position = p2.indexOf("Bang!")
+
+    if(p1Position < p2Position){
+        return "p1"
+    }else if(p1Position > p2Position){
+        return "p2"
+    }else{
+        return "tie"
+    }
 }
