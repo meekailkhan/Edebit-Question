@@ -1332,11 +1332,11 @@ function stupidAddition(num1,num2){
 // Create a function that calculates the profit margin given costPrice and salesPrice. Return the result as a percentage formatted string, and rounded to one decimal. To calculate profit margin you subtract the cost from the sales price, then divide by sales price.
 
 // Examples
-console.log(profitMargin(50, 50)) //➞ "0.0%"
+// console.log(profitMargin(50, 50)) //➞ "0.0%"
 
-console.log(profitMargin(28, 39)) //➞ "28.2%"
+// console.log(profitMargin(28, 39)) //➞ "28.2%"
 
-console.log(profitMargin(33, 84)) //➞ "60.7%"
+// console.log(profitMargin(33, 84)) //➞ "60.7%"
 // Notes
 // Remember to return the result as a percentage formatted string.
 // Only one decimal should be included.
@@ -1345,3 +1345,266 @@ function profitMargin(costPrice,salesPrice){
     let fixedMargin = margin.toFixed(1)
     return `${fixedMargin}%`
 }
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that takes an array of strings and a pattern (string) and returns the strings that contain the pattern in alphabetical order. If the pattern is an empty string, return all the strings passed in the input array.
+
+// Examples
+// console.log(cmsSelector(["WordPress", "Joomla", "Drupal"], "w")) //➞ ["WordPress"]
+
+// console.log(cmsSelector(["WordPress", "Joomla", "Drupal", "Magento"], "ru")) //➞ ["Drupal"]
+
+// console.log(cmsSelector(["WordPress", "Joomla", "Drupal", "Magento"], "")) //➞ ["Drupal", "Joomla", "Magento", "WordPress"]
+// Notes
+// The given letter(s) are case sensitive and can be more than one.
+// In the case of an empty string, return the entire array.
+// A CMS is a Content Management System.
+function cmsSelector(arr,str){
+    if(str.length == 0){
+        return arr
+    }
+    for(let i = 0 ; i < arr.length ; i++){
+        if(arr[i].toLowerCase().includes(str)){
+            return arr[i]
+        }
+    }
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string and returns the word count. The string will be a sentence.
+
+// Examples
+// console.log(countWords("Just an example here move along")) //➞ 6
+
+// console.log(countWords("This is a test")) //➞ 4
+
+// console.log(countWords("What an easy task, right")) //➞ 5
+// Notes
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function countWords(str){
+    let arr = str.split(" ")
+    return arr.length
+}
+// ======================================
+// let obj = {                          |
+//     name : "meekail",                | 
+//     age : 19                         |
+// }                                    |
+// let entri = Object.entries(obj)      |
+// console.log(entri)                   |
+// ======================================
+// ----------------------------------------------------------------------------------------------------------------------
+// Question)=> I'm trying to watch some lectures to study for my next exam but I keep getting distracted by meme compilations, vine compilations, anime, and more on my favorite video platform.
+
+// Your job is to help me create a function that takes a string and checks to see if it contains the following words or phrases:
+
+// "anime"
+// "meme"
+// "vines"
+// "roasts"
+// "Danny DeVito"
+// If it does, return "NO!". Otherwise, return "Safe watching!".
+
+// // Examples
+// console.log(preventDistractions("vines that butter my eggroll")) //➞ "NO!"
+
+// console.log(preventDistractions("Hot pictures of Danny DeVito")) //➞ "NO!"
+
+// console.log(preventDistractions("How to ace BC Calculus in 5 Easy Steps")) //➞ "Safe watching!"
+function preventDistractions(str){
+    if(str.includes("anime") || str.includes("meme") || str.includes("vines") || str.includes("roasts") || str.includes("Danny DeVito")){
+        return "NO!"
+    }else{
+        return "Safe watching!"
+    }
+}
+// -----------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string str and returns an array of two-paired characters. If the string has an odd number of characters, add an asterisk * in the final pair.
+
+// See the below examples for a better understanding:
+
+// Examples
+// console.log(stringPairs("mubashir")) //➞ ["mu", "ba", "sh", "ir"]
+
+// console.log(stringPairs("edabit")) //➞ ["ed", "ab", "it"]
+
+// console.log(stringPairs("airforces")) //➞ ["ai", "rf", "or", "ce", "s*"]
+// // Notes
+// Return [] if the given string is empty.
+function stringPairs(str){
+    let res = []
+    let pairs = ""
+    for(let i = 0 ; i < str.length ; i+=2){
+        pairs = str[i]
+        if(i+1 < str.length){
+            pairs += str[i + 1]
+        }else{
+            pairs += "*"
+        }
+        res.push(pairs)
+    }
+    return res    
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Mubashir needs your help to count uppercase letters, lowercase letters, numbers and special characters in a given string.
+
+// Create a function which takes a string txt and returns a list of numbers with count of uppercase letters, lowercase letters, numbers and special characters.
+
+// Examples
+// console.log(filterString("*$(#Mu12bas43hiR%@*!")) //➞ [2, 6, 4, 8]
+// // // 2 uppercase letters
+// // // 6 lowercase letters
+// // // 4 numbers
+// // // 8 special characters
+
+// console.log(filterString("^^Edabit^^%$#12379")) //➞ [1, 5, 5, 7]
+
+// console.log(filterString("**Airforce1**")) //➞ [1, 7, 1, 4]
+// Notes
+// N/A
+function filterString(str){
+    let uppercaseCount = 0;
+    let lowercaseCount = 0;
+    let numbersCount = 0;
+    let specialCount = 0;
+
+    for(char of str){
+        if(char >= "A" && char <= "Z"){
+            uppercaseCount++
+        }else if(char >= "a" && char <= "z"){
+            lowercaseCount++
+        }else if(char >= 0 && char <= 9){
+            numbersCount++
+        }else{
+            specialCount++
+        }
+    }
+    let array = [uppercaseCount,lowercaseCount,numbersCount,specialCount]
+    return array
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Given a string of letters, how many capital letters are there?
+
+// Examples
+// console.log(capitalLetters("fvLzpxmgXSDrobbgMVrc")) //➞ 6
+
+// console.log(capitalLetters("JMZWCneOTFLWYwBWxyFw")) //➞ 14
+
+// console.log(capitalLetters("mqeytbbjwqemcdrdsyvq")) //➞ 0
+// Notes
+// N/A
+function capitalLetters(str){
+    let res = 0;
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] == str[i].toUpperCase()){
+            res++
+        }
+    }
+    return res
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that counts the number of syllables a word has. Each syllable is separated with a dash -.
+
+// Examples
+// console.log(numberSyllables("buf-fet")) //➞ 2
+
+// console.log(numberSyllables("beau-ti-ful")) //➞ 3
+
+// console.log(numberSyllables("mon-u-men-tal")) //➞ 4
+
+// console.log(numberSyllables("on-o-mat-o-poe-ia")) //➞ 6
+// Notes
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function numberSyllables(str){
+    let arr = str.split("-");
+    return arr.length
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Hamming distance is the number of characters that differ between two strings.
+
+// To illustrate:
+
+// String1: "abcbba"
+// String2: "abcbda"
+
+// Hamming Distance: 1 - "b" vs. "d" is the only difference.
+// Create a function that computes the hamming distance between two strings.
+
+// Examples
+// console.log(hammingDistance("abcde", "bcdef")) //➞ 5
+
+// console.log(hammingDistance("abcde", "abcde")) //➞ 0
+
+// console.log(hammingDistance("strong", "strung")) //➞ 1
+// Notes
+// Both strings will have the same length.
+function hammingDistance(str1,str2){
+    let res = 0;
+    for(let i = 0 ; i < str1.length ; i++){
+        if(str1[i]!==str2[i]){
+            res++
+        }
+    }
+    return res
+}
+function hammingDistance(str1,str2){
+    let arr = str1.split("");
+    let res = 0;
+    arr.map((item,index) => item !== str2[index] ? res++ : item);
+    return res
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that removes the first and last characters from a string.
+
+// // Examples
+// console.log(removeFirstLast("hello")) //➞ "ell"
+
+// console.log(removeFirstLast("maybe")) //➞ "ayb"
+
+// console.log(removeFirstLast("benefit")) //➞ "enefi"
+
+// console.log(removeFirstLast("a")) //➞ "a"
+// Notes
+// If the string is 2 or fewer characters long, return the string itself (See Example #4).
+function removeFirstLast(str){
+    return str.slice(1,str.length-1)
+}
+function removeFirstLast(str){
+    let res = "";
+    for(let i = 1 ; i < str.length-1 ; i++){
+        res += str[i]
+    }
+    return res
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function to extract the name of the subreddit from its URL.
+
+// Examples
+// console.log(subReddit("https://www.reddit.com/r/funny/")) //➞ "funny"
+
+// console.log(subReddit("https://www.reddit.com/r/relationships/")) //➞ "relationships"
+
+// console.log(subReddit("https://www.reddit.com/r/mildlyinteresting/")) //➞ "mildlyinteresting"
+// // Notes
+// N/A
+function subReddit(str){
+    let arr = str.split("/")
+    return arr[arr.length-2]
+}
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function which validates whether a bridge is safe to walk on (i.e. has no gaps in it to fall through).
+
+// Examples
+// console.log(isSafeBridge("####")) //➞ true
+
+// console.log(isSafeBridge("## ####")) //➞ false
+
+// console.log(isSafeBridge("#")) //➞ true
+// Notes
+// You can expect the bridge's ends connecting it to its surrounding.
+function isSafeBridge(str){
+    return !str.includes(" ")
+}
+// ----------------------------------------------------------------------------------------------------------------------
