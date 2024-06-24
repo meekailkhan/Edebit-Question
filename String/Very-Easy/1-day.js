@@ -1276,23 +1276,23 @@ function countCharacters(arr){
 
 // Given two strings,p1 and p2, return which person drew their gun the fastest. If both are drawn at the same time, return "tie".
 
-// Examples
-console.log(showdown(
-  "   Bang!        ",
-  "        Bang!   "
-)) //➞ "p1"
+// // Examples
+// console.log(showdown(
+//   "   Bang!        ",
+//   "        Bang!   "
+// )) //➞ "p1"
 
-// p1 draws his gun sooner than p2
+// // p1 draws his gun sooner than p2
 
-console.log(showdown(
-  "               Bang! ",
-  "             Bang!   "
-)) //➞ "p2"
+// console.log(showdown(
+//   "               Bang! ",
+//   "             Bang!   "
+// )) //➞ "p2"
 
-console.log(showdown(
-  "     Bang!   ",
-  "     Bang!   "
-)) //➞ "tie"
+// console.log(showdown(
+//   "     Bang!   ",
+//   "     Bang!   "
+// )) //➞ "tie"
 // Notes
 // Both strings are the same length.
 function showdown(p1,p2){
@@ -1306,4 +1306,42 @@ function showdown(p1,p2){
     }else{
         return "tie"
     }
+}
+// ----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes two parameters and, if both parameters are strings, add them as if they were integers or if the two parameters are integers, concatenate them.
+
+// Examples
+// console.log(stupidAddition(1, 2)) //➞ "12"
+
+// console.log(stupidAddition("1", "2")) //➞ 3
+
+// console.log(stupidAddition("1", 2)) //➞ null
+// Notes
+// If the two parameters are different data types, return null.
+// All parameters will either be strings or integers.
+function stupidAddition(num1,num2){
+    if(typeof num1 == "string" && typeof num2 == "string"){
+        return parseInt(num1) + parseInt(num2)
+    }else if(typeof num1 == "number" && typeof num2 == "number"){
+        return num1.toString() + num2.toString()
+    }else{
+        return null
+    }
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Create a function that calculates the profit margin given costPrice and salesPrice. Return the result as a percentage formatted string, and rounded to one decimal. To calculate profit margin you subtract the cost from the sales price, then divide by sales price.
+
+// Examples
+console.log(profitMargin(50, 50)) //➞ "0.0%"
+
+console.log(profitMargin(28, 39)) //➞ "28.2%"
+
+console.log(profitMargin(33, 84)) //➞ "60.7%"
+// Notes
+// Remember to return the result as a percentage formatted string.
+// Only one decimal should be included.
+function profitMargin(costPrice,salesPrice){
+    let margin = ((salesPrice - costPrice) / salesPrice)*100
+    let fixedMargin = margin.toFixed(1)
+    return `${fixedMargin}%`
 }
