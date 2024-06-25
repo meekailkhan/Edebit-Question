@@ -1608,3 +1608,70 @@ function isSafeBridge(str){
     return !str.includes(" ")
 }
 // ----------------------------------------------------------------------------------------------------------------------
+// Write a function that takes three string arguments (first, last, and word) and returns true if word is found between first and last in the dictionary, otherwise false.
+
+// // Examples
+// console.log(isBetween("apple", "banana", "azure")) //➞ true
+
+// console.log(isBetween("monk", "monument", "monkey")) //➞ true
+
+// console.log(isBetween("bookend", "boolean", "boost")) //➞ false
+// // Notes
+// All letters will be in lowercase.
+// All three words will be different.
+// Remember that the string word is in the middle.
+function isBetween(first,last,middle){
+    if(middle.localeCompare(first) > 0 && middle.localeCompare(last) < 0){
+        return true
+    }else{
+        return false
+    }
+}
+// -----------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that replaces all the vowels in a string with a specified character.
+
+// Examples
+// console.log(replaceVowels("the aardvark", "#"))//➞ "th# ##rdv#rk"
+
+// console.log(replaceVowels("minnie mouse", "?"))//➞ "m?nn?? m??s?"
+
+// console.log(replaceVowels("shakespeare", "*")) //➞ "sh*k*sp**r*"
+// Notes
+// All characters will be in lower case.
+function replaceVowels(str,rWord){
+    let res = ""
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i]=="a" || str[i]=="e" || str[i]=="i" || str[i]=="o" || str[i]=="u"){
+            res += rWord
+        }else{
+            res += str[i]
+        }
+    }
+    return res
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that adds a string ending to each member in an array.
+
+// Examples
+console.log(addEnding(["clever", "meek", "hurried", "nice"], "ly"))
+// ➞ ["cleverly", "meekly", "hurriedly", "nicely"]
+
+console.log(addEnding(["new", "pander", "scoop"], "er"))
+// ➞ ["newer", "panderer", "scooper"]
+
+console.log(addEnding(["bend", "sharpen", "mean"], "ing"))
+// ➞ ["bending", "sharpening", "meaning"]
+// Notes
+// Don't forget to return the result.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function addEnding(arr,char){
+    let res = arr.map(item =>  item += char)
+    return res
+}
+function addEnding(arr,char){
+    for(let i = 0 ; i < arr.length ; i++){
+        arr[i] += char
+    }
+    return arr
+}
