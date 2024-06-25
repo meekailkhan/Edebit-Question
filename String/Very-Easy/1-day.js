@@ -1653,13 +1653,13 @@ function replaceVowels(str,rWord){
 // Question)=> Create a function that adds a string ending to each member in an array.
 
 // Examples
-console.log(addEnding(["clever", "meek", "hurried", "nice"], "ly"))
-// ➞ ["cleverly", "meekly", "hurriedly", "nicely"]
+// console.log(addEnding(["clever", "meek", "hurried", "nice"], "ly"))
+// // ➞ ["cleverly", "meekly", "hurriedly", "nicely"]
 
-console.log(addEnding(["new", "pander", "scoop"], "er"))
-// ➞ ["newer", "panderer", "scooper"]
+// console.log(addEnding(["new", "pander", "scoop"], "er"))
+// // ➞ ["newer", "panderer", "scooper"]
 
-console.log(addEnding(["bend", "sharpen", "mean"], "ing"))
+// console.log(addEnding(["bend", "sharpen", "mean"], "ing"))
 // ➞ ["bending", "sharpening", "meaning"]
 // Notes
 // Don't forget to return the result.
@@ -1675,3 +1675,47 @@ function addEnding(arr,char){
     }
     return arr
 }
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an array of strings and returns the words that are exactly four letters.
+
+// Examples
+console.log(isFourLetters(["Tomato", "Potato", "Pair"])) //➞ ["Pair"]
+
+console.log(isFourLetters(["Kangaroo", "Bear", "Fox"])) //➞ ["Bear"]
+
+console.log(isFourLetters(["Ryan", "Kieran", "Jason", "Matt"])) //➞ ["Ryan", "Matt"]
+// Notes
+// You can expect valid strings for all test cases.
+function isFourLetters(arr){
+    let res = arr.filter(item => item.length === 4)
+    return res
+}
+function isFourLetters(arr){
+    let res = []
+    for(let item of arr){
+        if(item.length == 4){
+            res.push(item)
+        }
+    }
+    return res
+}
+function isFourLetters(arr){
+    let res = []
+    for(let i in arr){
+        // if(arr[i].length == 4){
+        //     res.push(arr[i])
+        // }
+        arr[i].length == 4 ? res.push(arr[i]) : i
+    }
+    return res
+}
+function isFourLetters(arr){
+    let res = [];
+    // for(let i = 0 ; i < arr.length ; i++){
+    //     arr[i].length == 4 ? res.push(arr[i]) : i
+    // }
+    // return res
+    arr.map(item => item.length == 4 ? res.push(item) : item)
+    return res
+}
+// -----------------------------------------------------------------------------------------------------------------------
