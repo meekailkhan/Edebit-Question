@@ -1823,11 +1823,11 @@ function removeVowels(str) {
 // Question)=> Create a function that returns the smaller number.
 
 // Examples
-console.log(smallerNum("21", "44")) //➞ "21"
+// console.log(smallerNum("21", "44")) //➞ "21"
 
-console.log(smallerNum("1500", "1")) //➞ "1"
+// console.log(smallerNum("1500", "1")) //➞ "1"
 
-console.log(smallerNum("5", "5")) //➞ "5"
+// console.log(smallerNum("5", "5")) //➞ "5"
 // Notes
 // Numbers will be represented as strings, and your output should also be a string.
 // If both numbers tie, return either number.
@@ -1849,11 +1849,11 @@ function smallerNum(str1,str2){
 // Question)=> Create a function that takes a number (from 1 - 60) and returns a corresponding string of hyphens.
 
 // Examples
-console.log(Go(1)) //➞ "-"
+// console.log(Go(1)) //➞ "-"
 
-console.log(Go(5)) //➞ "-----"
+// console.log(Go(5)) //➞ "-----"
 
-console.log(Go(3)) //➞ "---"
+// console.log(Go(3)) //➞ "---"
 // Notes
 // You will be provided integers ranging from 1 to 60.
 // Don't forget to return your result as a string.
@@ -1865,4 +1865,50 @@ function Go(num){
         res += "-"
     }
     return res
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Create a function that takes a string of lowercase characters and returns that string reversed and in upper case.
+
+// Examples
+// console.log(reverseCapitalize("abc")) //➞ "CBA"
+
+// console.log(reverseCapitalize("hellothere")) //➞ "EREHTOLLEH"
+
+// console.log(reverseCapitalize("input")) //➞ "TUPNI"
+// Notes
+// N/A
+function reverseCapitalize(str){
+    let arr = str.toUpperCase().split("")
+    let res = arr.reverse()
+    return res.join("")
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes an initial word and extracts any words that start with the same letters as the initial word.
+
+// Examples
+console.log(dictionary("bu", ["button", "breakfast", "border"])) //➞ ["button"]
+
+console.log(dictionary("tri", ["triplet", "tries", "trip", "piano", "tree"])) //➞ ["triplet", "tries", trip"]
+
+console.log(dictionary("beau", ["pastry", "delicious", "name", "boring"])) //➞ []
+// Notes
+// If none of the words match, return an empty array.
+// Keep the filtered array in the same relative order as the original array of words.
+function dictionary(char,arr){
+    let res = arr.filter(item => item.includes(char))
+    return res
+}
+function dictionary(char,arr){
+    let res = [];
+    for(let i = 0 ; i < arr.length ; i++){
+        if(arr[i].includes(char)){
+            res.push(arr[i])
+        }
+    }
+    return res
+}
+function dictionary(char,arr){
+    let res = [];
+    arr.map(item => item.includes(char) ? res.push(item) : item)
+    return res 
 }
