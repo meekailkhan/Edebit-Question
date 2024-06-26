@@ -1631,11 +1631,11 @@ function isBetween(first,last,middle){
 // Question)=> Create a function that replaces all the vowels in a string with a specified character.
 
 // Examples
-console.log(replaceVowels("the aardvark", "#"))//➞ "th# ##rdv#rk"
+// console.log(replaceVowels("the aardvark", "#"))//➞ "th# ##rdv#rk"
 
-console.log(replaceVowels("minnie mouse", "?"))//➞ "m?nn?? m??s?"
+// console.log(replaceVowels("minnie mouse", "?"))//➞ "m?nn?? m??s?"
 
-console.log(replaceVowels("shakespeare", "*")) //➞ "sh*k*sp**r*"
+// console.log(replaceVowels("shakespeare", "*")) //➞ "sh*k*sp**r*"
 // Notes
 // All characters will be in lower case.
 function replaceVowels(str,rWord){
@@ -1818,4 +1818,51 @@ function reverse(str){
 // All letters will be lowercase.
 function removeVowels(str) {
   return str.replace(/[a,e,i,o,u]/g, "")
+}
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns the smaller number.
+
+// Examples
+console.log(smallerNum("21", "44")) //➞ "21"
+
+console.log(smallerNum("1500", "1")) //➞ "1"
+
+console.log(smallerNum("5", "5")) //➞ "5"
+// Notes
+// Numbers will be represented as strings, and your output should also be a string.
+// If both numbers tie, return either number.
+// Numbers will be positive.
+// Bonus: See if you can do this without converting to integers.
+function smallerNum(str1,str2){
+    if(parseInt(str1)<parseInt(str2)){
+        return str1
+    }else{
+        return str2
+    }   
+}
+function smallerNum(str1,str2){
+    let arr = [str1,str2]
+    let res = arr.sort((a,b) => a-b)
+    return res[0]
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a number (from 1 - 60) and returns a corresponding string of hyphens.
+
+// Examples
+console.log(Go(1)) //➞ "-"
+
+console.log(Go(5)) //➞ "-----"
+
+console.log(Go(3)) //➞ "---"
+// Notes
+// You will be provided integers ranging from 1 to 60.
+// Don't forget to return your result as a string.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function Go(num){
+    let res = "";
+    for(let i = 0 ; i < num ; i++){
+        res += "-"
+    }
+    return res
 }
