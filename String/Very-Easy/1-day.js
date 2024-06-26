@@ -1631,11 +1631,11 @@ function isBetween(first,last,middle){
 // Question)=> Create a function that replaces all the vowels in a string with a specified character.
 
 // Examples
-// console.log(replaceVowels("the aardvark", "#"))//➞ "th# ##rdv#rk"
+console.log(replaceVowels("the aardvark", "#"))//➞ "th# ##rdv#rk"
 
-// console.log(replaceVowels("minnie mouse", "?"))//➞ "m?nn?? m??s?"
+console.log(replaceVowels("minnie mouse", "?"))//➞ "m?nn?? m??s?"
 
-// console.log(replaceVowels("shakespeare", "*")) //➞ "sh*k*sp**r*"
+console.log(replaceVowels("shakespeare", "*")) //➞ "sh*k*sp**r*"
 // Notes
 // All characters will be in lower case.
 function replaceVowels(str,rWord){
@@ -1648,6 +1648,10 @@ function replaceVowels(str,rWord){
         }
     }
     return res
+}
+
+function replaceVowels(str,rWord){
+    return str.replace(/[aeiou]/g,rWord)
 }
 // -------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that adds a string ending to each member in an array.
@@ -1679,11 +1683,11 @@ function addEnding(arr,char){
 // Question)=> Create a function that takes an array of strings and returns the words that are exactly four letters.
 
 // Examples
-console.log(isFourLetters(["Tomato", "Potato", "Pair"])) //➞ ["Pair"]
+// console.log(isFourLetters(["Tomato", "Potato", "Pair"])) //➞ ["Pair"]
 
-console.log(isFourLetters(["Kangaroo", "Bear", "Fox"])) //➞ ["Bear"]
+// console.log(isFourLetters(["Kangaroo", "Bear", "Fox"])) //➞ ["Bear"]
 
-console.log(isFourLetters(["Ryan", "Kieran", "Jason", "Matt"])) //➞ ["Ryan", "Matt"]
+// console.log(isFourLetters(["Ryan", "Kieran", "Jason", "Matt"])) //➞ ["Ryan", "Matt"]
 // Notes
 // You can expect valid strings for all test cases.
 function isFourLetters(arr){
@@ -1719,3 +1723,99 @@ function isFourLetters(arr){
     return res
 }
 // -----------------------------------------------------------------------------------------------------------------------
+// Question)=> In semantic versioning a piece of software can be represented in a format like this example: 6.1.9.
+
+// The first number is the major version.
+// The second number is the minor version.
+// The third number is the patch (bug fixes).
+// Write three separate functions, one to retrieve each element in the semantic versioning specification.
+
+// Examples
+// // 6.1.9
+// console.log(retrieveMajor("6.1.9")) //➞ "6"
+
+// console.log(retrieveMinor("6.1.9")) //➞ "1"
+
+// console.log(retrievePatch("6.1.9")) //➞ "9"
+
+// // // 2.1.0
+// console.log(retrieveMajor("2.1.0")) //➞ "2"
+
+// console.log(retrieveMinor("2.1.0")) //➞ "1"
+
+// console.log(retrievePatch("2.1.0")) //➞ "0"
+// Notes
+// N/A
+function retrieveMajor(str){
+    let res = str.split(".")
+    return res[0]
+}
+function retrieveMinor(str){
+    let res = str.split(".")
+    return res[1]
+}
+function retrievePatch(str){
+    let res = str.split(".")
+    return res[2]
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string and returns a string with its letters in alphabetical order.
+
+// Examples
+// console.log(AlphabetSoup("hello")) //➞ "ehllo"
+
+// console.log(AlphabetSoup("edabit")) //➞ "abdeit"
+
+// console.log(AlphabetSoup("hacker")) //➞ "acehkr"
+
+// console.log(AlphabetSoup("geek")) //➞ "eegk"
+
+// console.log(AlphabetSoup("javascript")) //➞ "aacijprstv"
+// Notes
+// You can assume numbers and punctuation symbols won't be included in test cases. You'll only have to deal with single word, alphabetic characters.
+function AlphabetSoup(str){
+    let arr = str.split("")
+    let res = arr.sort().join("")
+    return res
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string as its argument and returns the string in reversed order.
+
+// Examples
+// console.log(reverse("Hello World")) //➞ "dlroW olleH"
+
+// console.log(reverse("The quick brown fox.")) //➞ ".xof nworb kciuq ehT"
+
+// console.log(reverse("Edabit is really helpful!")) //➞ "!lufpleh yllaer si tibadE"
+// Notes
+// You can expect a valid string for all test cases.
+function reverse(str){
+    let arr = str.split("")
+    let res = arr.reverse().join("")
+    return res
+}
+function reverse(str){
+    let res = ""
+    for(let i = str.length-1 ; i >= 0 ; i--){
+        res += str[i]
+    }
+    return res
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Your friend is trying to write a function that removes all vowels from a string. They write:
+
+
+// However, it seems that it doesn't work? Fix your friend's code so that it actually does remove all vowels.
+
+// // Examples
+// console.log(removeVowels("candy")) //➞ "cndy"
+
+// console.log(removeVowels("hello")) //➞ "hllo"
+// // // The "e" is removed, but the "o" is still there!
+
+// console.log(removeVowels("apple")) //➞ "pple"
+// Notes
+// All letters will be lowercase.
+function removeVowels(str) {
+  return str.replace(/[a,e,i,o,u]/g, "")
+}
