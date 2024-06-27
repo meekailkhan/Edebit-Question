@@ -1907,8 +1907,8 @@ function dictionary(char,arr){
     }
     return res
 }
-function dictionary(char,arr){
-    let res = [];
-    arr.map(item => item.includes(char) ? res.push(item) : item)
-    return res 
-}
+// function dictionary(char,arr){
+//     let res = [];
+//     arr.map(item => item.includes(char) ? res.push(item) : item)
+//     return res 
+// }
