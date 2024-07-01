@@ -1886,11 +1886,11 @@ function reverseCapitalize(str){
 // Question)=> Create a function that takes an initial word and extracts any words that start with the same letters as the initial word.
 
 // Examples
-console.log(dictionary("bu", ["button", "breakfast", "border"])) //➞ ["button"]
+// console.log(dictionary("bu", ["button", "breakfast", "border"])) //➞ ["button"]
 
-console.log(dictionary("tri", ["triplet", "tries", "trip", "piano", "tree"])) //➞ ["triplet", "tries", trip"]
+// console.log(dictionary("tri", ["triplet", "tries", "trip", "piano", "tree"])) //➞ ["triplet", "tries", trip"]
 
-console.log(dictionary("beau", ["pastry", "delicious", "name", "boring"])) //➞ []
+// console.log(dictionary("beau", ["pastry", "delicious", "name", "boring"])) //➞ []
 // Notes
 // If none of the words match, return an empty array.
 // Keep the filtered array in the same relative order as the original array of words.
@@ -1917,21 +1917,132 @@ function dictionary(char,arr){
 // Question)=> Create a function that takes two strings and returns true if the first string ends with the second string; otherwise return false.
 
 // Examples
-// checkEnding("abc", "bc") ➞ true
+// console.log(checkEnding("abc", "bc")) //➞ true
 
-// checkEnding("abc", "d") ➞ false
+// console.log(checkEnding("abc", "d")) //➞ false
 
-// checkEnding("samurai", "zi") ➞ false
+// console.log(checkEnding("samurai", "zi")) //➞ false
 
-// checkEnding("feminine", "nine") ➞ true
+// console.log(checkEnding("feminine", "nine")) //➞ true
 
-// checkEnding("convention", "tio") ➞ false
-// Notes
+// console.log(checkEnding("convention", "tio")) //➞ false
+// // Notes
 // All test cases are valid one word strings.
 function checkEnding(str1,str2){
-    let ending = "";
-    for(let i = str2.length-1 ; i < 0 ; i--){
-        ending += str1[i]
+    return str1.endsWith(str2)
+}
+// ----------------------------------------------------------------------------------------------------------------------
+// Create a function that accepts a string (of a person's first and last name) and returns a string with the first and last name swapped.
+
+// Examples
+// console.log(nameShuffle("Donald Trump")) //➞ "Trump Donald"
+
+// console.log(nameShuffle("Rosie O'Donnell")) //➞ "O'Donnell Rosie"
+
+// console.log(nameShuffle("Seymour Butts")) //➞ "Butts Seymour"
+// Notes
+// There will be exactly one space between the first and last name.
+// If you get stuck on a challenge, find help in the Resources tab.
+// If you're really stuck, unlock solutions in the Solutions tab.
+function nameShuffle(str){
+    let arr = str.split(" ")
+    let res = arr.reverse();
+
+    return res.join(" ")
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that returns true if an input string contains only uppercase or only lowercase letters.
+
+// Examples
+// console.log(sameCase("hello")) //➞ true
+
+// console.log(sameCase("HELLO")) //➞ true
+
+// console.log(sameCase("Hello")) //➞ false
+
+// console.log(sameCase("ketcHUp")) //➞ false
+// Notes
+// N/A
+function sameCase(str){
+    if(str == str.toUpperCase()){
+        return true
+    }else if(str == str.toLowerCase()){
+        return true
+    }else{
+        return false
     }
-    return ending === str2
+}
+// -----------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes a string and returns true or false, depending on whether the characters are in order or not.
+
+// Examples
+// console.log(isInOrder("abc")) //➞ true
+
+// console.log(isInOrder("edabit")) //➞ false
+
+// console.log(isInOrder("123")) //➞ true
+
+// console.log(isInOrder("xyzz")) //➞ true
+// // Notes
+// You don't have to handle empty strings.
+function isInOrder(str){
+    for(let i = 0 ; i < str.length ; i++){
+        if(str.charCodeAt(i) > str.charCodeAt(i+1)){
+            return false
+        }
+    }
+    return true
+}
+function isInOrder(str){
+    let sortedStr = str.split("").sort().join("")
+    return str === sortedStr
+}
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> A palindrome is a word that is identical forward and backwards.
+
+// mom
+// racecar
+// kayak
+// Given a word, create a function that checks whether it is a palindrome.
+
+// Examples
+// console.log(checkPalindrome("mom")) //➞ true
+
+// console.log(checkPalindrome("scary")) //➞ false
+
+// console.log(checkPalindrome("reviver")) //➞ true
+
+// console.log(checkPalindrome("stressed")) //➞ false
+// Notes
+// All test input is lower cased.
+function checkPalindrome(str){
+    if(str[0] == str[str.length-1]){
+        return  true
+    }
+    return false
+}
+// --------------------------------------------------------------------------------------------------------------------
+// Question)=> A pair of strings form a strange pair if both of the following are true:
+
+// The 1st string's first letter = 2nd string's last letter.
+// The 1st string's last letter = 2nd string's first letter.
+// Create a function that returns true if a pair of strings constitutes a strange pair, and false otherwise.
+
+// Examples
+console.log(isStrangePair("ratio", "orator")) //➞ true
+// // "ratio" ends with "o" and "orator" starts with "o".
+// // "ratio" starts with "r" and "orator" ends with "r".
+
+console.log(isStrangePair("sparkling", "groups")) //➞ true
+
+console.log(isStrangePair("bush", "hubris")) //➞ false
+
+console.log(isStrangePair("", "")) //➞ true
+// Notes
+// It should work on a pair of empty strings (they trivially share nothing).
+function isStrangePair(str1,str2){
+    if(str1[0] == str2[str2.length-1] && str1[str1.length-1] == str2[0]){
+        return true
+    }
+    return false
 }
