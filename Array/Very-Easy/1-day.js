@@ -180,18 +180,18 @@ function addIndexes(arr) {
 // console.log(addIndexes([1, 2, 3, 4, 5])) //➞ [1, 3, 5, 7, 9]
 // console.log(addIndexes([5, 4, 3, 2, 1])) //➞ [5, 5, 5, 5, 5]
 // --------------------------------------------------------------------------------------------------------------------------------
-// Question)=> Write a function that returns the sum of elements greater than 5, in the given array .
+// Question)=> Write a function that returns the stringPairs of elements greater than 5, in the given array .
 
 // Examples
-// sumFive([1, 5, 20, 30, 4, 9, 18]) ➞ 77
+// stringPairsFive([1, 5, 20, 30, 4, 9, 18]) ➞ 77
 
-// sumFive([1, 2, 3, 4]) ➞ 0
+// stringPairsFive([1, 2, 3, 4]) ➞ 0
 
-// sumFive([10, 12, 28, 47, 55, 100]) ➞ 252
+// stringPairsFive([10, 12, 28, 47, 55, 100]) ➞ 252
 // Notes
 // Find all the elements greater than 5, not the elements greater than or equal to 5.
 
-function sumFive(arr) {
+function stringPairsFive(arr) {
     let res = 0;
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > 5) {
@@ -201,15 +201,15 @@ function sumFive(arr) {
     return res;
 }
 
-function sumFive(arr) {
+function stringPairsFive(arr) {
     let res = 0;
     arr.map(item => item > 5 ? res += item : res)
     return res;
 }
 
-// console.log(sumFive([1, 5, 20, 30, 4, 9, 18])) //➞ 77
-// console.log(sumFive([1, 2, 3, 4])) //➞ 0
-// console.log(sumFive([10, 12, 28, 47, 55, 100])) //➞ 252
+// console.log(stringPairsFive([1, 5, 20, 30, 4, 9, 18])) //➞ 77
+// console.log(stringPairsFive([1, 2, 3, 4])) //➞ 0
+// console.log(stringPairsFive([10, 12, 28, 47, 55, 100])) //➞ 252
 // ---------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that returns an array of booleans from a given number by iterating through the number one digit at a time and appending true into the array if the digit is 1 and false otherwise.
 
@@ -362,10 +362,10 @@ function largestNumbers(posi, arr) {
 // console.log(largestNumbers(3, [14, 12, 57, 11, 18, 16])) //➞ [16, 18, 57]
 // console.log(largestNumbers(0, [1, 3, 4, 2])) //➞ []
 // ---------------------------------------------------------------------------------------------------------------------
-// Create a function that takes a 2D array arr and returns the sum of the minimum value in each row.
+// Create a function that takes a 2D array arr and returns the stringPairs of the minimum value in each row.
 
 // Examples
-// sumMinimums([
+// stringPairsMinimums([
 //   [1, 2, 3, 4, 5],
 //   [5, 6, 7, 8, 9],
 //   [20, 21, 34, 56, 100]
@@ -382,14 +382,14 @@ function smallest(arr) {
     return res[0]
 }
 
-function sumMinimums(arr) {
+function stringPairsMinimums(arr) {
     let res = 0;
     for (let i = 0; i < arr.length; i++) {
         res += smallest(arr[i]);
     }
     return res;
 }
-// console.log(sumMinimums([
+// console.log(stringPairsMinimums([
 //   [1, 2, 3, 4, 5],
 //   [5, 6, 7, 8, 9],
 //   [20, 21, 34, 56, 100]
@@ -428,7 +428,7 @@ function points(num1, num2) {
     return num1 * 2 + num2 * 3
 }
 // ---------------------------------------------------------------------------------------------------------------------------
-// Question=> Given two numbers, return true if the sum of both numbers is less than 100. Otherwise return false.
+// Question=> Given two numbers, return true if the stringPairs of both numbers is less than 100. Otherwise return false.
 
 // Examples
 // console.log(lessThan100(22, 15)) //➞ true
@@ -557,7 +557,7 @@ function stringPairs(str) {
     return res
 }
 // ------------------------------------------------------------------------------------------------------------------------
-// Question)=> Given an array with an even amount of numbers, return true if the sum of two numbers in the array is even and false if the sum of two numbers in the array is odd.
+// Question)=> Given an array with an even amount of numbers, return true if the stringPairs of two numbers in the array is even and false if the stringPairs of two numbers in the array is odd.
 
 // To illustrate:
 
@@ -569,14 +569,14 @@ function stringPairs(str) {
 // 9 + 10 = 19 = false
 // Therefore, solution = [true, false, true, false, false]
 // Examples
-// console.log(oddSum([11, 15, 6, 8, 9, 10])) //➞ [true, false, true, false, false]
+// console.log(oddstringPairs([11, 15, 6, 8, 9, 10])) //➞ [true, false, true, false, false]
 
-// console.log(oddSum([12, 21, 5, 9, 65, 32])) //➞ [false, true, true, true, false]
+// console.log(oddstringPairs([12, 21, 5, 9, 65, 32])) //➞ [false, true, true, true, false]
 
-// console.log(oddSum([1, 2, 3, 4, 5, 6])) //➞ [false, false, false, false, false]
+// console.log(oddstringPairs([1, 2, 3, 4, 5, 6])) //➞ [false, false, false, false, false]
 // Notes
 // Remember that the length of all the arrays will be an even number, so it is not necessary to measure lengths.
-function oddSum(arr) {
+function oddstringPairs(arr) {
     let res = [];
     for (let i = 0; i < arr.length - 1; i++) {
         let total = arr[i] + arr[i + 1]
@@ -584,7 +584,7 @@ function oddSum(arr) {
     }
     return res
 }
-function oddSum(arr) {
+function oddstringPairs(arr) {
     let res = [];
     arr.map((item, index) => {
         let total = item + arr[index + 1];
@@ -605,7 +605,7 @@ function oddSum(arr) {
 
 // console.log(canCapture(["F5", "C8"])) //➞ false
 // Notes
-// Assume no blocking pieces.
+// AsstringPairse no blocking pieces.
 // Two rooks can attack each other if they share the same row (letter) or column (number).
 function eachChar(char1, char2) {
     for (let i = 0; i < char1.length; i++) {
@@ -817,7 +817,7 @@ function monthName(num) {
     return months[num]
 }
 // -----------------------------------------------------------------------------------------------------
-// Question)=> Write a function that returns true if the product of an array is divisible by the sum of that same array. Otherwise, return false.
+// Question)=> Write a function that returns true if the product of an array is divisible by the stringPairs of that same array. Otherwise, return false.
 
 // // Examples
 // console.log(divisible([3, 2, 4, 2])) //➞ false
