@@ -2050,13 +2050,13 @@ function isStrangePair(str1,str2){
 // Question)=> Write a function that turns a comma-delimited list into an array of strings.
 
 // Examples
-console.log(toArray("watermelon, raspberry, orange"))
-// ➞ ["watermelon", "raspberry", "orange"]
+// console.log(toArray("watermelon, raspberry, orange"))
+// // ➞ ["watermelon", "raspberry", "orange"]
 
-console.log(toArray("x1, x2, x3, x4, x5"))
-// ➞ ["x1", "x2", "x3", "x4", "x5"]
+// console.log(toArray("x1, x2, x3, x4, x5"))
+// // ➞ ["x1", "x2", "x3", "x4", "x5"]
 
-console.log(toArray("a, b, c, d"))
+// console.log(toArray("a, b, c, d"))
 // ➞ ["a", "b", "c", "d"]
 
 // toArray("")
@@ -2068,14 +2068,59 @@ function toArray(str){
     return res
 }
 // -------------------------------------------------------------------------------------------------------------
-// Write a function that takes an integer and returns a string with the given number of "a"s in Edabit.
+// Question)=> Write a function that takes an integer and returns a string with the given number of "a"s in Edabit.
 
 // Examples
-// howManyTimes(5) ➞ "Edaaaaabit"
+// console.log(howManyTimes(5)) //➞ "Edaaaaabit"
 
-// howManyTimes(0) ➞ "Edbit"
+// console.log(howManyTimes(0)) //➞ "Edbit"
 
-// howManyTimes(12) ➞ "Edaaaaaaaaaaaabit"
+// console.log(howManyTimes(12)) //➞ "Edaaaaaaaaaaaabit"
 // Notes
 // The string must start with "Ed" and end with "bit".
 // You'll only be given integers as test input.
+function howManyTimes(n){
+    let str = ""
+    for(let i = 0 ; i < n ; i++){
+        str += "a"
+    }
+    let res = `Ed${str}bit`
+    return res
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that repeats each character in a string n times.
+
+// Examples
+console.log(repeat("mice", 5)) //➞ "mmmmmiiiiiccccceeeee"
+
+console.log(repeat("hello", 3)) //➞ "hhheeellllllooo"
+
+console.log(repeat("stop", 1)) //➞ "stop"
+// Notes
+// N/A
+function repeat(str,n){
+    let res = ""
+    let char = ""
+    for(let i = 0 ; i < str.length ; i++){
+        char = str[i]
+        for(let j = 0 ; j < n ; j++){
+            res += char
+        }
+    }
+    return res
+
+}
+function createStr(char,num){
+    let res = "";
+    for(let i = 0 ; i < num ; i++){
+        res += char
+    }
+    return res
+}
+function repeat(str,n){
+    let res = "";
+    for(let i = 0 ; i < str.length ; i++){
+        res += createStr(str[i],n)
+    }
+    return res
+}
