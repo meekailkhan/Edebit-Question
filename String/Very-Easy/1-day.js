@@ -2029,15 +2029,15 @@ function checkPalindrome(str){
 // Create a function that returns true if a pair of strings constitutes a strange pair, and false otherwise.
 
 // Examples
-console.log(isStrangePair("ratio", "orator")) //➞ true
-// // "ratio" ends with "o" and "orator" starts with "o".
-// // "ratio" starts with "r" and "orator" ends with "r".
+// console.log(isStrangePair("ratio", "orator")) //➞ true
+// // // "ratio" ends with "o" and "orator" starts with "o".
+// // // "ratio" starts with "r" and "orator" ends with "r".
 
-console.log(isStrangePair("sparkling", "groups")) //➞ true
+// console.log(isStrangePair("sparkling", "groups")) //➞ true
 
-console.log(isStrangePair("bush", "hubris")) //➞ false
+// console.log(isStrangePair("bush", "hubris")) //➞ false
 
-console.log(isStrangePair("", "")) //➞ true
+// console.log(isStrangePair("", "")) //➞ true
 // Notes
 // It should work on a pair of empty strings (they trivially share nothing).
 function isStrangePair(str1,str2){
@@ -2046,3 +2046,36 @@ function isStrangePair(str1,str2){
     }
     return false
 }
+// ---------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that turns a comma-delimited list into an array of strings.
+
+// Examples
+console.log(toArray("watermelon, raspberry, orange"))
+// ➞ ["watermelon", "raspberry", "orange"]
+
+console.log(toArray("x1, x2, x3, x4, x5"))
+// ➞ ["x1", "x2", "x3", "x4", "x5"]
+
+console.log(toArray("a, b, c, d"))
+// ➞ ["a", "b", "c", "d"]
+
+// toArray("")
+// ➞ []
+// Notes
+// Return an empty array for an empty string.
+function toArray(str){
+    let res = str.split(",")
+    return res
+}
+// -------------------------------------------------------------------------------------------------------------
+// Write a function that takes an integer and returns a string with the given number of "a"s in Edabit.
+
+// Examples
+// howManyTimes(5) ➞ "Edaaaaabit"
+
+// howManyTimes(0) ➞ "Edbit"
+
+// howManyTimes(12) ➞ "Edaaaaaaaaaaaabit"
+// Notes
+// The string must start with "Ed" and end with "bit".
+// You'll only be given integers as test input.
