@@ -2091,11 +2091,11 @@ function howManyTimes(n){
 // Question)=> Create a function that repeats each character in a string n times.
 
 // Examples
-console.log(repeat("mice", 5)) //➞ "mmmmmiiiiiccccceeeee"
+// console.log(repeat("mice", 5)) //➞ "mmmmmiiiiiccccceeeee"
 
-console.log(repeat("hello", 3)) //➞ "hhheeellllllooo"
+// console.log(repeat("hello", 3)) //➞ "hhheeellllllooo"
 
-console.log(repeat("stop", 1)) //➞ "stop"
+// console.log(repeat("stop", 1)) //➞ "stop"
 // Notes
 // N/A
 function repeat(str,n){
@@ -2123,4 +2123,33 @@ function repeat(str,n){
         res += createStr(str[i],n)
     }
     return res
+}
+// ------------------------------------------------------------------------------------------------------------------
+// Question)=> Google's logo can be stretched depending on how many pages it lets you skip forward to.
+
+// Image of Goooooooooogle
+
+// Let's say we wanted to change the number of pages that Google could skip to. Create a function where given a number of pages n, return the word "Google" but with the correct number of "o"s.
+
+// Examples
+console.log(googlify(10)) //➞ "Goooooooooogle"
+
+console.log(googlify(23)) //➞ "Gooooooooooooooooooooooogle"
+
+console.log(googlify(2)) //➞ "Google"
+
+console.log(googlify(-2)) //➞ "invalid"
+// Notes
+// If n is equal to or less than 1, return invalid.
+function googlify(num){
+    if(num <= 1){
+        return "invalid"
+    }
+    let str = ""
+    for(let i = 0 ; i < num ; i++){
+        str += "o"
+    }
+    let res = `G${str}gle`
+    return res
+
 }
