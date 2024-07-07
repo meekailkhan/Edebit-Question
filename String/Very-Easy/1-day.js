@@ -2132,14 +2132,14 @@ function repeat(str,n){
 // Let's say we wanted to change the number of pages that Google could skip to. Create a function where given a number of pages n, return the word "Google" but with the correct number of "o"s.
 
 // Examples
-console.log(googlify(10)) //➞ "Goooooooooogle"
+// console.log(googlify(10)) //➞ "Goooooooooogle"
 
-console.log(googlify(23)) //➞ "Gooooooooooooooooooooooogle"
+// console.log(googlify(23)) //➞ "Gooooooooooooooooooooooogle"
 
-console.log(googlify(2)) //➞ "Google"
+// console.log(googlify(2)) //➞ "Google"
 
-console.log(googlify(-2)) //➞ "invalid"
-// Notes
+// console.log(googlify(-2)) //➞ "invalid"
+// // Notes
 // If n is equal to or less than 1, return invalid.
 function googlify(num){
     if(num <= 1){
@@ -2152,4 +2152,49 @@ function googlify(num){
     let res = `G${str}gle`
     return res
 
+}
+// -------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that maps files to their extension names.
+
+// // Examples
+// console.log(getExtension(["code.html", "code.css"]))
+// // ➞ ["html", "css"]
+
+// console.log(getExtension(["project1.jpg", "project1.pdf", "project1.mp3"]))
+// // ➞ ["jpg", "pdf", "mp3"]
+
+// console.log(getExtension(["ruby.rb", "cplusplus.cpp", "python.py", "javascript.js"]))
+// ➞ ["rb", "cpp", "py", "js"]
+// Notes
+// N/A
+// function getExtension(arr){
+//     return arr.map(item => item.split(".").pop())
+// }
+// function getExtension(arr){
+//     let res = [];
+//     for(let i = 0 ; i < arr.length ; i++){
+//         res.push(arr[i].split(".").pop())
+//     }
+//     return res
+// }
+// -------------------------------------------------------------------------------------------------------------------------
+// Question)=> rite a function that returns true if all characters in a string are identical and false otherwise.
+
+// Examples
+console.log(isIdentical("aaaaaa")) //➞ true
+
+console.log(isIdentical("aabaaa")) //➞ false
+
+console.log(isIdentical("ccccca")) //➞ false
+
+console.log(isIdentical("kk")) //➞ true
+// Notes
+// N/A
+function isIdentical(str){
+    for(let i = 1 ; i < str.length ; i++){
+        if(str[i-1] !== str[i]){
+            return false
+        }
+    }
+    return true
 }

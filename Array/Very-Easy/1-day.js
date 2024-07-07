@@ -166,14 +166,14 @@ function toNumberArray(arr) {
 // You'll only get numbers in the array.
 
 function addIndexes(arr) {
-    for (let i = 0; i < arr.length; i++) {
+    for (let i of arr) {
         arr[i] = arr[i] + i
     }
     return arr;
 }
 
 function addIndexes(arr) {
-    return arr.map((item, index) => item = item + index)
+    return arr.map((item, index,arr) => item = item + index)
 }
 
 // console.log(addIndexes([0, 0, 0, 0, 0])) //➞ [0, 1, 2, 3, 4]
