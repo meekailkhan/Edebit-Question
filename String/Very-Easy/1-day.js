@@ -2402,9 +2402,20 @@ function detectWord(str){
 function detectWord(str){
     let res = ""
     for(let i = 0 ; i < str.length ; i++){
-        if(str[i]>="a" && str[i]<"z"){
+        if(str[i]>="a" && str[i]<="z"){
             res += str[i]
         }
     }
     return res
 }
+// ----------------------------------------------------------------------------------------------------------------------
+// Question)=> Create a function that takes two strings as arguments and returns the number of times the first string (the single character) is found in the second string.
+
+// Examples
+// charCount("a", "edabit") ➞ 1
+
+// charCount("c", "Chamber of secrets") ➞ 1
+
+// charCount("b", "big fat bubble") ➞ 4
+// Notes
+// Your output must be case-sensitive (see second example).
