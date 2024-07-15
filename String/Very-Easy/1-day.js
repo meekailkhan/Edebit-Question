@@ -1261,12 +1261,12 @@ function countCharacters(arr) {
 function countCharacters(arr) {
     return arr.reduce((acc, val) => acc + val.length, 0)
 }
-function itemLength(item){
+function itemLength(item) {
     return item.length
 }
-function countCharacters(arr){
-    let res = 0 ;
-    for(let i = 0 ; i < arr.length ; i++){
+function countCharacters(arr) {
+    let res = 0;
+    for (let i = 0; i < arr.length; i++) {
         res += itemLength(arr[i])
     }
     return res
@@ -1295,15 +1295,15 @@ function countCharacters(arr){
 // )) //➞ "tie"
 // Notes
 // Both strings are the same length.
-function showdown(p1,p2){
+function showdown(p1, p2) {
     let p1Position = p1.indexOf("Bang!")
     let p2Position = p2.indexOf("Bang!")
 
-    if(p1Position < p2Position){
+    if (p1Position < p2Position) {
         return "p1"
-    }else if(p1Position > p2Position){
+    } else if (p1Position > p2Position) {
         return "p2"
-    }else{
+    } else {
         return "tie"
     }
 }
@@ -1319,12 +1319,12 @@ function showdown(p1,p2){
 // Notes
 // If the two parameters are different data types, return null.
 // All parameters will either be strings or integers.
-function stupidAddition(num1,num2){
-    if(typeof num1 == "string" && typeof num2 == "string"){
+function stupidAddition(num1, num2) {
+    if (typeof num1 == "string" && typeof num2 == "string") {
         return parseInt(num1) + parseInt(num2)
-    }else if(typeof num1 == "number" && typeof num2 == "number"){
+    } else if (typeof num1 == "number" && typeof num2 == "number") {
         return num1.toString() + num2.toString()
-    }else{
+    } else {
         return null
     }
 }
@@ -1340,8 +1340,8 @@ function stupidAddition(num1,num2){
 // Notes
 // Remember to return the result as a percentage formatted string.
 // Only one decimal should be included.
-function profitMargin(costPrice,salesPrice){
-    let margin = ((salesPrice - costPrice) / salesPrice)*100
+function profitMargin(costPrice, salesPrice) {
+    let margin = ((salesPrice - costPrice) / salesPrice) * 100
     let fixedMargin = margin.toFixed(1)
     return `${fixedMargin}%`
 }
@@ -1358,12 +1358,12 @@ function profitMargin(costPrice,salesPrice){
 // The given letter(s) are case sensitive and can be more than one.
 // In the case of an empty string, return the entire array.
 // A CMS is a Content Management System.
-function cmsSelector(arr,str){
-    if(str.length == 0){
+function cmsSelector(arr, str) {
+    if (str.length == 0) {
         return arr
     }
-    for(let i = 0 ; i < arr.length ; i++){
-        if(arr[i].toLowerCase().includes(str)){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].toLowerCase().includes(str)) {
             return arr[i]
         }
     }
@@ -1380,7 +1380,7 @@ function cmsSelector(arr,str){
 // Notes
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function countWords(str){
+function countWords(str) {
     let arr = str.split(" ")
     return arr.length
 }
@@ -1410,10 +1410,10 @@ function countWords(str){
 // console.log(preventDistractions("Hot pictures of Danny DeVito")) //➞ "NO!"
 
 // console.log(preventDistractions("How to ace BC Calculus in 5 Easy Steps")) //➞ "Safe watching!"
-function preventDistractions(str){
-    if(str.includes("anime") || str.includes("meme") || str.includes("vines") || str.includes("roasts") || str.includes("Danny DeVito")){
+function preventDistractions(str) {
+    if (str.includes("anime") || str.includes("meme") || str.includes("vines") || str.includes("roasts") || str.includes("Danny DeVito")) {
         return "NO!"
-    }else{
+    } else {
         return "Safe watching!"
     }
 }
@@ -1430,19 +1430,19 @@ function preventDistractions(str){
 // console.log(stringPairs("airforces")) //➞ ["ai", "rf", "or", "ce", "s*"]
 // // Notes
 // Return [] if the given string is empty.
-function stringPairs(str){
+function stringPairs(str) {
     let res = []
     let pairs = ""
-    for(let i = 0 ; i < str.length ; i+=2){
+    for (let i = 0; i < str.length; i += 2) {
         pairs = str[i]
-        if(i+1 < str.length){
+        if (i + 1 < str.length) {
             pairs += str[i + 1]
-        }else{
+        } else {
             pairs += "*"
         }
         res.push(pairs)
     }
-    return res    
+    return res
 }
 // ------------------------------------------------------------------------------------------------------------------
 // Question)=> Mubashir needs your help to count uppercase letters, lowercase letters, numbers and special characters in a given string.
@@ -1461,24 +1461,24 @@ function stringPairs(str){
 // console.log(filterString("**Airforce1**")) //➞ [1, 7, 1, 4]
 // Notes
 // N/A
-function filterString(str){
+function filterString(str) {
     let uppercaseCount = 0;
     let lowercaseCount = 0;
     let numbersCount = 0;
     let specialCount = 0;
 
-    for(char of str){
-        if(char >= "A" && char <= "Z"){
+    for (char of str) {
+        if (char >= "A" && char <= "Z") {
             uppercaseCount++
-        }else if(char >= "a" && char <= "z"){
+        } else if (char >= "a" && char <= "z") {
             lowercaseCount++
-        }else if(char >= 0 && char <= 9){
+        } else if (char >= 0 && char <= 9) {
             numbersCount++
-        }else{
+        } else {
             specialCount++
         }
     }
-    let array = [uppercaseCount,lowercaseCount,numbersCount,specialCount]
+    let array = [uppercaseCount, lowercaseCount, numbersCount, specialCount]
     return array
 }
 // ---------------------------------------------------------------------------------------------------------------------
@@ -1492,10 +1492,10 @@ function filterString(str){
 // console.log(capitalLetters("mqeytbbjwqemcdrdsyvq")) //➞ 0
 // Notes
 // N/A
-function capitalLetters(str){
+function capitalLetters(str) {
     let res = 0;
-    for(let i = 0 ; i < str.length ; i++){
-        if(str[i] == str[i].toUpperCase()){
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == str[i].toUpperCase()) {
             res++
         }
     }
@@ -1516,7 +1516,7 @@ function capitalLetters(str){
 // Don't forget to return the result.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function numberSyllables(str){
+function numberSyllables(str) {
     let arr = str.split("-");
     return arr.length
 }
@@ -1539,19 +1539,19 @@ function numberSyllables(str){
 // console.log(hammingDistance("strong", "strung")) //➞ 1
 // Notes
 // Both strings will have the same length.
-function hammingDistance(str1,str2){
+function hammingDistance(str1, str2) {
     let res = 0;
-    for(let i = 0 ; i < str1.length ; i++){
-        if(str1[i]!==str2[i]){
+    for (let i = 0; i < str1.length; i++) {
+        if (str1[i] !== str2[i]) {
             res++
         }
     }
     return res
 }
-function hammingDistance(str1,str2){
+function hammingDistance(str1, str2) {
     let arr = str1.split("");
     let res = 0;
-    arr.map((item,index) => item !== str2[index] ? res++ : item);
+    arr.map((item, index) => item !== str2[index] ? res++ : item);
     return res
 }
 
@@ -1568,12 +1568,12 @@ function hammingDistance(str1,str2){
 // console.log(removeFirstLast("a")) //➞ "a"
 // Notes
 // If the string is 2 or fewer characters long, return the string itself (See Example #4).
-function removeFirstLast(str){
-    return str.slice(1,str.length-1)
+function removeFirstLast(str) {
+    return str.slice(1, str.length - 1)
 }
-function removeFirstLast(str){
+function removeFirstLast(str) {
     let res = "";
-    for(let i = 1 ; i < str.length-1 ; i++){
+    for (let i = 1; i < str.length - 1; i++) {
         res += str[i]
     }
     return res
@@ -1589,9 +1589,9 @@ function removeFirstLast(str){
 // console.log(subReddit("https://www.reddit.com/r/mildlyinteresting/")) //➞ "mildlyinteresting"
 // // Notes
 // N/A
-function subReddit(str){
+function subReddit(str) {
     let arr = str.split("/")
-    return arr[arr.length-2]
+    return arr[arr.length - 2]
 }
 // ------------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function which validates whether a bridge is safe to walk on (i.e. has no gaps in it to fall through).
@@ -1604,7 +1604,7 @@ function subReddit(str){
 // console.log(isSafeBridge("#")) //➞ true
 // Notes
 // You can expect the bridge's ends connecting it to its surrounding.
-function isSafeBridge(str){
+function isSafeBridge(str) {
     return !str.includes(" ")
 }
 // ----------------------------------------------------------------------------------------------------------------------
@@ -1620,10 +1620,10 @@ function isSafeBridge(str){
 // All letters will be in lowercase.
 // All three words will be different.
 // Remember that the string word is in the middle.
-function isBetween(first,last,middle){
-    if(middle.localeCompare(first) > 0 && middle.localeCompare(last) < 0){
+function isBetween(first, last, middle) {
+    if (middle.localeCompare(first) > 0 && middle.localeCompare(last) < 0) {
         return true
-    }else{
+    } else {
         return false
     }
 }
@@ -1638,20 +1638,20 @@ function isBetween(first,last,middle){
 // console.log(replaceVowels("shakespeare", "*")) //➞ "sh*k*sp**r*"
 // Notes
 // All characters will be in lower case.
-function replaceVowels(str,rWord){
+function replaceVowels(str, rWord) {
     let res = ""
-    for(let i = 0 ; i < str.length ; i++){
-        if(str[i]=="a" || str[i]=="e" || str[i]=="i" || str[i]=="o" || str[i]=="u"){
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == "a" || str[i] == "e" || str[i] == "i" || str[i] == "o" || str[i] == "u") {
             res += rWord
-        }else{
+        } else {
             res += str[i]
         }
     }
     return res
 }
 
-function replaceVowels(str,rWord){
-    return str.replace(/[aeiou]/g,rWord)
+function replaceVowels(str, rWord) {
+    return str.replace(/[aeiou]/g, rWord)
 }
 // -------------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that adds a string ending to each member in an array.
@@ -1669,12 +1669,12 @@ function replaceVowels(str,rWord){
 // Don't forget to return the result.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function addEnding(arr,char){
-    let res = arr.map(item =>  item += char)
+function addEnding(arr, char) {
+    let res = arr.map(item => item += char)
     return res
 }
-function addEnding(arr,char){
-    for(let i = 0 ; i < arr.length ; i++){
+function addEnding(arr, char) {
+    for (let i = 0; i < arr.length; i++) {
         arr[i] += char
     }
     return arr
@@ -1690,22 +1690,22 @@ function addEnding(arr,char){
 // console.log(isFourLetters(["Ryan", "Kieran", "Jason", "Matt"])) //➞ ["Ryan", "Matt"]
 // Notes
 // You can expect valid strings for all test cases.
-function isFourLetters(arr){
+function isFourLetters(arr) {
     let res = arr.filter(item => item.length === 4)
     return res
 }
-function isFourLetters(arr){
+function isFourLetters(arr) {
     let res = []
-    for(let item of arr){
-        if(item.length == 4){
+    for (let item of arr) {
+        if (item.length == 4) {
             res.push(item)
         }
     }
     return res
 }
-function isFourLetters(arr){
+function isFourLetters(arr) {
     let res = []
-    for(let i in arr){
+    for (let i in arr) {
         // if(arr[i].length == 4){
         //     res.push(arr[i])
         // }
@@ -1713,7 +1713,7 @@ function isFourLetters(arr){
     }
     return res
 }
-function isFourLetters(arr){
+function isFourLetters(arr) {
     let res = [];
     // for(let i = 0 ; i < arr.length ; i++){
     //     arr[i].length == 4 ? res.push(arr[i]) : i
@@ -1746,15 +1746,15 @@ function isFourLetters(arr){
 // console.log(retrievePatch("2.1.0")) //➞ "0"
 // Notes
 // N/A
-function retrieveMajor(str){
+function retrieveMajor(str) {
     let res = str.split(".")
     return res[0]
 }
-function retrieveMinor(str){
+function retrieveMinor(str) {
     let res = str.split(".")
     return res[1]
 }
-function retrievePatch(str){
+function retrievePatch(str) {
     let res = str.split(".")
     return res[2]
 }
@@ -1773,7 +1773,7 @@ function retrievePatch(str){
 // console.log(AlphabetSoup("javascript")) //➞ "aacijprstv"
 // Notes
 // You can assume numbers and punctuation symbols won't be included in test cases. You'll only have to deal with single word, alphabetic characters.
-function AlphabetSoup(str){
+function AlphabetSoup(str) {
     let arr = str.split("")
     let res = arr.sort().join("")
     return res
@@ -1789,14 +1789,14 @@ function AlphabetSoup(str){
 // console.log(reverse("Edabit is really helpful!")) //➞ "!lufpleh yllaer si tibadE"
 // Notes
 // You can expect a valid string for all test cases.
-function reverse(str){
+function reverse(str) {
     let arr = str.split("")
     let res = arr.reverse().join("")
     return res
 }
-function reverse(str){
+function reverse(str) {
     let res = ""
-    for(let i = str.length-1 ; i >= 0 ; i--){
+    for (let i = str.length - 1; i >= 0; i--) {
         res += str[i]
     }
     return res
@@ -1817,7 +1817,7 @@ function reverse(str){
 // Notes
 // All letters will be lowercase.
 function removeVowels(str) {
-  return str.replace(/[a,e,i,o,u]/g, "")
+    return str.replace(/[a,e,i,o,u]/g, "")
 }
 // -----------------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that returns the smaller number.
@@ -1833,16 +1833,16 @@ function removeVowels(str) {
 // If both numbers tie, return either number.
 // Numbers will be positive.
 // Bonus: See if you can do this without converting to integers.
-function smallerNum(str1,str2){
-    if(parseInt(str1)<parseInt(str2)){
+function smallerNum(str1, str2) {
+    if (parseInt(str1) < parseInt(str2)) {
         return str1
-    }else{
+    } else {
         return str2
-    }   
+    }
 }
-function smallerNum(str1,str2){
-    let arr = [str1,str2]
-    let res = arr.sort((a,b) => a-b)
+function smallerNum(str1, str2) {
+    let arr = [str1, str2]
+    let res = arr.sort((a, b) => a - b)
     return res[0]
 }
 // -------------------------------------------------------------------------------------------------------------------
@@ -1859,9 +1859,9 @@ function smallerNum(str1,str2){
 // Don't forget to return your result as a string.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function Go(num){
+function Go(num) {
     let res = "";
-    for(let i = 0 ; i < num ; i++){
+    for (let i = 0; i < num; i++) {
         res += "-"
     }
     return res
@@ -1877,7 +1877,7 @@ function Go(num){
 // console.log(reverseCapitalize("input")) //➞ "TUPNI"
 // Notes
 // N/A
-function reverseCapitalize(str){
+function reverseCapitalize(str) {
     let arr = str.toUpperCase().split("")
     let res = arr.reverse()
     return res.join("")
@@ -1894,24 +1894,24 @@ function reverseCapitalize(str){
 // Notes
 // If none of the words match, return an empty array.
 // Keep the filtered array in the same relative order as the original array of words.
-function dictionary(char,arr){
+function dictionary(char, arr) {
     let res = arr.filter(item => item.includes(char))
     return res
 }
-function dictionary(char,arr){
+function dictionary(char, arr) {
     let res = [];
-    for(let i = 0 ; i < arr.length ; i++){
-        if(arr[i].includes(char)){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(char)) {
             res.push(arr[i])
         }
     }
     return res
 }
-function dictionary(char,arr){
+function dictionary(char, arr) {
     let res = [];
     arr.map(item => item.includes(char) ? res.push(item) : item)
-    return res 
-    
+    return res
+
 }
 // -------------------------------------------------------------------------------------------------------
 // Question)=> Create a function that takes two strings and returns true if the first string ends with the second string; otherwise return false.
@@ -1928,7 +1928,7 @@ function dictionary(char,arr){
 // console.log(checkEnding("convention", "tio")) //➞ false
 // // Notes
 // All test cases are valid one word strings.
-function checkEnding(str1,str2){
+function checkEnding(str1, str2) {
     return str1.endsWith(str2)
 }
 // ----------------------------------------------------------------------------------------------------------------------
@@ -1944,7 +1944,7 @@ function checkEnding(str1,str2){
 // There will be exactly one space between the first and last name.
 // If you get stuck on a challenge, find help in the Resources tab.
 // If you're really stuck, unlock solutions in the Solutions tab.
-function nameShuffle(str){
+function nameShuffle(str) {
     let arr = str.split(" ")
     let res = arr.reverse();
 
@@ -1963,12 +1963,12 @@ function nameShuffle(str){
 // console.log(sameCase("ketcHUp")) //➞ false
 // Notes
 // N/A
-function sameCase(str){
-    if(str == str.toUpperCase()){
+function sameCase(str) {
+    if (str == str.toUpperCase()) {
         return true
-    }else if(str == str.toLowerCase()){
+    } else if (str == str.toLowerCase()) {
         return true
-    }else{
+    } else {
         return false
     }
 }
@@ -1985,15 +1985,15 @@ function sameCase(str){
 // console.log(isInOrder("xyzz")) //➞ true
 // // Notes
 // You don't have to handle empty strings.
-function isInOrder(str){
-    for(let i = 0 ; i < str.length ; i++){
-        if(str.charCodeAt(i) > str.charCodeAt(i+1)){
+function isInOrder(str) {
+    for (let i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) > str.charCodeAt(i + 1)) {
             return false
         }
     }
     return true
 }
-function isInOrder(str){
+function isInOrder(str) {
     let sortedStr = str.split("").sort().join("")
     return str === sortedStr
 }
@@ -2015,9 +2015,9 @@ function isInOrder(str){
 // console.log(checkPalindrome("stressed")) //➞ false
 // Notes
 // All test input is lower cased.
-function checkPalindrome(str){
-    if(str[0] == str[str.length-1]){
-        return  true
+function checkPalindrome(str) {
+    if (str[0] == str[str.length - 1]) {
+        return true
     }
     return false
 }
@@ -2040,8 +2040,8 @@ function checkPalindrome(str){
 // console.log(isStrangePair("", "")) //➞ true
 // Notes
 // It should work on a pair of empty strings (they trivially share nothing).
-function isStrangePair(str1,str2){
-    if(str1[0] == str2[str2.length-1] && str1[str1.length-1] == str2[0]){
+function isStrangePair(str1, str2) {
+    if (str1[0] == str2[str2.length - 1] && str1[str1.length - 1] == str2[0]) {
         return true
     }
     return false
@@ -2063,7 +2063,7 @@ function isStrangePair(str1,str2){
 // ➞ []
 // Notes
 // Return an empty array for an empty string.
-function toArray(str){
+function toArray(str) {
     let res = str.split(",")
     return res
 }
@@ -2079,9 +2079,9 @@ function toArray(str){
 // Notes
 // The string must start with "Ed" and end with "bit".
 // You'll only be given integers as test input.
-function howManyTimes(n){
+function howManyTimes(n) {
     let str = ""
-    for(let i = 0 ; i < n ; i++){
+    for (let i = 0; i < n; i++) {
         str += "a"
     }
     let res = `Ed${str}bit`
@@ -2098,29 +2098,29 @@ function howManyTimes(n){
 // console.log(repeat("stop", 1)) //➞ "stop"
 // Notes
 // N/A
-function repeat(str,n){
+function repeat(str, n) {
     let res = ""
     let char = ""
-    for(let i = 0 ; i < str.length ; i++){
+    for (let i = 0; i < str.length; i++) {
         char = str[i]
-        for(let j = 0 ; j < n ; j++){
+        for (let j = 0; j < n; j++) {
             res += char
         }
     }
     return res
 
 }
-function createStr(char,num){
+function createStr(char, num) {
     let res = "";
-    for(let i = 0 ; i < num ; i++){
+    for (let i = 0; i < num; i++) {
         res += char
     }
     return res
 }
-function repeat(str,n){
+function repeat(str, n) {
     let res = "";
-    for(let i = 0 ; i < str.length ; i++){
-        res += createStr(str[i],n)
+    for (let i = 0; i < str.length; i++) {
+        res += createStr(str[i], n)
     }
     return res
 }
@@ -2141,12 +2141,12 @@ function repeat(str,n){
 // console.log(googlify(-2)) //➞ "invalid"
 // // Notes
 // If n is equal to or less than 1, return invalid.
-function googlify(num){
-    if(num <= 1){
+function googlify(num) {
+    if (num <= 1) {
         return "invalid"
     }
     let str = ""
-    for(let i = 0 ; i < num ; i++){
+    for (let i = 0; i < num; i++) {
         str += "o"
     }
     let res = `G${str}gle`
@@ -2181,20 +2181,230 @@ function googlify(num){
 // Question)=> rite a function that returns true if all characters in a string are identical and false otherwise.
 
 // Examples
-console.log(isIdentical("aaaaaa")) //➞ true
+// console.log(isIdentical("aaaaaa")) //➞ true
 
-console.log(isIdentical("aabaaa")) //➞ false
+// console.log(isIdentical("aabaaa")) //➞ false
 
-console.log(isIdentical("ccccca")) //➞ false
+// console.log(isIdentical("ccccca")) //➞ false
 
-console.log(isIdentical("kk")) //➞ true
+// console.log(isIdentical("kk")) //➞ true
 // Notes
 // N/A
-function isIdentical(str){
-    for(let i = 1 ; i < str.length ; i++){
-        if(str[i-1] !== str[i]){
+function isIdentical(str) {
+    // for(let i = 1 ; i < str.length ; i++){
+    //     if(str[i-1] !== str[i]){
+    //         return false
+    //     }
+    // }
+    for (let i = 0; i < str.length; i++) {
+        if (str[0] !== str[i]) {
             return false
         }
     }
     return true
+}
+// ------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that removes any non-letters from a string, returning a well-known film title.
+
+// Examples
+// console.log(lettersOnly("R!=:~0o0./c&}9k`60=y")) //➞ "Rocky"
+
+// console.log(lettersOnly("^,]%4B|@56a![0{2m>b1&4i4")) //➞ "Bambi"
+
+// console.log(lettersOnly("^U)6$22>8p).")) //➞ "Up"
+// Notes
+// See the Resources section for more information on JavaScript string methods.
+function lettersOnly(str) {
+    return str.replace(/[^a-zA-Z]/g, "");
+}
+function lettersOnly(str) {
+    let res = ""
+    for (let i = 0; i < str.length; i++) {
+        if ((str[i] > "a" && str[i] < "z") || (str[i] > "A" && str[i] < "Z")) {
+            res += str[i]
+        }
+    }
+    return res
+}
+// -------------------------------------------------------------------------------------------------
+// Question)=> Write a function that reverses a string. Make your function recursive.
+
+// Examples
+// console.log(reverse("hello")) //➞ "olleh"
+
+// console.log(reverse("world")) //➞ "dlrow"
+
+// console.log(reverse("a")) //➞ "a"
+
+// console.log(reverse("")) //➞ ""
+// Notes
+// For non-base cases, your function must call itself at least once.
+// Check the Resources tab for info on recursion.
+function reverse(str) {
+    if (str.length <= 0) {
+        return str
+    }
+    return str[str.length - 1] + reverse(str.slice(0, -1))
+}
+function reverse(str) {
+    let res = str.split("")
+    return res.reverse().join("")
+}
+function reverse(str) {
+    let res = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        res += str[i]
+    }
+    return res
+}
+// --------------------------------------------------------------------------------------------------------------
+// Question)=> Create the instance properties fullname and email in the Employee class. Given a person's first and last names:
+
+// Form the fullname by simply joining the first and last name together, separated by a space.
+// Form the email by joining the first and last name together with a . in between, and follow it with @company.com at the end. Make sure the entire email is in lowercase.
+// // Examples
+// emp1 = Employee("John", "Smith")
+// console.log(emp1.fullname) //➞ "John Smith"
+
+// emp2 = Employee("Mary",  "Sue")
+// console.log(emp2.email) //➞ "mary.sue@company.com"
+
+// emp3 = Employee("Antony", "Walker")
+// console.log(emp3.firstname) //➞ "Antony"
+// Notes
+// The properties firstname and lastname are already made for you.
+// See the Resources tab for some helpful tutorials on JavaScript classes!
+function Employee(firstName, lastName) {
+    let obj = {
+        fullname: firstName + lastName,
+        email: `${firstName}.${lastName}@company.com`,
+        firstname: firstName,
+        lastname: lastName
+    }
+    return obj
+}
+// ----------------------------------------------------------------------------------------------------------------
+// Given two strings, create a function that returns the total number of unique characters from the combined string.
+
+// Examples
+// console.log(countUnique("apple", "play")) //➞ 5
+// // // "appleplay" has 5 unique characters:
+// // // "a", "e", "l", "p", "y"
+
+// console.log(countUnique("sore", "zebra")) //➞ 7
+// // // "sorezebra" has 7 unique characters:
+// // // "a", "b", "e", "o", "r", "s", "z"
+
+// console.log(countUnique("a", "soup")) //➞ 5
+// Notes
+// Each word will contain at least one letter.
+// All words will be lower cased.
+function countUnique(str1, str2) {
+    let combined = str1 + str2;
+
+    let uniqueSet = new Set(combined);
+    return uniqueSet.size
+}
+function countUnique(str1,str2){
+    let combined = str1+str2;
+    let res = "";
+
+    for(let i = 0 ; i < combined.length ; i++){
+        if(!res.includes(combined[i])){
+            res += combined[i]
+        }
+    }
+    return res.length
+}
+// -----------------------------------------------------------------------------------------------------------------
+// Question)=> In this exercise you will have to:
+
+// Take a list of names.
+// Add "Hello" to every name.
+// Make one big string with all greetings.
+// The solution should be one string with a comma in between every "Hello (Name)".
+
+// // Examples
+// console.log(greetPeople(["Joe"])) //➞ "Hello Joe"
+
+// console.log(greetPeople(["Angela", "Joe"])) //➞ "Hello Angela, Hello Joe"
+
+// console.log(greetPeople(["Frank", "Angela", "Joe"])) //➞ "Hello Frank, Hello Angela, Hello Joe"
+// Notes
+// Each greeting has to be separated with a comma and a space.
+// If you're given an empty array [], return an empty string "".
+function greetPeople(arr){
+    if(arr.length == 0){
+        return ""
+    }
+    let res = "Hello "+arr.join(", ")
+    return res
+}
+// -------------------------------------------------------------------------------------------------------------------
+// Question)=> Write a function that returns the lexicographically first and lexicographically last rearrangements of a lowercase string. Output the results in the following manner:
+
+// console.log(firstAndLast(string)) //➞ [first, last]
+// // Examples
+// console.log(firstAndLast("marmite")) //➞ ["aeimmrt", "trmmiea"]
+
+// console.log(firstAndLast("bench")) //➞ ["bcehn", "nhecb"]
+
+// console.log(firstAndLast("scoop")) //➞ ["coops", "spooc"]
+// Notes
+// Lexicographically first: the permutation of the string that would appear first in the English dictionary (if the word existed).
+// Lexicographically last: the permutation of the string that would appear last in the English dictionary (if the word existed).
+function firstAndLast(str){
+    let first = str.split("").sort();
+
+    return [first.join(""),first.reverse().join("")]
+
+}
+// -----------------------------------------------------------------------------------------------------------
+// A word has been split into a left part and a right part. Re-form the word by adding both halves together, changing the first character to an uppercase letter.
+
+// Examples
+// console.log(getWord("seas", "onal")) //➞ "Seasonal"
+
+// console.log(getWord("comp", "lete")) //➞ "Complete"
+
+// console.log(getWord("lang", "uage")) //➞ "Language"
+// Notes
+// N/A
+function getWord(str1,str2){
+    let res = str1+str2;
+    let firstChar = res[0].toUpperCase();
+    let restStr = res.slice(1)
+    return firstChar+restStr
+}
+// ------------------------------------------------------------------------------------------------------------------
+// A word is on the loose and now has tried to hide amongst a crowd of tall letters! Help write a function to detect what the word is, knowing the following rules:
+
+// The wanted word is in lowercase.
+// The crowd of letters is all in uppercase.
+// Note that the word will be spread out amongst the random letters, but their letters remain in the same order.
+// Examples
+console.log(detectWord("UcUNFYGaFYFYGtNUH")) //➞ "cat"
+
+console.log(detectWord("bEEFGBuFBRrHgUHlNFYaYr")) //➞ "burglar"
+
+console.log(detectWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment")) //➞ "embezzlement"
+// Notes
+// N/A
+function detectWord(str){
+    let res = "";
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] == str[i].toLowerCase()){
+            res += str[i]
+        }
+    }
+    return res
+}
+function detectWord(str){
+    let res = ""
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i]>="a" && str[i]<"z"){
+            res += str[i]
+        }
+    }
+    return res
 }
