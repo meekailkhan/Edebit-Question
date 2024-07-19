@@ -2383,11 +2383,11 @@ function getWord(str1,str2){
 // The crowd of letters is all in uppercase.
 // Note that the word will be spread out amongst the random letters, but their letters remain in the same order.
 // Examples
-console.log(detectWord("UcUNFYGaFYFYGtNUH")) //➞ "cat"
+// console.log(detectWord("UcUNFYGaFYFYGtNUH")) //➞ "cat"
 
-console.log(detectWord("bEEFGBuFBRrHgUHlNFYaYr")) //➞ "burglar"
+// console.log(detectWord("bEEFGBuFBRrHgUHlNFYaYr")) //➞ "burglar"
 
-console.log(detectWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment")) //➞ "embezzlement"
+// console.log(detectWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment")) //➞ "embezzlement"
 // Notes
 // N/A
 function detectWord(str){
@@ -2412,10 +2412,19 @@ function detectWord(str){
 // Question)=> Create a function that takes two strings as arguments and returns the number of times the first string (the single character) is found in the second string.
 
 // Examples
-// charCount("a", "edabit") ➞ 1
+console.log(charCount("a", "edabit")) //➞ 1
 
-// charCount("c", "Chamber of secrets") ➞ 1
+console.log(charCount("c", "Chamber of secrets")) //➞ 1
 
-// charCount("b", "big fat bubble") ➞ 4
+console.log(charCount("b", "big fat bubble")) //➞ 4
 // Notes
 // Your output must be case-sensitive (see second example).
+function charCount(char,str){
+    let res = 0;
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] == char){
+            res++
+        }
+    }
+    return res
+}
