@@ -2377,54 +2377,5 @@ function getWord(str1,str2){
     return firstChar+restStr
 }
 // ------------------------------------------------------------------------------------------------------------------
-// A word is on the loose and now has tried to hide amongst a crowd of tall letters! Help write a function to detect what the word is, knowing the following rules:
 
-// The wanted word is in lowercase.
-// The crowd of letters is all in uppercase.
-// Note that the word will be spread out amongst the random letters, but their letters remain in the same order.
-// Examples
-// console.log(detectWord("UcUNFYGaFYFYGtNUH")) //➞ "cat"
-
-// console.log(detectWord("bEEFGBuFBRrHgUHlNFYaYr")) //➞ "burglar"
-
-// console.log(detectWord("YFemHUFBbezFBYzFBYLleGBYEFGBMENTment")) //➞ "embezzlement"
-// Notes
-// N/A
-function detectWord(str){
-    let res = "";
-    for(let i = 0 ; i < str.length ; i++){
-        if(str[i] == str[i].toLowerCase()){
-            res += str[i]
-        }
-    }
-    return res
-}
-function detectWord(str){
-    let res = ""
-    for(let i = 0 ; i < str.length ; i++){
-        if(str[i]>="a" && str[i]<="z"){
-            res += str[i]
-        }
-    }
-    return res
-}
 // ----------------------------------------------------------------------------------------------------------------------
-// Question)=> Create a function that takes two strings as arguments and returns the number of times the first string (the single character) is found in the second string.
-
-// Examples
-console.log(charCount("a", "edabit")) //➞ 1
-
-console.log(charCount("c", "Chamber of secrets")) //➞ 1
-
-console.log(charCount("b", "big fat bubble")) //➞ 4
-// Notes
-// Your output must be case-sensitive (see second example).
-function charCount(char,str){
-    let res = 0;
-    for(let i = 0 ; i < str.length ; i++){
-        if(str[i] == char){
-            res++
-        }
-    }
-    return res
-}
