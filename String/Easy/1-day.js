@@ -158,3 +158,104 @@ function doubleChar(str){
     return res
 }
 // ------------------------------------------------------------------------------------------------
+// 7.Question)=> Create a function that changes specific words into emoticons. Given a sentence as a string, replace the words smile, grin, sad and mad with their corresponding emoticons.
+
+// word	emoticon
+// smile	:D
+// grin	:)
+// sad	:(
+// mad	:P
+// Examples
+// console.log(emotify("Make me smile")) //➞ "Make me :D"
+
+// console.log(emotify("Make me grin")) //➞ "Make me :)"
+
+// console.log(emotify("Make me sad")) //➞ "Make me :("
+// Notes
+// The sentence always starts with "Make me".
+// Try to solve this without using conditional statements like if/else or switch.
+function emotify(sentence){
+    const imotion = {
+        "smile" : ":D",
+        "grin" : ":)",
+        "sad" : ":(",
+        "mad" : ":P"
+    }
+
+    let word = sentence.split(" ");
+    let lastWord = word[word.length-1];
+    if(imotion[lastWord]){
+        word[word.length-1] = imotion[lastWord]
+    }
+
+    return word.join(" ")
+}
+
+function emotify(sentence){
+    let imotion = {
+        "smile" : ":D",
+        "grin" : ":)",
+        "sad" : ":(",
+        "mad" : ":P"
+    }
+    for(let word in  imotion){
+        if(sentence.includes(word)){
+            return sentence.replace(word,imotion[word])
+        }
+    }
+    return sentence
+}
+// ----------------------------------------------------------------------------------------------------------
+// 8.Questtion)=> Create a function that takes a string and returns the number (count) of vowels contained within it.
+
+// Examples
+console.log(countVowels("Celebration")) //➞ 5
+
+console.log(countVowels("Palm")) //➞ 1
+
+console.log(countVowels("Prediction")) //➞ 4
+// Notes
+// a, e, i, o, u are considered vowels (not y).
+// All test cases are one word and only contain letters.
+function countVowels(str){
+    
+    let vowels = ["a","e","i","o","u"]
+    let res = 0 ;
+    for(let i = 0 ; i < str.length ; i++){
+        if(vowels.includes(str[i])){
+            res++
+        }
+    }
+    return res
+}
+function countVowels(str){
+    let vowels = "aeiouAEIOU";
+    return str.split("").reduce((count,char)=>{
+        return vowels.includes(char) ? count + 1 : count
+    },0)
+}
+
+function countVowels(str){
+    let vowels = "aeiouAEIOU";
+    return str.split("").filter(item => vowels.includes(item)).length
+}
+function countVowels(str){
+    let vowels = "aeiouAEIOU";
+    let count = 0;
+    for(char of str){
+        if(vowels.includes(char)){
+            count++
+        }
+    }
+    return count
+}
+function countVowels(str){
+    let vowels = "aeiouAEIOU";
+    let count = 0;
+    for(index in str){
+        if(vowels.includes(str[index])){
+            count++
+        }
+    }
+    return count
+}
