@@ -209,11 +209,11 @@ function emotify(sentence){
 // 8.Questtion)=> Create a function that takes a string and returns the number (count) of vowels contained within it.
 
 // Examples
-console.log(countVowels("Celebration")) //➞ 5
+// console.log(countVowels("Celebration")) //➞ 5
 
-console.log(countVowels("Palm")) //➞ 1
+// console.log(countVowels("Palm")) //➞ 1
 
-console.log(countVowels("Prediction")) //➞ 4
+// console.log(countVowels("Prediction")) //➞ 4
 // Notes
 // a, e, i, o, u are considered vowels (not y).
 // All test cases are one word and only contain letters.
@@ -260,15 +260,4 @@ function countVowels(str){
     return count
 }
 
-
-// 6.Question)=> Create a function that takes in a current mood and return a sentence in the following format: "Today, I am feeling {mood}". However, if no argument is passed, return "Today, I am feeling neutral".
-
-// Examples
-// moodToday("happy") ➞ "Today, I am feeling happy"
-
-// moodToday("sad") ➞ "Today, I am feeling sad"
-
-// moodToday() ➞ "Today, I am feeling neutral"
-// Notes
-// Check the Resources tab for some helpful information.
 
