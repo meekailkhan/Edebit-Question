@@ -84,3 +84,16 @@ function hashPlusCount(str){
     }
     return [hash,plus]
 }
+function hashPlusCount(str){
+    let [hash,plus] = [0,0]
+    let arr = str.split("");
+    arr.map(item => item == "#" ? hash++ : plus++);
+    return [hash,plus]
+}
+
+function hashPlusCount(str){
+    let hash = str.split("#").length-1;
+    let plus = str.split("+").length-1;
+
+    return [hash,plus]
+}
