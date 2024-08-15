@@ -62,13 +62,13 @@ function reverseCase(str){
 // 11.Question)=> Create a function that returns the number of hashes and pluses in a string.
 
 // Examples
-console.log(hashPlusCount("###+")) //➞ [3, 1]
+// console.log(hashPlusCount("###+")) //➞ [3, 1]
 
-console.log(hashPlusCount("##+++#")) //➞ [3, 3]
+// console.log(hashPlusCount("##+++#")) //➞ [3, 3]
 
-console.log(hashPlusCount("#+++#+#++#")) //➞ [4, 6]
+// console.log(hashPlusCount("#+++#+#++#")) //➞ [4, 6]
 
-console.log(hashPlusCount("")) //➞ [0, 0]
+// console.log(hashPlusCount("")) //➞ [0, 0]
 // Notes
 // Return [0, 0] for an empty string.
 // Return in the order of [hashes, pluses].
@@ -106,4 +106,61 @@ function hashPlusCount(str){
     },[0,0])
 
     return res
+}
+// ---------------------------------------------------------------------------------
+// 12.Question)=> Create a function that finds the word "bomb" in the given string (not case sensitive). If found, return "Duck!!!", otherwise return "There is no bomb, relax.".
+
+// Examples
+// console.log(bomb("There is a bomb.")) //➞ "Duck!!!"
+
+// console.log(bomb("Hey, did you think there is a bomb?")) //➞ "Duck!!!"
+
+// console.log(bomb("This goes boom!!!")) //➞ "There is no bomb, relax."
+// // Notes
+// "bomb" may appear in different cases (i.e. uppercase, lowercase, mixed).
+function bomb(str){
+    let arr = str.split("bomb");
+    if(arr.length > 1){
+        return "Duck!!!"
+    }else{
+        return "There is no bomb, relax."
+    }
+}
+
+function bomb(str){
+    if(str.includes("bomb")){
+        return "Duck!!!"
+    }else{
+        return "There is no bomb, relax."
+    }
+}
+// ---------------------------------------------------------------------
+// 13.Question)=> Create a recursive function that takes two parameters and repeats the string n number of times. The first parameter txt is the string to be repeated and the second parameter is the number of times the string is to be repeated.
+
+// String.prototype.repeat() is not allowed
+
+// Examples
+console.log(repetition("ab", 3)) //➞ "ababab"
+
+console.log(repetition("kiwi", 1)) //➞ "kiwi"
+
+console.log(repetition("cherry", 2)) //➞ "cherrycherry"
+// Notes
+// The second parameter of the function is positive integer.
+function repetition(str,char){
+    if(char == 0) return ""
+    let res = "";
+    res += str;
+    return res+repetition(str,char-1)
+}
+function repetition(str,char){
+    let res = "";
+    for(let i = 0 ; i < char ; i++){
+        res += str
+    }
+    return res
+}
+
+function repetition(str,char){
+    return str.repeat(char)
 }
