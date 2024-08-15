@@ -97,3 +97,13 @@ function hashPlusCount(str){
 
     return [hash,plus]
 }
+
+function hashPlusCount(str){
+    let res = str.split("").reduce((acc,char)=>{
+        if(char == "#") acc[0]++;
+        if(char == "+") acc[1]++;
+        return acc
+    },[0,0])
+
+    return res
+}
