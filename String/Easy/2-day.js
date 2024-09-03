@@ -140,11 +140,11 @@ function bomb(str){
 // String.prototype.repeat() is not allowed
 
 // Examples
-console.log(repetition("ab", 3)) //➞ "ababab"
+// console.log(repetition("ab", 3)) //➞ "ababab"
 
-console.log(repetition("kiwi", 1)) //➞ "kiwi"
+// console.log(repetition("kiwi", 1)) //➞ "kiwi"
 
-console.log(repetition("cherry", 2)) //➞ "cherrycherry"
+// console.log(repetition("cherry", 2)) //➞ "cherrycherry"
 // Notes
 // The second parameter of the function is positive integer.
 function repetition(str,char){
@@ -164,3 +164,45 @@ function repetition(str,char){
 function repetition(str,char){
     return str.repeat(char)
 }
+// -------------------------------------------------------------------------------------------
+// 14.Question)=> Zip codes consist of 5 consecutive digits. Given a string, write a function to determine whether the input is a valid zip code. A valid zip code is as follows:
+
+// Must only contain numbers (no non-digits allowed).
+// Must not contain any spaces.
+// Must not be greater than 5 digits in length.
+// Examples
+console.log(isValid("59001")) //➞ true
+
+console.log(isValid("853a7")) //➞ false
+
+console.log(isValid("732 32")) //➞ false
+
+console.log(isValid("393939")) //➞ false
+// Notes
+// N/A
+function isValid(str){
+    if(str.length <= 5){
+        if(isNaN(str)){
+            return false
+        }else{
+            return true
+        }
+    }
+    return false
+}
+function isValid(str){
+    return str.length === 5 && str.split("").every(char => !isNaN(char))
+}
+
+function isValid(str){
+    if(str.length !== 5){
+        return false
+    }
+    for(let i = 0 ; i < str.length ; i++){
+        if(isNaN(str[i]) || str[i] == " "){
+            return false
+        }
+    }
+    return true
+}
+
