@@ -171,13 +171,13 @@ function repetition(str,char){
 // Must not contain any spaces.
 // Must not be greater than 5 digits in length.
 // Examples
-console.log(isValid("59001")) //➞ true
+// console.log(isValid("59001")) //➞ true
 
-console.log(isValid("853a7")) //➞ false
+// console.log(isValid("853a7")) //➞ false
 
-console.log(isValid("732 32")) //➞ false
+// console.log(isValid("732 32")) //➞ false
 
-console.log(isValid("393939")) //➞ false
+// console.log(isValid("393939")) //➞ false
 // Notes
 // N/A
 function isValid(str){
@@ -206,3 +206,59 @@ function isValid(str){
     return true
 }
 
+function isValid(str){
+    return str.length === 5 && parseInt(str).toString() === str
+}
+
+// -----------------------------------------------------------------------------------------------
+// 15.Question)=> Check if a string title is a title string or not. A title string is one which has all the words in the string start with a upper case letter.
+
+// Examples
+// console.log(checkTitle("A Mind Boggling Achievement"))// ➞ true
+
+// console.log(checkTitle("A Simple Java Script Program!"))// ➞ true
+
+// console.log(checkTitle("Water is transparent")) //➞ false
+// // Notes
+// N/A
+
+function checkTitle(str){
+    let res = str.split(" ").every(char => char[0] == char[0].toUpperCase())
+    return res
+}
+
+function checkTitle(str){
+    let words = str.split(" ");
+    for(let i = 0 ; i < words.length ; i++){
+        if(words[i][0] !== words[i][0].toUpperCase()){
+            return false
+        }
+    }
+    return true
+}
+// -------------------------------------------------------------------------------------------------------
+// 16.Question)=> Transforming Words into Binary Strings
+// Write a function that transforms all letters from [a, m] to 0 and letters from [n, z] to 1 in a string.
+
+// Examples
+console.log(convertBinary("house")) //➞ "01110"
+
+console.log(convertBinary("excLAIM")) //➞ "0100000"
+
+console.log(convertBinary("moon")) //➞ "0111"
+// Notes
+// Conversion should be case insensitive (see example #2).
+
+function convertBinary(str){
+    str = str.toLowerCase();
+    let res = "";
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] >= "a" && str[i] <= "m"){
+            res += "0"
+        }else if(str[i] >= "n" && str[i] <= "z"){
+            res += "1"
+        }
+    }
+
+    return res
+}
