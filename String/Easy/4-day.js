@@ -91,11 +91,11 @@ function convertToDecimal(arr){
 // The given array represents a season of games. Each array item indicates a player's [hits, official at bats] per game. Return a string with the player's seasonal batting average rounded to the nearest thousandth.
 
 // Examples
-console.log(battingAvg([[0, 0], [1, 3], [2, 2], [0, 4], [1, 5]])) //➞ ".286"
+// console.log(battingAvg([[0, 0], [1, 3], [2, 2], [0, 4], [1, 5]])) //➞ ".286"
 
-console.log(battingAvg([[2, 5], [2, 3], [0, 3], [1, 5], [2, 4]])) //➞ ".350"
+// console.log(battingAvg([[2, 5], [2, 3], [0, 3], [1, 5], [2, 4]])) //➞ ".350"
 
-console.log(battingAvg([[2, 3], [1, 5], [2, 4], [1, 5], [0, 5]])) //➞ ".273"
+// console.log(battingAvg([[2, 3], [1, 5], [2, 4], [1, 5], [0, 5]])) //➞ ".273"
 // Notes
 // The number of hits will not exceed the number of official at-bats.
 // The array includes official at-bats only. No other plate-appearances (walks, hit-by-pitches, sacrifices, etc.) are included in the array.
