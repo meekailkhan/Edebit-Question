@@ -42,7 +42,7 @@ class voteCounter{
 // This challenge is a bit different as the function you are given already contains some code that you should not change or remove. Also, don't do a return statement, it is already included. Your task is, given an object, prevent changes to that object.
 
 // Examples
-const obj = { noChanges: true }
+// const obj = { noChanges: true }
 
 // preventChanges(obj) {
 //   // Write your code here, don't use a return statement
@@ -64,4 +64,52 @@ function preventChanges(obj){
 
 }
 
-console.log(preventChanges(obj))
+// console.log(preventChanges(obj));
+// -----------------------------------------------------------------------------------------------------------
+// 3.Question)=> volume of a Box
+// Create a function that takes an object argument sizes (contains width, length, height keys) and returns the volume of the box.
+
+// Examples
+// console.log(volumeOfBox({ width: 2, length: 5, height: 1 })) //➞ 10
+
+// console.log(volumeOfBox({ width: 4, length: 2, height: 2 })) //➞ 16
+
+// console.log(volumeOfBox({ width: 2, length: 3, height: 5 })) //➞ 30
+// Notes
+// Don't forget to return the result.
+// Remember that the values are in an object.
+// Volume is length * width * height.
+
+function volumeOfBox(obj){
+    let res = obj.width * obj.length * obj.height;
+    return res
+}
+
+function volumeOfBox({width,length,height}){
+    let res = width * length * height;
+    return res
+}
+
+// ------------------------------------------------------------------------------------------------
+// 50-30-20 Strategy
+// The 50-30-20 strategy is a simple way to budget, which involves spending 50% of after-tax income on needs, 30% after tax income on wants, and 20% after-tax income on savings or paying off debt.
+
+// Given the after-tax income as ati, what you are supposed to do is to make a function that will return an object that shows how much a person needs to spend on needs, wants, and savings.
+
+// Examples
+console.log(fiftyThirtyTwenty(10000)) //➞ { "Needs": 5000, "Wants": 3000, "Savings": 2000 }
+
+console.log(fiftyThirtyTwenty(50000)) //➞ { "Needs": 25000, "Wants": 15000, "Savings": 10000 }
+
+console.log(fiftyThirtyTwenty(13450)) //➞ { "Needs": 6725, "Wants": 4035, "Savings": 2690 }
+// Notes
+// N/A
+
+function fiftyThirtyTwenty(budget){
+    let obj = {
+        "Needs" : budget/100*50,
+        "Wants" : budget/100*30,
+        "Saving" : budget/100*20 
+    }
+    return obj
+}
