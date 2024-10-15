@@ -91,17 +91,17 @@ function volumeOfBox({width,length,height}){
 }
 
 // ------------------------------------------------------------------------------------------------
-// 50-30-20 Strategy
+// 4.Question)=> 50-30-20 Strategy
 // The 50-30-20 strategy is a simple way to budget, which involves spending 50% of after-tax income on needs, 30% after tax income on wants, and 20% after-tax income on savings or paying off debt.
 
 // Given the after-tax income as ati, what you are supposed to do is to make a function that will return an object that shows how much a person needs to spend on needs, wants, and savings.
 
 // Examples
-console.log(fiftyThirtyTwenty(10000)) //➞ { "Needs": 5000, "Wants": 3000, "Savings": 2000 }
+// console.log(fiftyThirtyTwenty(10000)) //➞ { "Needs": 5000, "Wants": 3000, "Savings": 2000 }
 
-console.log(fiftyThirtyTwenty(50000)) //➞ { "Needs": 25000, "Wants": 15000, "Savings": 10000 }
+// console.log(fiftyThirtyTwenty(50000)) //➞ { "Needs": 25000, "Wants": 15000, "Savings": 10000 }
 
-console.log(fiftyThirtyTwenty(13450)) //➞ { "Needs": 6725, "Wants": 4035, "Savings": 2690 }
+// console.log(fiftyThirtyTwenty(13450)) //➞ { "Needs": 6725, "Wants": 4035, "Savings": 2690 }
 // Notes
 // N/A
 
@@ -112,4 +112,71 @@ function fiftyThirtyTwenty(budget){
         "Saving" : budget/100*20 
     }
     return obj
+}
+
+// ---------------------------------------------------------------------------------------------
+// QuestionLuke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
+
+// Person	Relation
+// Darth Vader	father
+// Leia	sister
+// Han	brother in law
+// R2D2	droid
+// Examples
+console.log(relationToLuke("Darth Vader")) //➞ "Luke, I am your father."
+
+console.log(relationToLuke("Leia")) //➞ "Luke, I am your sister."
+
+console.log(relationToLuke("Han")) //➞ "Luke, I am your brother in law."
+// Notes
+// N/A
+function relationToLuke(str){
+    let obj = {
+        "Darth Vader" : "Luke, I am your father.",
+        "Leia" : "Luke, I am your sister.",
+        "Han" : "Luke, I am your brother in law.",
+        "R2D2" : "Luke, I am your droid"
+    }
+
+    return obj[str]
+}
+
+function relationToLuke(str){
+    let obj = {
+        "Darth Vader" : "father.",
+        "Leia" : "sister.",
+        "Han" : "brother in law.",
+        "R2D2" : "droid"
+    }
+
+    return obj[str] ? `Luke, I am your ${obj[str]}` : `Luke, dosent know this person`
+}
+
+function relationToLuke(str){
+    let obj = {
+        "Darth Vader" : "father.",
+        "Leia" : "sister.",
+        "Han" : "brother in law.",
+        "R2D2" : "droid"
+    }
+    switch(str){
+        case "Darth Vader":
+        case "Leia":
+        case "Han":
+        case "droid":
+            return `Luke, I am your ${obj[str]}`;
+        default:
+            return "Luke dont know this person"
+    }
+}
+
+function relationToLuke(str){
+    let obj = {
+        "Darth Vader" : "father.",
+        "Leia" : "sister.",
+        "Han" : "brother in law.",
+        "R2D2" : "droid"
+    }
+
+    return `Luke, I am your ${obj[str] ??"unknown"}`
 }
