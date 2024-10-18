@@ -115,7 +115,7 @@ function fiftyThirtyTwenty(budget){
 }
 
 // ---------------------------------------------------------------------------------------------
-// QuestionLuke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
+// 6.Question)=> Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
 
 // Person	Relation
 // Darth Vader	father
@@ -123,11 +123,11 @@ function fiftyThirtyTwenty(budget){
 // Han	brother in law
 // R2D2	droid
 // Examples
-console.log(relationToLuke("Darth Vader")) //➞ "Luke, I am your father."
+// console.log(relationToLuke("Darth Vader")) //➞ "Luke, I am your father."
 
-console.log(relationToLuke("Leia")) //➞ "Luke, I am your sister."
+// console.log(relationToLuke("Leia")) //➞ "Luke, I am your sister."
 
-console.log(relationToLuke("Han")) //➞ "Luke, I am your brother in law."
+// console.log(relationToLuke("Han")) //➞ "Luke, I am your brother in law."
 // Notes
 // N/A
 function relationToLuke(str){
@@ -180,3 +180,130 @@ function relationToLuke(str){
 
     return `Luke, I am your ${obj[str] ??"unknown"}`
 }
+
+
+// ---------------------------------------------------------------------------------------------------
+// 7.Question)=> Extract City Facts
+// Create a function that takes an object as an argument and returns a string with facts about the city. The city facts will need to be extracted from the object's three properties:
+
+// name
+// population
+// continent
+// The string should have the following format: X has a population of Y and is situated in Z (where X is the city name, Y is the population and Z is the continent the city is situated in).
+
+// Examples
+// console.log(cityFacts({
+//   name: "Paris",
+//   population: "2,140,526",
+//   continent: "Europe"
+// })) //➞ "Paris has a population of 2,140,526 and is situated in Europe"
+
+// console.log(cityFacts({
+//   name: "Tokyo",
+//   population: "13,929,286",
+//   continent: "Asia"
+// })) //➞ "Tokyo has a population of 13,929,286 and is situated in Asia"
+// Notes
+// Don't add a period at the end.
+
+function cityFacts({name,population,continent}){
+    return `${name} has a population of ${population} and is situated in ${continent}`
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// 8.Question)=> Destructuring Assignment
+// You can assign variables from arrays like this:
+
+// arr = [1, 2, 3, 4, 5, 6, 7, 8]
+// first = arr[0]
+// second = arr[1]
+// third = arr[2]
+// other = arr.slice(3)
+
+// console.log(first) ➞ outputs 1
+// console.log(second) ➞ outputs 2
+// console.log(third) ➞ outputs 3
+// console.log(other) ➞ outputs [4, 5, 6, 7, 8]
+// However, this is long and tedious. Instead, we can use Object Destructuring to create all those variables in one line. Your task: Create variables first, second, third and other from the given array using Destructuring Assignment (check the Resources tab for some examples).
+
+// Examples
+// first ➞ 1
+
+// second ➞ 2
+
+// third ➞ 3
+
+// other ➞ [4, 5, 6, 7, 8]
+// Your task is to unpack the arr writeyourcodehere into four variables, first, second, third, and other.
+
+// Notes
+// Your solution should be just One Line of code.
+// If your solution is longer than one line of code, please check the Resources tab.
+// Another version of this challenge.
+let arr = [1,2,3,4,5,6,7,8];
+let [first,second,third,...other] = arr
+
+// console.log(first) //➞ outputs 1
+// console.log(second) //➞ outputs 2
+// console.log(third) //➞ outputs 3
+// console.log(other) //➞ outputs [4, 5, 6, 7, 8]
+// ---------------------------------------------------------------------------------------------------------
+// 9.Question)=> Using basic object destructuring you can assign variables name and email:
+
+// let { name, email } = { name: "John", email: "john@example.com" }
+
+// console.log(name)  // "John"
+// console.log(email)  // "john@example.com"
+// What if there were more properties but you didn't want to write variables for all of them and just wanted to stick them into another object and do something like this:
+
+// let { name, email, rest} = { name: "John", email: "john@example.com", city: "Phoenix", state: "AZ", country: "USA"}
+
+// rest ===  { city: "Phoenix", state: "AZ", country: "USA"} // true
+// There is something you have to do with the variable name rest in order to assign it an object containing the rest of the object properties. You can find out how in the MDN docs in the Resources tab.
+
+// Use the rest syntax to change the code so that rest = {city: "Phoenix", state: "AZ", address: "USA"}. Only edit the left side of the assignment { name, email, rest }. Ignore the .toString() function (used for validation).
+
+// Notes
+// If you know how to use object destructuring, go ahead and complete this challenge, otherwise check the Resources tab for some examples
+
+let { name, email, ...rest} = { name: "John", email: "john@example.com", city: "Phoenix", state: "AZ", country: "USA"}
+
+// console.log(name);
+// console.log(email);
+// console.log(rest)
+// ------------------------------------------------------------------------------------------------------------------------
+// Burglary Series (14): Adjectives Total
+// You call your spouse in anger and a "little" argument takes place. Count the total amount of insults used. Given an object of insults, return the total amount of insults used.
+
+// Examples
+// console.log(totalAmountAdjectives({ a: "moron" })) //➞ 1
+
+// console.log(totalAmountAdjectives({ a: "idiot", b: "idiot", c: "idiot" })) //➞ 3
+
+// console.log(totalAmountAdjectives({ a: "moron", b: "scumbag", c: "moron", d: "dirtbag" })) //➞ 4
+// Notes
+// The list will never be empty (no empty object).
+function totalAmountAdjectives(obj){
+    // let arr = Object.keys(obj);
+    // let arr = Object.values(obj)
+    let arr = Object.entries(obj)
+    return arr.length
+}
+function totalAmountAdjectives(obj){
+    let count = 0;
+    for(key in obj){
+        count++
+    }
+    return count
+}
+// -----------------------------------------------------------------------------------------------------------------
+// 10.Question)=> ES6: Destructuring Objects III
+const obj =  {two : 2 }
+
+var { one=1, two } = obj
+
+// console.log(one) // outputs undefined
+// Sometimes an object will be missing properties we are expecting. We can avoid undefined errors by using default values. Use ES6 object destructuring to add a default value of 1 to the one variable. Ignore the .toString() function (used for validation).
+
+// Notes
+// If you know how to use object destructuring, go ahead and complete this challenge, otherwise check the Resources tab for some examples.
+// --------------------------------------------------------------------------------------------------------------------------
