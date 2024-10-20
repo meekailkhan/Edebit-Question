@@ -115,11 +115,11 @@ function signYourName(obj){
 // Given an object of the stolen items and a limit, return the difference between the total value of those items and the limit of the policy.
 
 // Examples
-console.log(calculateDifference({ "baseball bat": 20 }, 5)) //➞ 15
+// console.log(calculateDifference({ "baseball bat": 20 }, 5)) //➞ 15
 
-console.log(calculateDifference({ skate: 10, painting: 20 }, 19)) //➞ 11
+// console.log(calculateDifference({ skate: 10, painting: 20 }, 19)) //➞ 11
 
-console.log(calculateDifference({ skate: 200, painting: 200, shoes: 1 }, 400)) //➞ 1
+// console.log(calculateDifference({ skate: 200, painting: 200, shoes: 1 }, 400)) //➞ 1
 // Notes
 // The object will always contain items (no empty objects).
 // The sum of the items will always be greater than the limit.
@@ -148,4 +148,104 @@ function calculateDifference(obj,num){
     let res = 0;
     arr.map(item => res += item)
     return res - num
+}
+// -----------------------------------------------------------------------------------------------------------------------
+// Scrabble Hand
+// Given an array of scrabble tiles, create a function that outputs the maximum possible score a player can achieve by summing up the total number of points for all the tiles in their hand. Each hand contains 7 scrabble tiles.
+
+// Here's an example hand:
+
+// [
+//   { tile: "N", score: 1 },
+//   { tile: "K", score: 5 },
+//   { tile: "Z", score: 10 },
+//   { tile: "X", score: 8 },
+//   { tile: "D", score: 2 },
+//   { tile: "A", score: 1 },
+//   { tile: "E", score: 1 }
+// ]
+// The players maximumScore from playing all these tiles would be 1 + 5 + 10 + 8 + 2 + 1 + 1, or 28.
+
+// Examples
+// console.log(maximumScore([
+//   { tile: "N", score: 1 },
+//   { tile: "K", score: 5 },
+//   { tile: "Z", score: 10 },
+//   { tile: "X", score: 8 },
+//   { tile: "D", score: 2 },
+//   { tile: "A", score: 1 },
+//   { tile: "E", score: 1 }
+// ])) //➞ 28
+
+// console.log(maximumScore([
+//   { tile: "B", score: 2 },
+//   { tile: "V", score: 4 },
+//   { tile: "F", score: 4 },
+//   { tile: "U", score: 1 },
+//   { tile: "D", score: 2 },
+//   { tile: "O", score: 1 },
+//   { tile: "U", score: 1 }
+// ])) //➞ 15
+// Notes
+// Here, each tile is represented as an object with two keys: tile and score.
+
+function maximumScore(arr){
+    return arr.reduce((acc,val)=> acc + val.score ,0)
+}
+function maximumScore(arr){
+    let res = 0 ;
+    for(let i = 0 ; i < arr.length ; i++){
+        res += arr[i].score
+    }
+    return res
+}
+function maximumScore(arr){
+    let res = 0;
+    arr.map(item => res += item.score )
+    return res
+}
+function maximumScore(arr){
+    let res = 0;
+    arr.forEach(item => res += item.score);
+    return res
+}
+// -------------------------------------------------------------------------------------------------------
+// Printer Levels
+// Given an object of how many more pages each ink color can print, output the maximum number of pages the printer can print before any of the colors run out.
+
+// Examples
+console.log(inkLevels({
+  "cyan": 23,
+  "magenta": 12,
+  "yellow": 10
+})) //➞ 10 
+
+console.log(inkLevels({
+  "cyan": 432,
+  "magenta": 543,
+  "yellow": 777
+})) //➞ 432
+
+console.log(inkLevels({
+  "cyan": 700,
+  "magenta": 700,
+  "yellow": 0
+})) //➞ 0
+// Notes
+// A single printed page requires each color once, so printing is not possible if any of the slots lack ink (see example #3).
+function inkLevels(obj){
+    let arr = Object.values(obj);
+    let res = arr.sort((a,b) => a-b)
+    return res[0];
+}
+
+function inkLevels(obj){
+    let arr = Object.values(obj);
+    let res = arr[0];
+    for(let i = 0 ; i < arr.length ; i++){
+        if(res > arr[i]){
+            res = arr[i]
+        }
+    }
+    return res
 }
