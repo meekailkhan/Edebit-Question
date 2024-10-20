@@ -44,4 +44,5 @@ console.log(BasicPlan.price) //➞ '$8.99'
 console.log(PremiumPlan.numOfDevices) //➞ 4
 // Notes
 // Try to extend the classes to complete the challenge! If you're unsure what that means, try checking out the JavaScript class tutorials in the Resources tab.
+// -----------------------------------------------------------------------------------------------------------------------------
 
