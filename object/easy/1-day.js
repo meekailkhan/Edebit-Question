@@ -150,7 +150,7 @@ function calculateDifference(obj,num){
     return res - num
 }
 // -----------------------------------------------------------------------------------------------------------------------
-// Scrabble Hand
+// 4.Question)=> Scrabble Hand
 // Given an array of scrabble tiles, create a function that outputs the maximum possible score a player can achieve by summing up the total number of points for all the tiles in their hand. Each hand contains 7 scrabble tiles.
 
 // Here's an example hand:
@@ -210,7 +210,7 @@ function maximumScore(arr){
     return res
 }
 // -------------------------------------------------------------------------------------------------------
-// Printer Levels
+// 5.Question)=> Printer Levels
 // Given an object of how many more pages each ink color can print, output the maximum number of pages the printer can print before any of the colors run out.
 
 // Examples
@@ -249,3 +249,5 @@ function inkLevels(obj){
     }
     return res
 }
+
+// -----------------------------------------------------------------------------------------------------------------
