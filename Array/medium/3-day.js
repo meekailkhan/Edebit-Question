@@ -222,11 +222,11 @@ function testJackpot(arr){
 // If you can't find Nemo, return "I can't find Nemo :(".
 
 // Examples
-console.log(findNemo("I am finding Nemo !")) //➞ "I found Nemo at 4!"
+// console.log(findNemo("I am finding Nemo !")) //➞ "I found Nemo at 4!"
 
-console.log(findNemo("Nemo is me")) //➞ "I found Nemo at 1!"
+// console.log(findNemo("Nemo is me")) //➞ "I found Nemo at 1!"
 
-console.log(findNemo("I Nemo am")) //➞ "I found Nemo at 2!"
+// console.log(findNemo("I Nemo am")) //➞ "I found Nemo at 2!"
 // Notes
 // ! , ? . are always separated from the last word.
 // Nemo will always look like Nemo, and not NeMo or other capital variations.
@@ -241,3 +241,6 @@ function findNemo(str){
     }
     return `I can't find Nemo :(`
 }
+
+
+ 
