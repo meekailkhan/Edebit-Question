@@ -110,10 +110,10 @@ function totalVolume(...boxes){
 // Return the sum of all items in an array, where each item is multiplied by its index (zero-based). For empty arrays, return 0.
 
 // Examples
-console.log(indexMultiplier([1, 2, 3, 4, 5])) //➞ 40
-// // (1*0 + 2*1 + 3*2 + 4*3 + 5*4)
+// console.log(indexMultiplier([1, 2, 3, 4, 5])) //➞ 40
+// // // (1*0 + 2*1 + 3*2 + 4*3 + 5*4)
 
-console.log(indexMultiplier([-3, 0, 8, -6])) //➞ -2
+// console.log(indexMultiplier([-3, 0, 8, -6])) //➞ -2
 // // (-3*0 + 0*1 + 8*2 + -6*3)
 // Notes
 // All items in the array will be integers.
@@ -183,5 +183,51 @@ function indexMultiplier(arr){
     for(let [val,i] of arr.entries()){
         res += val * i
     }
+    return res
+}
+// ------------------------------------------------------------------------------------------------------------
+// 3.Question)=> Special Arrays
+// An array is special if every even index contains an even number and every odd index contains an odd number. Create a function that returns true if an array is special, and false otherwise.
+
+// Examples
+console.log(isSpecialArray([2, 7, 4, 9, 6, 1, 6, 3])) //➞ true
+// // Even indices: [2, 4, 6, 6]; Odd indices: [7, 9, 1, 3]
+
+console.log(isSpecialArray([2, 7, 9, 1, 6, 1, 6, 3])) //➞ false
+// // Index 2 has an odd number 9.
+
+console.log(isSpecialArray([2, 7, 8, 8, 6, 1, 6, 3])) //➞ false
+// // Index 3 has an even number 8.
+// Notes
+// N/A
+function isSpecialArray(arr){
+    for(let i = 0; i < arr.length ; i++){
+        if(arr[i]%2 !== i%2){
+            return false
+        }
+        if(arr[i]%2 === i%2){
+            return false
+        }
+    }
+    return true
+}
+function isSpecialArray(arr){
+    let res = arr.every((item,index)=> {
+        if(index%2 === 0){
+            return item%2 === 0;
+        }else{
+            return item%2 !== 0;
+        }
+    });
+    return res
+    
+}
+function isSpecialArray(arr){
+    let res = true;
+    arr.map((item,index)=>{
+        if(index%2 !== item%2){
+            res = false
+        }
+    })
     return res
 }
