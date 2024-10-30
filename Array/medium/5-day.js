@@ -49,10 +49,10 @@ let mat = [
   [ 1, 0, 1, 0, 1 ],
   [ 1, 0, 0, 1, 0 ]
 ];
-console.log(matrix(mat,0,3));  // true
-console.log(matrix(mat,1,4));  // false
-console.log(matrix(mat,2,1));  // true
-console.log(matrix(mat,3,1));  // false
+// console.log(matrix(mat,0,3));  // true
+// console.log(matrix(mat,1,4));  // false
+// console.log(matrix(mat,2,1));  // true
+// console.log(matrix(mat,3,1));  // false
 // Nodes 0,3 should return true.
 // Nodes 1,4 should return false.
 // Notes
@@ -64,3 +64,115 @@ function matrix(matrix,node1,node2){
 }
 
 // ---------------------------------------------------------------------------------------------------------------------------
+// 2.Question)=> Currying Functions
+// Mubashir was reading about currying functions. He needs your help to multiply an array of numbers using currying functions.
+
+// Create a function which takes an array arr of integers as an argument. This function must return another function, which takes a single integer as an argument and returns a new array.
+
+// The returned array should consist of each of the elements from the first array multiplied by the integer.
+
+// Examples
+// console.log(multiply([1, 2, 3])(2)) //➞ [2, 4, 6]
+
+// console.log(multiply([4, 6, 5])(10)) //➞ [40, 60, 50]
+
+// console.log(multiply([1, 2, 3])(0)) //➞ [0, 0, 0]
+// Notes
+// Your function must be called multiply.
+function multiply(arr){
+    return function (num){
+        return arr.map(item => item * num)
+    }
+}
+// ---------------------------------------------------------------------------------
+// 3.Question)=> Get Sum of People's Budget
+// Create the function that takes an array with objects and returns the sum of people's budgets.
+
+// Examples
+// console.log(getBudgets([
+//   { name: "John", age: 21, budget: 23000 },
+//   { name: "Steve",  age: 32, budget: 40000 },
+//   { name: "Martin",  age: 16, budget: 2700 }
+// ])) //➞ 65700
+
+// console.log(getBudgets([
+//   { name: "John",  age: 21, budget: 29000 },
+//   { name: "Steve",  age: 32, budget: 32000 },
+//   { name: "Martin",  age: 16, budget: 1600 }
+// ])) //➞ 62600
+
+
+function getBudgets(arr){
+    let res = 0;
+    for(let i = 0 ; i < arr.length ; i++){
+        res += arr[i].budget
+    }
+    return res
+}
+
+function getBudgets(arr){
+    let res = arr.reduce((acc,val)=>{
+        acc += val.budget
+        return acc
+    },0)
+    return res
+}
+
+function getBudgets(arr){
+    let res = 0;
+    for(let i = 0 ; i < arr.length ; i++){
+        res += arr[i].budget
+    }
+    return res
+}
+
+function getBudgets(arr){
+    let res = 0;
+    for(let val of arr){
+        res += val.budget
+    }
+    return res
+}
+
+function getBudgets(arr){
+    let res = 0;
+    for(let i in arr){
+        res += arr[i].budget
+    }
+    return res
+}
+
+function getBudgets(arr){
+    if(arr.length === 0) return 0;
+    let res = 0;
+    res += arr[0].budget;
+    return res + getBudgets(arr.slice(1))
+}
+// ----------------------------------------------------------------------------------------------------------------------
+// 4.Question)=> Match the Last Item
+// Create a function that takes an array of items and checks if the last item matches the rest of the array concatenated together.
+
+// Examples
+// console.log(matchLastItem(["rsq", "6hi", "g", "rsq6hig"])) //➞ true
+// // // The last item is the rest joined.
+
+// console.log(matchLastItem([1, 1, 1, "11"])) //➞ false
+// // // The last item should be "111".
+
+// console.log(matchLastItem([8, "thunder", true, "8thundertrue"])) //➞ true
+// // Notes
+// The array is always filled with items.
+function matchLastItem(arr){
+    let lastItem = arr.pop();
+    let restItem = arr.join("");
+    return lastItem == restItem
+}
+
+function matchLastItem(arr){
+    let restItem = "";
+    for(let i = 0 ; i < arr.length-1 ; i++){
+        restItem += arr[i] 
+    }
+
+    return restItem === arr[arr.length-1]
+}
