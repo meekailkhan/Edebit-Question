@@ -190,13 +190,13 @@ function indexMultiplier(arr){
 // An array is special if every even index contains an even number and every odd index contains an odd number. Create a function that returns true if an array is special, and false otherwise.
 
 // Examples
-console.log(isSpecialArray([2, 7, 4, 9, 6, 1, 6, 3])) //➞ true
-// // Even indices: [2, 4, 6, 6]; Odd indices: [7, 9, 1, 3]
+// console.log(isSpecialArray([2, 7, 4, 9, 6, 1, 6, 3])) //➞ true
+// // // Even indices: [2, 4, 6, 6]; Odd indices: [7, 9, 1, 3]
 
-console.log(isSpecialArray([2, 7, 9, 1, 6, 1, 6, 3])) //➞ false
-// // Index 2 has an odd number 9.
+// console.log(isSpecialArray([2, 7, 9, 1, 6, 1, 6, 3])) //➞ false
+// // // Index 2 has an odd number 9.
 
-console.log(isSpecialArray([2, 7, 8, 8, 6, 1, 6, 3])) //➞ false
+// console.log(isSpecialArray([2, 7, 8, 8, 6, 1, 6, 3])) //➞ false
 // // Index 3 has an even number 8.
 // Notes
 // N/A
@@ -229,5 +229,65 @@ function isSpecialArray(arr){
             res = false
         }
     })
+    return res
+}
+// ---------------------------------------------------------------------------------------------
+// 4.Question)=> Instant JAZZ
+// Create a function which concatenates the number 7 to the end of every chord in an array. Ignore all chords which already end with 7.
+
+// Examples
+console.log(jazzify(["G", "F", "C"])) //➞ ["G7", "F7", "C7"]
+
+console.log(jazzify(["Dm", "G", "E", "A"])) //➞ ["Dm7", "G7", "E7", "A7"]
+
+console.log(jazzify(["F7", "E7", "A7", "Ab7", "Gm7", "C7"])) //➞ ["F7", "E7", "A7", "Ab7", "Gm7", "C7"]
+
+console.log(jazzify([])) //➞ []
+// Notes
+// Return an empty array if the given array is empty.
+// You can expect all the tests to have valid chords.
+function jazzify(arr){
+    let res = []
+    if(arr.length === 0) return res;
+    for(let i = 0; i < arr.length ; i++){
+        res.push(arr[i][arr[i].length-1] == "7" ? arr[i] : `${arr[i]}7`)
+    }
+    return res
+}
+
+function jazzify(arr){
+    let res = arr.map((item)=> item[item.length-1] == "7" ? item : `${item}7`);
+    return res
+}
+function jazzify(arr){
+    let res = arr.reduce((acc,val)=>{
+        acc.push(val[val.length-1] == "7" ? val : `${val}7`);
+        return acc
+    },[])
+    return res
+}
+
+function jazzify(arr){
+    if(arr.length === 0) return [];
+    let res = [];
+    arr[0][arr[0].length-1] == "7" ? res.push(arr[0]) : res.push(`${arr[0]}7`);
+    arr.shift();
+    return res.concat(jazzify(arr)) 
+}
+
+function jazzify(arr){
+    if(arr.length === 0) return [];
+    let res = [];
+    for(let val of arr){
+        val[val.length-1] == "7" ? res.push(val) : res.push(`${val}7`)
+    }
+    return res
+}
+function jazzify(arr){
+    if(arr.length === 0) return [];
+    let res = []
+    for(let i in arr){
+        arr[i][arr[i].length-1] == "7" ? res.push(arr[i]) : res.push(`${arr[i]}7`)
+    }
     return res
 }
