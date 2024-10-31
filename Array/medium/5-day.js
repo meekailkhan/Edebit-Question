@@ -176,3 +176,106 @@ function matchLastItem(arr){
 
     return restItem === arr[arr.length-1]
 }
+// -------------------------------------------------------------------------------------------------------------------------
+// 4.Question)=> Let's Sort This Array!
+// Create a function that takes an array of numbers arr, a string str and return an array of numbers as per the following rules:
+
+// "Asc" returns a sorted array in ascending order.
+// "Des" returns a sorted array in descending order.
+// "None" returns an array without any modification.
+// Examples
+// console.log(ascDesNone([4, 3, 2, 1], "Asc" )) //➞ [1, 2, 3, 4]
+
+// console.log(ascDesNone([7, 8, 11, 66], "Des")) //➞ [66, 11, 8, 7]
+
+// console.log(ascDesNone([1, 2, 3, 4], "None")) //➞ [1, 2, 3, 4]
+// Notes
+// N/A
+function ascDesNone(arr,order){
+    if(order === "None") return arr;
+    if(order === "Asc"){
+        return arr.sort((a,b)=> a-b)
+    }else{
+        return arr.sort((a,b)=> b-a)
+    }
+}
+
+function ascDesNone(arr,order){
+    switch (order){
+        case "Acs":
+            return arr.sort((a,b)=> a-b);
+        case "Des":
+            return arr.sort((a,b)=> b-a)
+        default:
+            return arr
+    }
+}
+// ---------------------------------------------------------------------------------------------------------------
+// 5.Question)=> Sum of Number Elements in an Array
+// Arrays can be mixed with various types. Your task for this challenge is to sum all the number elements in the given array. Create a function that takes an array and returns the sum of all numbers in the array.
+
+// Examples
+console.log(numbersSum([1, 2, "13", "4", "645"])) //➞ 3
+
+console.log(numbersSum([true, false, "123", "75"])) //➞ 0
+
+console.log(numbersSum([1, 2, 3, 4, 5, true])) //➞ 15
+// Notes
+// Check the Resources tab for help.
+
+function numbersSum(arr){
+    let res = 0;
+    for(let i = 0 ; i < arr.length ; i++){
+        if(typeof arr[i] === "number"){
+            res += arr[i]
+        }
+    }
+    return res
+}
+
+function numbersSum(arr){
+    let res = 0;
+    arr.map(item => typeof item === "number" ? res += item : item)
+    return res
+}
+
+function numbersSum(arr){
+    let res = arr.reduce((acc,val)=>{
+        typeof val === "number" ? acc += val : val;
+        return acc
+    },0)
+    return res
+}
+function numbersSum(arr){
+    let res = arr.filter(item => typeof item === "number").reduce((acc,val)=> acc + val,0)
+    return res
+}
+function numbersSum(arr){
+    let res = 0;
+    for(let val of arr){
+        typeof val === 'number' ? res += val : val;
+    }
+    return res
+}
+function numbersSum(arr){
+    let res = 0 ;
+    for(let i in arr){
+        typeof arr[i] === 'number' ? res += arr[i] : i;
+    }
+    return res
+}
+
+function numbersSum(arr){
+    let res = 0;
+    let i = 0;
+    while(i < arr.length){
+        typeof arr[i] === 'number' ? res += arr[i] : i
+        i++
+    }
+    return res
+}
+function numbersSum(arr){
+    let res = 0;
+    arr.forEach(item => typeof item === "number" ? res += item : item);
+    return res
+}
