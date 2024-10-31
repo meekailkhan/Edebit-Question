@@ -215,11 +215,11 @@ function ascDesNone(arr,order){
 // Arrays can be mixed with various types. Your task for this challenge is to sum all the number elements in the given array. Create a function that takes an array and returns the sum of all numbers in the array.
 
 // Examples
-console.log(numbersSum([1, 2, "13", "4", "645"])) //➞ 3
+// console.log(numbersSum([1, 2, "13", "4", "645"])) //➞ 3
 
-console.log(numbersSum([true, false, "123", "75"])) //➞ 0
+// console.log(numbersSum([true, false, "123", "75"])) //➞ 0
 
-console.log(numbersSum([1, 2, 3, 4, 5, true])) //➞ 15
+// console.log(numbersSum([1, 2, 3, 4, 5, true])) //➞ 15
 // Notes
 // Check the Resources tab for help.
 
@@ -279,3 +279,93 @@ function numbersSum(arr){
     arr.forEach(item => typeof item === "number" ? res += item : item);
     return res
 }
+// --------------------------------------------------------------------------------------------------------------------
+// 6.Question)=> Burglary Series (01): Calculate Total Losses
+// You just returned home to find your mansion has been robbed! Given an object of the stolen items, return the total amount of the burglary (number). If nothing was robbed, return the string "Lucky you!".
+
+// Examples
+console.log(stolenItems({
+  tv: 30,
+  skate: 20,
+  stereo: 50,
+})) //➞ 100
+
+console.log(stolenItems({
+  painting: 20000,
+})) //➞ 20000
+
+console.log(stolenItems({})) // ➞ "Lucky you!"
+// Notes
+// The item value is always positive.
+// This is my first experience in creating a challenge. I started to learn testing so I decided to give it a go here at Edabit as well. Hope I did it right... Suggestions are very welcome!
+// This series is part of a collection that focuses on objects. If you are interested in following the breath-taking narrative skills of yours truly or just do some object focused challenges (the challenges are ordered in ascending difficulty order), you can more easily do that there.
+
+function stolenItems(obj){
+    let arr = Object.values(obj);
+    if(arr.length === 0 ) return 'Lucky you!'
+    let res = arr.reduce((acc,val)=> acc + val ,0)
+    return res
+}
+
+function stolenItems(obj){
+    let res = 0;
+    for(let key in obj){
+        res += obj.key
+    }
+    if(res === 0) return 'Lucky you!'
+    return res
+}
+
+function stolenItems(obj){
+    let res = 0;
+    let arr = Object.keys(obj);
+    for(let i = 0 ; i < arr.length ; i++){
+        res += obj[arr[i]]
+    }
+    if(res === 0) return 'Lucky you!'
+    return res
+}
+// function stolenItems(obj) {
+//     // Base case: If object is empty, return "Lucky you!"
+//     if (Object.keys(obj).length === 0) {
+//         return "Lucky you!";
+//     }
+
+//     // Get the entries of the object as an array of [key, value] pairs
+//     const entries = Object.entries(obj);
+
+//     // Extract the first item's value
+//     const firstValue = entries[0][1];
+
+//     // Create a new object without the first item
+//     const remainingItems = Object.fromEntries(entries.slice(1));
+
+//     // Add current value to recursive call's result
+//     const remainingTotal = stolenItems(remainingItems);
+
+//     // If remainingTotal is "Lucky you!" (meaning no more items), start the sum with 0
+//     if (remainingTotal === "Lucky you!") {
+//         return firstValue;
+//     } else {
+//         return firstValue + remainingTotal;
+//     }
+// }
+
+
+function stolenItems(obj){
+    if(Object.keys(obj).length === 0){
+        return 'Lucky you!'
+    }
+
+    let arr = Object.entries(obj);
+    let firstValue = arr[0][1];
+    let remainValue = Object.fromEntries(arr.slice(1));
+    let remainingTotal = stolenItems(remainValue);
+    if(remainingTotal === 'Lucky you!'){
+        return firstValue
+    }else{
+        return firstValue + remainingTotal
+    }
+}
+
+
