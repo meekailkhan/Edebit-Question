@@ -145,8 +145,14 @@ function factorChain(arr){
 
 function factorChain(arr){
     if(arr.length === 1) return true;
-    if(arr[1] % arr[0] !== 0){
-        return false
-    }
+    if(arr[1] % arr[0] !== 0) return false
     return factorChain(arr.slice(1))
 }
+
+console.log(factorChain([1, 2, 4, 8, 16, 32])) //➞ true
+
+console.log(factorChain([1, 1, 1, 1, 1, 1])) //➞ true
+
+console.log(factorChain([2, 4, 6, 7, 12])) //➞ false
+
+console.log(factorChain([10, 1])) //➞ false
