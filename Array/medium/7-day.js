@@ -123,7 +123,6 @@ function progressDays(arr){
     }
     return res
 }
-
 function progressDays(arr){
     arr.push(arr[arr.length-1]);
     let res = 0;
@@ -134,7 +133,6 @@ function progressDays(arr){
     })
     return res
 }
-
 function progressDays(arr){
     arr.push(arr[arr.length-1]);
     let res = arr.reduce((acc,val,i,array)=>{
@@ -156,7 +154,7 @@ function progressDays(arr){
         }
     }
     return res
-}
+}   
 function progressDays(arr){
     if(arr.length === 1) return 0;
     let res = 0;
@@ -166,3 +164,8 @@ function progressDays(arr){
     arr.shift()
     return res + progressDays(arr)
 }
+console.log(progressDays([3, 4, 1, 2]))  //➞ 2
+// // There are two progress days, (3->4) and (1->2)
+console.log(progressDays([10, 11, 12, 9, 10]))  //➞ 3
+console.log(progressDays([6, 5, 4, 3, 2, 9]))  //➞ 1
+console.log(progressDays([9, 9]) )  //➞ 0
