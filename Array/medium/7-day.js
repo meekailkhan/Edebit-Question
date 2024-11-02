@@ -148,10 +148,21 @@ function progressDays(arr){
 function progressDays(arr){
     arr.push(arr[arr.length-1]);
     let res = 0;
+    let j = 0;
     for(let i in arr){
-        if(arr[i] < arr[i+1]){
+        if(arr[i] < arr[j+1]){
             res++
+            j++
         }
     }
     return res
+}
+function progressDays(arr){
+    if(arr.length === 1) return 0;
+    let res = 0;
+    if(arr[0] < arr[1]){
+        res++
+    }
+    arr.shift()
+    return res + progressDays(arr)
 }
