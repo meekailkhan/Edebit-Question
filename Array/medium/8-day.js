@@ -81,3 +81,9 @@ function mirror(arr){
     arr.slice(0,-1).reverse().forEach(item => res.push(item))
     return res
 }
+
+function mirror(arr){
+    let orgArr = arr.map(item => item);
+    let revArr = arr.slice(0,-1).map((_,i)=> arr[arr.length - 2 -i]);
+    return orgArr.concat(revArr)
+}
