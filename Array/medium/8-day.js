@@ -56,9 +56,28 @@ function mirror(arr){
     return res
 }
 
+
 function mirror(arr){
-    let reversArr = arr.reverse();
-    reversArr.shift();
-    return arr.concat(reversArr)
-    
+    return [...arr,...arr.slice(0,-1).reverse()]
+}
+
+function mirror(arr){
+    let reverseArr = arr.slice(0,-1).reverse();
+    return arr.concat(reverseArr)
+}
+function mirror(arr){
+    let reversedArr = arr.slice(0,-1).reduceRight((acc,val)=>{
+        acc.push(val);
+        return acc
+    },[]);
+    return arr.concat(reversedArr)
+}
+
+function mirror(arr){
+    let res = [];
+    arr.forEach(item => {
+        res.push(item)
+    });
+    arr.slice(0,-1).reverse().forEach(item => res.push(item))
+    return res
 }
