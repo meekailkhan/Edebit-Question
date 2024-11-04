@@ -118,7 +118,3 @@ function uniqueSort(arr){
     }
     return res.sort((a,b)=> a-b)
 }
-
-// function uniqueSort(){
-
-// }
