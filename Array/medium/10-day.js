@@ -112,3 +112,53 @@ function capMe(arr){
     res.push(arr[0][0].toUpperCase()+arr[0].slice(1).toLowerCase())
     return res.concat(capMe(arr.slice(1)))
 }
+// --------------------------------------------------------------------------------------------------------
+// 3.Question)=> Return the Sum of the Two Smallest Numbers
+// Create a function that takes an array of numbers and returns the sum of the two lowest positive numbers.
+
+// Examples
+console.log(sumTwoSmallestNums([19, 5, 42, 2, 77])) //➞ 7
+
+console.log(sumTwoSmallestNums([10, 343445353, 3453445, 3453545353453])) //➞ 3453455
+
+console.log(sumTwoSmallestNums([2, 9, 6, -1])) //➞ 8
+
+console.log(sumTwoSmallestNums([879, 953, 694, -847, 342, 221, -91, -723, 791, -587])) //➞ 563
+
+console.log(sumTwoSmallestNums([3683, 2902, 3951, -475, 1617, -2385])) //➞ 4519
+// Notes
+// Don't count negative numbers.
+// Floats and empty arrays will not be used in any of the test cases.
+function sumTwoSmallestNums(arr){
+    let sortArr = arr.sort((a,b)=>a-b);
+    let res = [];
+    for(let i = 0 ; i < sortArr.length ; i++){
+        if(res.length <= 2){
+            if(sortArr[i]>= 0){
+                res.push(sortArr[i])
+            }
+        }
+    }
+    return res[0] + res[1]
+}
+
+function sumTwoSmallestNums(arr){
+    let sortArr = arr.filter(item => item >= 0).sort((a,b)=> a-b);
+    return sortArr[0] + sortArr[1];
+}
+
+function sumTwoSmallestNums(arr){
+    let min1 = Infinity;
+    let min2 = Infinity;
+    for(val of arr){
+        if(val > 0){
+            if(val < min1){
+                min2 = min1;
+                min1 = val;
+            }else if(val < min2){
+                min2 = val
+            }
+        }
+    }
+    return min1+min2
+}
