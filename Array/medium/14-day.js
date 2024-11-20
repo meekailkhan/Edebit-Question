@@ -90,12 +90,12 @@ function removeSpecialCharacters(str) {
 // Write a function that takes an array and returns a new array with unique positive (more than 0) numbers.
 
 // Examples
-console.log(uniqueArr([-5, 1, -7, -5, -2, 3, 3, -5, -1, -1])) //➞ [1, 3]
+// console.log(uniqueArr([-5, 1, -7, -5, -2, 3, 3, -5, -1, -1])) //➞ [1, 3]
 
-console.log(uniqueArr([3, -3, -3, 5, 5, -6, -2, -4, -1, 3])) //➞ [3, 5]
+// console.log(uniqueArr([3, -3, -3, 5, 5, -6, -2, -4, -1, 3])) //➞ [3, 5]
 
-console.log(uniqueArr([10, 6, -12, 13, 5, 5, 13, 6, 5])) //➞ [10, 6, 13, 5]
-// Notes
+// console.log(uniqueArr([10, 6, -12, 13, 5, 5, 13, 6, 5])) //➞ [10, 6, 13, 5]
+// // Notes
 // Return the elements in the order that they are found in the array.
 // Your function should also work for empty arrays.
 function uniqueArr(arr) {
@@ -118,14 +118,120 @@ function uniqueArr(arr) {
     return [...new Set(arr.filter(item => item > 0))]
 }
 
-function uniqueArr(arr){
-    let res = arr.reduce((acc,val)=>{
-        if(!acc.includes(val) && val > 0 ){
+function uniqueArr(arr) {
+    let res = arr.reduce((acc, val) => {
+        if (!acc.includes(val) && val > 0) {
             acc.push(val)
         }
         return acc
-    },[])
+    }, [])
 
     return res
 }
+// // --------------------------------------------------------------------------------------------------------------
+// 4.Question)=> Filter Repeating Character Strings
+// Create a function that keeps only strings with repeating identical characters (in other words, it has a set size of 1).
 
+// Examples
+// console.log(identicalFilter(["aaaaaa", "bc", "d", "eeee", "xyz"])) 
+// // ➞ ["aaaaaa", "d", "eeee"]
+
+// console.log(identicalFilter(["88", "999", "22", "545", "133"])) 
+// // ➞ ["88", "999", "22"]
+
+// console.log(identicalFilter(["xxxxo", "oxo", "xox", "ooxxoo", "oxo"])) 
+// // ➞ []
+// Notes
+// A string with a single character is trivially counted as a string with repeating identical characters.
+// If there are no strings with repeating identical characters, return an empty array (see example #3).
+
+function identicalFilter(arr) {
+    let res = []
+    for (let i = 0; i < arr.length; i++) {
+        let elem = arr[i].split("");
+        if (elem.length === 1) {
+            res.push(arr[i])
+        } else if (elem.every(item => item === elem[0])) {
+            res.push(arr[i])
+        }
+    }
+    return res
+}
+
+function identicalFilter(arr) {
+    if (arr.length === 0) return [];
+    let res = [];
+    let elem = arr[0].split("");
+    if (elem.length === 1) {
+        res.push(arr[0]);
+    } else if (elem.every(item => elem[0] === item)) {
+        res.push(arr[0])
+    }
+    return res.concat(identicalFilter(arr.slice(1)));
+}
+
+// -------------------------------------------------------------------------------------------------------------------
+// 5.Question)=> Negative Image
+// Suppose an image can be represented as a 2D array of 0s and 1s. Write a function to reverse an image. Replace the 0s with 1s and vice versa.
+
+// Examples
+console.log(reverseImage([
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+])) //➞ [
+//   [0, 1, 1],
+//   [1, 0, 1],
+//   [1, 1, 0]
+// ]
+
+console.log(reverseImage([
+    [1, 1, 1],
+    [0, 0, 0]
+])) //➞ [
+//   [0, 0, 0],
+//   [1, 1, 1]
+// ]
+
+console.log(reverseImage([
+    [1, 0, 0],
+    [1, 0, 0]
+])) //➞ [
+//   [0, 1, 1],
+//   [0, 1, 1]
+// ]
+// Notes
+// N/A
+function reverseImage(arr) {
+    let res = [];
+    for (let i = 0; i < arr.length; i++) {
+        let elem = [];
+        for (let j = 0; j < arr[i].length; j++) {
+            elem.push(Math.abs(arr[i][j] - 1))
+        }
+        res.push(elem)
+    }
+    return res
+}
+
+function reverseImage(arr) {
+    let res = arr.map(item => item.map(subItem => subItem === 0 ? 1 : 0))
+    return res
+}
+
+function reverseImage(arr){
+    let res = arr.reduce((acc,val)=>{
+        acc.push(val.map(item => 1 - item))
+        return acc
+    },[])
+    return res
+}
+
+function reverseImage(arr){
+    for(let i = 0 ; i < arr.length ; i++){
+        for(let j = 0 ; j < arr[i].length ; j++){
+            arr[i][j] = 1- arr[i][j]
+        }
+    }
+    return arr
+}
