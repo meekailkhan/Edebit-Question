@@ -236,7 +236,7 @@ function reverseImage(arr){
     return arr
 }
 // -----------------------------------------------------------------------------------------------------------------
-// 6Question)=> Record Temperatures
+// 6.Question)=> Record Temperatures
 // You are given two arrays that each contain data that represents the min and max weather temperatures for each day of the week.
 
 // The records array contains the all-time record low/high temperatures for that day of the week.
@@ -253,8 +253,8 @@ function reverseImage(arr){
 // If there are no broken records return the original records array.
 // Example
 // //             sun       mon      tues       wed      thur      fri       sat
-console.log(recordTemps([[34, 82], [24, 82], [20, 89],  [5, 88],  [9, 88], [26, 89], [27, 83]],
-            [[44, 72], [19, 70], [40, 69], [39, 68], [33, 64], [36, 70], [38, 69]]))
+// console.log(recordTemps([[34, 82], [24, 82], [20, 89],  [5, 88],  [9, 88], [26, 89], [27, 83]],
+//             [[44, 72], [19, 70], [40, 69], [39, 68], [33, 64], [36, 70], [38, 69]]))
 
 // ➞           [[34, 82], [19, 82], [20, 89], [5, 88], [9, 88], [26, 89], [27, 83]]
 // The previous record low for Monday was 24. The current week's low for Monday was 19. So 19 replaces 24 as Monday's new record low.
@@ -310,3 +310,67 @@ function recordTemps(records,currentWeek){
     ])
     return res
 }
+// ------------------------------------------------------------------------------------------------------------
+// 7.Question)=> Even or Odd: Which is Greater?
+// Create a function to determine if the sum of all the individual even digits are greater than the sum of all the individual odd digits in a string of numbers.
+
+// If the sum of odd numbers is greater than the sum of even numbers, return "Odd is greater than Even".
+// If the sum of even numbers is greater than the odd numbers, return "Even is greater than Odd".
+// If the sum of both even and odd numbers are equal, return "Even and Odd are the same".
+// Examples
+console.log(evenOrOdd("22471")) //➞ "Even and Odd are the same"
+
+console.log(evenOrOdd("213613")) //➞ "Even and Odd are the same"
+
+console.log(evenOrOdd("23456")) //➞ "Even is greater than Odd"
+// Notes
+// The input will be a string of numbers.
+function evenOrOdd(str){
+    let even = 0;
+    let odd = 0;
+    for(let i = 0 ; i < str.length ; i++){
+        str[i]%2==0? even += +str[i] : odd += +str[i]
+    }
+    if(even == odd){
+        return 'Even and Odd are the same'
+    }else{
+        return odd > even ? 'Odd is greater than Odd' : 'Even is greater than Odd'
+    }
+}
+
+function evenOrOdd(str){
+    let res = str.split("").reduce((acc,val)=>{
+        val%2==0? acc[0] += +val : acc[1] += +val;
+        return acc
+    },[0,0])
+    if(res[0] == res[1]){
+        return 'Event and Odd are the same'
+    }else{
+        return res[0] > res[1] ? 'Even is greater than Odd' : 'Odd is greater than Even';
+    }
+}
+
+function evenOrOdd(str){
+    let [even,odd] = [0,0];
+    str.split("").map(item => {
+        item % 2=== 0 ? even += +item : odd += +item
+    })
+    if(even === odd){
+        return 'Even and Odd are same'
+    }else{
+        return even > odd ? 'Even is greater than Odd' : 'Odd is greater than Even'
+    }
+}
+
+function evenOrOdd(str,even=0,odd=0){
+    if(str.length === 0){
+        if(even === odd){
+            return 'Even and Odd are same'
+        }else{
+            return even > odd ? 'Even is greater than Odd' : 'Odd is greater tha Even'
+        }
+    };
+    str[0] % 2 === 0 ? even += +str[0] : odd += +str[0];
+    return evenOrOdd(str.slice(1),even,odd)
+}
+// -------------------------------------------------------------------------------------------------------------------
