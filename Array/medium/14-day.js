@@ -318,11 +318,11 @@ function recordTemps(records,currentWeek){
 // If the sum of even numbers is greater than the odd numbers, return "Even is greater than Odd".
 // If the sum of both even and odd numbers are equal, return "Even and Odd are the same".
 // Examples
-console.log(evenOrOdd("22471")) //➞ "Even and Odd are the same"
+// console.log(evenOrOdd("22471")) //➞ "Even and Odd are the same"
 
-console.log(evenOrOdd("213613")) //➞ "Even and Odd are the same"
+// console.log(evenOrOdd("213613")) //➞ "Even and Odd are the same"
 
-console.log(evenOrOdd("23456")) //➞ "Even is greater than Odd"
+// console.log(evenOrOdd("23456")) //➞ "Even is greater than Odd"
 // Notes
 // The input will be a string of numbers.
 function evenOrOdd(str){
@@ -374,3 +374,74 @@ function evenOrOdd(str,even=0,odd=0){
     return evenOrOdd(str.slice(1),even,odd)
 }
 // -------------------------------------------------------------------------------------------------------------------
+// 8.Question)=> Inclusive Array Ranges
+// Write a function that, given the start startNum and end endNum values, return an array containing all the numbers inclusive to that range. See examples below.
+
+// Examples
+// console.log(inclusiveArray(1, 5)) //➞ [1, 2, 3, 4, 5]
+
+// console.log(inclusiveArray(2, 8)) //➞ [2, 3, 4, 5, 6, 7, 8]
+
+// console.log(inclusiveArray(10, 20)) //➞ [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+// console.log(inclusiveArray(17, 5)) //➞ [17]
+// // Notes
+// The numbers in the array are sorted in ascending order.
+// If startNum is greater than endNum, return an array with the higher value. See example #4.
+// A recursive version of this challenge can be found via this link.
+function inclusiveArray(num1,num2){
+    let res = [num1];
+    for(let i = num1+1 ; i <= num2 ; i++){
+        res.push(i)
+    }
+    return res
+}
+
+function inclusiveArray(num1,num2){
+    if(num1 >= num2) return [num1];
+    let res = [];
+    res.push(num1)
+    num1 += 1;
+    return res.concat(inclusiveArray(num1,num2))
+}
+
+function inclusiveArray(num1,num2){
+    if(num1 > num2) return [num1];
+    return Array.from({length : num2 - num1 + 1},(_,i) => num1+i);
+}
+
+function inclusiveArray(num1,num2){
+    if(num1 > num2) return [num1];
+    let res = [];
+    let i = num1;
+    while(num1 <= num2){
+        res.push(num1);
+        num1++
+    }
+    return res
+}
+
+function* rangeGenerator(start,end){
+    if(start > end) yield start;
+    for(let i = start ; i <= end ; i++){
+        yield i
+    }
+}
+function inclusiveArray(num1,num2){
+    return [...rangeGenerator(num1,num2)]
+}
+
+function inclusiveArray(num1,num2){
+    if(num1 > num2) return [num1];
+    return Array(num2 - num1 + 1).fill().reduce((acc,_,i)=>{
+        acc.push(num1+i);
+        return acc
+    },[])
+}
+
+function inclusiveArray(num1,num2){
+    if(num1 > num2) return [num1];
+    let res = Array(num2 - num1 + 1).fill(num1).map((val,i)=> val+i);
+    return res
+}
+// --------------------------------------------------------------------------------------------------------------------------
