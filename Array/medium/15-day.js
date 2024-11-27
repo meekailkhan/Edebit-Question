@@ -137,8 +137,6 @@ function sumFoundIndexes(arr,num){
     },0)
     return res
 }
-
-;
 function sumFoundIndexes(arr,num,i=0){
     if(arr.length === 0) return 0;
     let res = 0;
@@ -147,4 +145,98 @@ function sumFoundIndexes(arr,num,i=0){
     }
     i += 1
     return res+sumFoundIndexes(arr.slice(1),num,i)
+}
+
+// -----------------------------------------------------------------------------------------------------------------
+// 3.Question)=> Sum of all Evens in a Matrix
+// Create a function that returns the sum of all even elements in a 2D matrix.
+
+// Examples
+console.log(sumOfEvens([
+  [1, 0, 2],
+  [5, 5, 7],
+  [9, 4, 3]
+]) ) //➞ 6
+
+// 2 + 4 = 6
+
+console.log(sumOfEvens([
+  [1, 1],
+  [1, 1]
+])) //➞ 0
+
+console.log(sumOfEvens([
+  [42, 9],
+  [16, 8]
+])) //➞ 66
+
+console.log(sumOfEvens([
+  [],
+  [],
+  []
+])) //➞ 0
+// Notes
+// Submatrices will be of equal length.
+// Return 0 if the 2D matrix only consists of empty submatrices.
+function sumOfEvens(arr){
+    let res = 0;
+    arr.flat().map(item => item % 2== 0 ? res += item : item)
+    return res
+}
+
+function sumOfEvens(arr){
+    let res = 0;
+    for(let i = 0 ; i < arr.length ; i++){
+        for(let val of arr[i]){
+            val % 2 === 0 ? res += val : val
+        }
+    }
+    return res
+}
+
+function sumOfEvens(arr){
+    let res = arr.flat().reduce((acc,val)=>{
+        val % 2 === 0 ? acc += val : val;
+        return acc;
+    },0)
+    return res
+}
+
+function sumOfEvens(arr){
+    if(arr.length === 0 ) return 0;
+    let res = 0 ;
+    for(let val of arr[0]){
+        val % 2 === 0 ? res += val : val;
+    }
+    return res + sumOfEvens(arr.slice(1))
+}
+
+function sumOfEvens(arr){
+    let res = 0;
+    let i = 0;
+    while(i < arr.length){
+        for(let val of arr[i]){
+            val % 2 === 0 ? res += val : val;
+        }
+        i++
+    }
+    return res
+}
+
+function* evenNumbers(arr){
+    for(let row of arr){
+        for(let val of row){
+            if(val % 2 === 0) {
+                yield val
+            }
+        }
+    }
+}
+
+function sumOfEvens(arr){
+    let res = 0;
+    for(let val of evenNumbers(arr)){
+        res += val
+    }
+    return res
 }
