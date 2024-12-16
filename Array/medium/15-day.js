@@ -372,13 +372,13 @@ function miniPeaks(arr){
 // Your goal is to measure the depth of this array, where [] has a depth 1, [[]] has depth of 2, [[[]]] has depth 3, etc.
 
 // Examples
-console.log(measureDepth([])) //➞ 1
+// console.log(measureDepth([])) //➞ 1
 
-console.log(measureDepth([[]])) //➞ 2
+// console.log(measureDepth([[]])) //➞ 2
 
-console.log(measureDepth([[[]]])) //➞ 3
+// console.log(measureDepth([[[]]])) //➞ 3
 
-console.log(measureDepth([[[[[[[[[[[]]]]]]]]]]])) //➞ 11
+// console.log(measureDepth([[[[[[[[[[[]]]]]]]]]]])) //➞ 11
 // Notes
 // For a bonus challenge, try to find a solution without recursion.
 function measureDepth(arr){
@@ -386,4 +386,113 @@ function measureDepth(arr){
     let res = 1;
     let innerArray = arr[0];
     return res + measureDepth(innerArray)
+}
+
+// -----------------------------------------------------------------------------------------------------------------------
+// 8.Question)=> Check if One Array is a Subset of Another
+// Array A is contained inside array B if each element in A also exists in B.
+
+// The number of times a number is present doesn't matter. In other words, if we transformed both arrays into sets, A would be a subset of B.
+
+// A = [3, 3, 9, 9, 9, 5]
+// B = [1, 3, 9, 5, 8, 44, 44]
+
+// A_Set = [3, 9, 5]
+// B_Set = [1, 3, 9, 5, 8, 44]
+
+// // A_Set is a subset of B_Set
+// Create a function that determines if the first array is a subset of the second.
+
+// Examples
+// console.log(subset([1, 3], [1, 3, 3, 5])) //➞ true
+
+// console.log(subset([4, 8, 7], [7, 4, 4, 4, 9, 8])) //➞ true
+
+// console.log(subset([1, 3], [1, 33])) //➞ false
+
+// console.log(subset([1, 3, 10], [10, 8, 8, 8])) //➞ false
+// Notes
+// Each input array will have at least one element.
+// Check the resources tab for a hint.
+function subset(arr1,arr2){
+    return arr2.includes(arr1)
+}
+// --------------------------------------------------------------------------------------------------
+// 9.Question)=> Spin Around, Touch The Ground
+// Given a list of directions to spin, "left" or "right", return an integer of how many full 360° rotations were made. Note that each word in the array counts as a 90° rotation in that direction.
+
+// Examples
+// console.log(spinAround(["right", "right", "right", "right", "left", "right"])) //➞ 1
+// # You spun right 4 times (90 * 4 = 360)
+// # You spun left once (360 - 90 = 270)
+// # But you spun right once more to make a full rotation (270 + 90 = 360)
+
+// console.log(spinAround(["left", "right", "left", "right"])) //➞ 0
+
+// console.log(spinAround(["right", "right", "right", "right", "right", "right", "right", "right"])) //➞ 2
+
+// console.log(spinAround(["left", "left", "left", "left"])) //➞ 1
+// Notes
+// Return a positive number.
+// All tests will only include the words "right" and "left".
+function spinAround(arr){
+    let totalDegree = 0;
+    for(let i = 0 ; i < arr.length ; i++){
+        totalDegree += arr[i] === "right" ? 90 : -90; 
+    }
+    let res = Math.abs(Math.floor(totalDegree/360));
+    return res
+}
+
+function spinAround(arr){
+    let totalDegree = arr.reduce((acc,val)=>{
+        acc += (val === "right" ? 90 : -90);
+        return acc
+    },0);
+
+    let res = Math.abs(Math.floor(totalDegree/360));
+    return res
+}
+
+function spinAround(arr,totalDegree=0){
+    if(arr.length === 0) return Math.floor(Math.abs(totalDegree/360));
+    totalDegree += arr[0] === "right" ? 90 : -90;
+    return spinAround(arr.slice(1),totalDegree)
+}
+// ---------------------------------------------------------------------------------------------------------------
+// 10.Question)=> Back to Home?
+// Mubashir has started his journey from home. Given a string of directions (N=North, W=West, S=South, E=East), he will walk for one minute in each direction. Determine whether a set of directions will lead him back to the starting position or not.
+
+// Examples
+console.log(backToHome("EEWE")) //➞ false
+
+console.log(backToHome("NENESSWW")) //➞ true
+
+console.log(backToHome("NEESSW")) //➞ false
+// Notes
+// N/A
+
+function backToHome(str){
+    let northSouth = 0;
+    let eastWest = 0;
+
+    for(let i = 0 ; i < str.length ; i++){
+        if(str[i] === "N") northSouth++;
+        if(str[i] === "S") northSouth--;
+        if(str[i] === "E") eastWest++;
+        if(str[i] === "W") eastWest--;
+    }
+
+    return northSouth === 0 && eastWest === 0;
+}
+
+function backToHome(str){
+    let {northSouth,eastWest} = [...str].reduce((acc,val)=>{
+        if(val === "N") acc.northSouth++;
+        if(val === "S") acc.northSouth--;
+        if(val === "E") acc.eastWest++;
+        if(val === "W") acc.eastWest--;
+        return acc
+    },{northSouth:0,eastWest:0})
+    return northSouth === 0 && eastWest === 0;
 }
