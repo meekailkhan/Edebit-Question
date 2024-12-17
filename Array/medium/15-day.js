@@ -464,11 +464,11 @@ function spinAround(arr,totalDegree=0){
 // Mubashir has started his journey from home. Given a string of directions (N=North, W=West, S=South, E=East), he will walk for one minute in each direction. Determine whether a set of directions will lead him back to the starting position or not.
 
 // Examples
-console.log(backToHome("EEWE")) //➞ false
+// console.log(backToHome("EEWE")) //➞ false
 
-console.log(backToHome("NENESSWW")) //➞ true
+// console.log(backToHome("NENESSWW")) //➞ true
 
-console.log(backToHome("NEESSW")) //➞ false
+// console.log(backToHome("NEESSW")) //➞ false
 // Notes
 // N/A
 
@@ -495,4 +495,47 @@ function backToHome(str){
         return acc
     },{northSouth:0,eastWest:0})
     return northSouth === 0 && eastWest === 0;
+}
+// -----------------------------------------------------------------------------------------------------
+// 11.Question)=> Write a function that takes an array of numbers and returns an array with two elements:
+
+// The first element should be the sum of all even numbers in the array.
+// The second element should be the sum of all odd numbers in the array.
+// Example
+console.log(sumOddAndEven([1, 2, 3, 4, 5, 6])) //➞ [12, 9]
+// // 2 + 4 + 6 = 12 and 1 + 3 + 5 = 9
+
+console.log(sumOddAndEven([-1, -2, -3, -4, -5, -6])) //➞ [-12, -9])
+
+console.log(sumOddAndEven([0, 0])) //➞ [0, 0])
+// Notes
+// Count 0 as an even number.
+function sumOddAndEven(arr){
+    let res = [0,0];
+    for(let val of arr){
+        val % 2 === 0 ? res[0] += val : res[1] += val
+    }
+    return res
+}
+
+function sumOddAndEven(arr){
+    let res = arr.reduce((acc,val)=>{
+        val % 2 === 0 ? acc[0] += val : acc[1] += val;
+        return acc
+    },[0,0])
+    return res
+}
+function sumOddAndEven(arr,res=[0,0]){
+    if(arr.length === 0) return res;
+    arr[0] % 2 === 0 ? res[0] += arr[0] : res[1] += arr[0];
+    return sumOddAndEven(arr.slice(1),res)
+}
+function sumOddAndEven(arr){
+    let res = [0,0];
+    let i = 0;
+    while(i < arr.length){
+        arr[i] % 2 === 0 ? res[0] += arr[i] : res[1] += arr[i];
+        i++
+    }
+    return res
 }
