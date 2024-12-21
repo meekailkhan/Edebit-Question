@@ -502,12 +502,12 @@ function backToHome(str){
 // The first element should be the sum of all even numbers in the array.
 // The second element should be the sum of all odd numbers in the array.
 // Example
-console.log(sumOddAndEven([1, 2, 3, 4, 5, 6])) //➞ [12, 9]
-// // 2 + 4 + 6 = 12 and 1 + 3 + 5 = 9
+// console.log(sumOddAndEven([1, 2, 3, 4, 5, 6])) //➞ [12, 9]
+// // // 2 + 4 + 6 = 12 and 1 + 3 + 5 = 9
 
-console.log(sumOddAndEven([-1, -2, -3, -4, -5, -6])) //➞ [-12, -9])
+// console.log(sumOddAndEven([-1, -2, -3, -4, -5, -6])) //➞ [-12, -9])
 
-console.log(sumOddAndEven([0, 0])) //➞ [0, 0])
+// console.log(sumOddAndEven([0, 0])) //➞ [0, 0])
 // Notes
 // Count 0 as an even number.
 function sumOddAndEven(arr){
@@ -530,12 +530,34 @@ function sumOddAndEven(arr,res=[0,0]){
     arr[0] % 2 === 0 ? res[0] += arr[0] : res[1] += arr[0];
     return sumOddAndEven(arr.slice(1),res)
 }
-// function sumOddAndEven(arr){
-//     let res = [0,0];
-//     let i = 0;
-//     while(i < arr.length){
-//         arr[i] % 2 === 0 ? res[0] += arr[i] : res[1] += arr[i];
-//         i++
-//     }
-//     return res
-// }
+function sumOddAndEven(arr){
+    let res = [0,0];
+    let i = 0;
+    while(i < arr.length){
+        arr[i] % 2 === 0 ? res[0] += arr[i] : res[1] += arr[i];
+        i++
+    }
+    return res
+}   
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// Given an array of prices prices and a "supposed" total t, return true if there is a hidden fee added to the total (i.e. the total is greater than the sum of prices), otherwise return false.
+
+// Examples
+console.log(hasHiddenFee(["$2", "$4", "$1", "$8"], "$15")) //➞ false
+
+console.log(hasHiddenFee(["$1", "$2", "$3"], "$6")) //➞ false
+
+console.log(hasHiddenFee(["$1"], "$4")) //➞ true
+// Notes
+// Remember that each price is given as a string.
+// All $ signs will be at the beginning of the number.
+function hasHiddenFee(fees,total){
+    let num1 = 0;
+    for(let i = 0 ; i < fees.length ; i++){
+        num1 += +fees[i][1]
+    }
+    let num2 = +total[1]
+
+    return num1 <= num2
+
+}
