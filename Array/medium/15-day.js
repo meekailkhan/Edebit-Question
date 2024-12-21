@@ -530,12 +530,12 @@ function sumOddAndEven(arr,res=[0,0]){
     arr[0] % 2 === 0 ? res[0] += arr[0] : res[1] += arr[0];
     return sumOddAndEven(arr.slice(1),res)
 }
-function sumOddAndEven(arr){
-    let res = [0,0];
-    let i = 0;
-    while(i < arr.length){
-        arr[i] % 2 === 0 ? res[0] += arr[i] : res[1] += arr[i];
-        i++
-    }
-    return res
-}
+// function sumOddAndEven(arr){
+//     let res = [0,0];
+//     let i = 0;
+//     while(i < arr.length){
+//         arr[i] % 2 === 0 ? res[0] += arr[i] : res[1] += arr[i];
+//         i++
+//     }
+//     return res
+// }
