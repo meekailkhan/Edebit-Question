@@ -543,21 +543,83 @@ function sumOddAndEven(arr){
 // Given an array of prices prices and a "supposed" total t, return true if there is a hidden fee added to the total (i.e. the total is greater than the sum of prices), otherwise return false.
 
 // Examples
-console.log(hasHiddenFee(["$2", "$4", "$1", "$8"], "$15")) //➞ false
+// console.log(hasHiddenFee(["$2", "$4", "$1", "$8"], "$15")) //➞ false
 
-console.log(hasHiddenFee(["$1", "$2", "$3"], "$6")) //➞ false
+// console.log(hasHiddenFee(["$1", "$2", "$3"], "$6")) //➞ false
 
-console.log(hasHiddenFee(["$1"], "$4")) //➞ true
+// console.log(hasHiddenFee(["$1"], "$4")) //➞ true
 // Notes
 // Remember that each price is given as a string.
 // All $ signs will be at the beginning of the number.
 function hasHiddenFee(fees,total){
     let num1 = 0;
     for(let i = 0 ; i < fees.length ; i++){
-        num1 += +fees[i][1]
+        num1 += +fees[i].slice(1)
     }
-    let num2 = +total[1]
+    let num2 = +total.slice(1)
 
-    return num1 <= num2
+    return num1 !== num2
 
+}
+// ------------------------------------------------------------------------------------------------------------------------
+// Question)=> Increment to Top
+// Create a function that returns the total number of steps it takes to transform each element to the maximal element in the array. Each step consists of incrementing a digit by one.
+
+// Examples
+// console.log(incrementToTop([3, 4, 5])) //➞ 3
+// // // Maximal element in the array is 5.
+// // // To transform 3 to 5 requires 2 steps: 3 -> 4, 4 -> 5.
+// // // To transform 4 to 5 requires 1 step: 4 -> 5.
+// // // Total steps required is 3.
+
+// console.log(incrementToTop([4, 3, 4])) //➞ 1
+// // // Maximal element in the array is 4.
+// // // To transform 3 to 4 requires 1 steps: 3 -> 4.
+// // // Total steps required is 1.
+
+// console.log(incrementToTop([3, 3, 3])) //➞ 0
+
+// console.log(incrementToTop([3, 10, 3])) //➞ 14
+// Notes
+// If the array contains only the same digits, return 0 (see example #3).
+// Bonus: Can you write a solution that achieves this by only traversing the array once? (i.e. without finding the max beforehand)
+function incrementToTop(arr){
+    let maxValue = Math.max(...arr);
+    let steps = 0;
+    for(let num of arr){
+        steps += maxValue - num;
+    }
+    return steps
+}
+// ------------------------------------------------------------------------------------------------------------------------------
+// Don't Roll Doubles!
+// John is playing a dice game. The rules are as follows.
+
+// Roll two dice.
+// Add the numbers on the dice together.
+// Add the total to your overall score.
+// Repeat this for three rounds.
+// But if you roll DOUBLES, your score is instantly wiped to 0 and your game ends immediately!
+
+// Create a function which takes in a matrix as input, and return John's score after his game has ended.
+
+// Examples
+console.log(diceGame([[1, 2], [3, 4], [5, 6]])) //➞ 21
+
+console.log(diceGame([[1, 1], [5, 6], [6, 4]])) //➞ 0
+
+console.log(diceGame([[4, 5], [4, 5], [4, 5]])) //➞ 27
+// Notes
+// Ignore all other arrays in the matrix if a throw happens to be doubles and go straight to returning 0.
+// John only has two dice and will always give you outcomes for three rounds.
+function diceGame(arr){
+    let count = 0;
+    for(let round of arr){
+        let [dice1,dice2] = round;
+        if(dice1 === dice2){
+            return 0
+        }
+        count += (dice1 + dice2)
+    }
+    return count
 }
