@@ -604,11 +604,11 @@ function incrementToTop(arr){
 // Create a function which takes in a matrix as input, and return John's score after his game has ended.
 
 // Examples
-console.log(diceGame([[1, 2], [3, 4], [5, 6]])) //➞ 21
+// console.log(diceGame([[1, 2], [3, 4], [5, 6]])) //➞ 21
 
-console.log(diceGame([[1, 1], [5, 6], [6, 4]])) //➞ 0
+// console.log(diceGame([[1, 1], [5, 6], [6, 4]])) //➞ 0
 
-console.log(diceGame([[4, 5], [4, 5], [4, 5]])) //➞ 27
+// console.log(diceGame([[4, 5], [4, 5], [4, 5]])) //➞ 27
 // Notes
 // Ignore all other arrays in the matrix if a throw happens to be doubles and go straight to returning 0.
 // John only has two dice and will always give you outcomes for three rounds.
@@ -622,4 +622,36 @@ function diceGame(arr){
         count += (dice1 + dice2)
     }
     return count
+}
+
+// --------------------------------------------------------------------------------------------------------
+// Simon Says
+// Create a function that takes in two arrays and returns true if the second array follows the first array by one element, and false otherwise. In other words, determine if the second array is the first array shifted to the right by 1.
+
+// Examples
+console.log(simonSays([1, 2], [5, 1])) //➞ true
+
+console.log(simonSays([1, 2], [5, 5])) //➞ false
+
+console.log(simonSays([1, 2, 3, 4, 5], [0, 1, 2, 3, 4])) //➞ true
+
+console.log(simonSays([1, 2, 3, 4, 5], [5, 5, 1, 2, 3])) //➞ false
+// Notes
+// Both input arrays will be of the same length, and will have a minimum length of 2.
+// The values of the 0-indexed element in the second list and the n-1th indexed element in the first list do not matter.
+function simonSays(arr1,arr2){
+    for(let i = 0 ; i < arr1.length-1 ; i++){
+        if(arr1[i] !== arr2[i + 1]){
+            return false
+        }
+    }
+    return true
+}
+
+function simonSays(arr1,arr2){
+    if(arr1.length === 1) return true
+    if(arr1[0] !== arr2[1]){
+        return false
+    }
+    return simonSays(arr1.slice(1),arr2.slice(1))
 }
