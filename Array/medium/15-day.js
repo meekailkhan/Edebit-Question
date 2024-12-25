@@ -648,10 +648,10 @@ function simonSays(arr1,arr2){
     return true
 }
 
-function simonSays(arr1,arr2){
-    if(arr1.length === 1) return true
-    if(arr1[0] !== arr2[1]){
-        return false
-    }
-    return simonSays(arr1.slice(1),arr2.slice(1))
-}
+// function simonSays(arr1,arr2){
+//     if(arr1.length === 1) return true
+//     if(arr1[0] !== arr2[1]){
+//         return false
+//     }
+//     return simonSays(arr1.slice(1),arr2.slice(1))
+// }
