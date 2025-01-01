@@ -118,3 +118,68 @@ function isScalable(arr){
 // flipEndChars([1, 2, 3]) ➞ "Incompatible."
 // Notes
 // Tests are case sensitive (e.g. "A" and "a" are not the same character).
+// --------------------------------------------------------------------------
+// Return an Array of Subarrays
+// Write a function that takes three arguments (x, y, z) and returns an array containing x subarrays (e.g. [[], [], []]), each containing y number of item z.
+
+// x Number of subarrays contained within the main array.
+// y Number of items contained within each subarray.
+// z Item contained within each subarray.
+// Examples
+// console.log(matrix(3, 2, 3)) //➞ [[3, 3], [3, 3], [3, 3]]
+
+// console.log(matrix(2, 1, "edabit")) //➞ [["edabit"], ["edabit"]]
+
+// console.log(matrix(3, 2, 0)) //➞ [[0, 0], [0, 0], [0, 0]]
+// Notes
+// The first two arguments will always be integers.
+// The third argument is either a string or an integer.
+function matrix(x,y,z){
+    let res = []
+    for(let i = 0 ; i < x ; i++){
+        let ele = [];
+        for(let j = 0 ; j < y ; j++){
+            ele.push(z)
+        }
+        res.push(ele)
+    }
+    return res
+}
+
+function matrix(x,y,z,res=[]){
+    if(x===0) return res;
+    let ele = []
+    for(let i = 0 ; i < y ; i++){
+        ele.push(z)
+    }
+    res.push(ele);
+    return matrix(x-1,y,z,res)
+
+}
+// --------------------------------------------------------------------------------------------------------------
+// Puzzle Pieces
+// Write a function that takes two arrays and adds the first element in the first array with the first element in the second array, the second element in the first array with the second element in the second array, etc, etc. Return true if all element combinations add up to the same number. Otherwise, return false.
+
+// Examples
+console.log(puzzlePieces([1, 2, 3, 4], [4, 3, 2, 1])) //➞ true
+// // 1 + 4 = 5;  2 + 3 = 5;  3 + 2 = 5;  4 + 1 = 5
+// // Both arrays sum to [5, 5, 5, 5]
+
+console.log(puzzlePieces([1, 8, 5, 0, -1, 7], [0, -7, -4, 1, 2, -6])) //➞ true
+
+console.log(puzzlePieces([1, 2], [-1, -1])) //➞ false
+
+console.log(puzzlePieces([9, 8, 7], [7, 8, 9, 10])) //➞ false
+// Notes
+// Each array will have at least one element.
+// Return false if both arrays are of different length.
+function puzzlePieces(arr1,arr2){
+    if(arr1.length !== arr2.length) return false
+    let checker = arr1[0] + arr2[0];
+    for(let i = 1 ; i < arr1.length ; i++){
+        if(arr1[i] + arr2[i] !== checker){
+            return false
+        }
+    }
+    return true
+}
