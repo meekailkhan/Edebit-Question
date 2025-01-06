@@ -175,20 +175,20 @@ function lonelyInteger(arr) {
 // Examples
 // Notes
 // N/A
-function checkSum(arr,num){
+// function checkSum(arr,num){
     
-    for(let i = 0 ; i < arr.length ; i++){
-        let ele = arr[i];
-        for(let j = 0 ; j < arr.length ; j++){
-            if(i !== j){
-                if((ele + arr[j]) === num){
-                    return true
-                }
-            }
-        }
-    }
-    return false
-}
+//     for(let i = 0 ; i < arr.length ; i++){
+//         let ele = arr[i];
+//         for(let j = 0 ; j < arr.length ; j++){
+//             if(i !== j){
+//                 if((ele + arr[j]) === num){
+//                     return true
+//                 }
+//             }
+//         }
+//     }
+//     return false
+// }
 console.log(checkSum([10, 12, 4, 7, 9, 11], 16)) //➞ true
 
 console.log(checkSum([4, 5, 6, 7, 8, 9], 13)) //➞ true
