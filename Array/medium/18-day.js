@@ -117,16 +117,16 @@ function probability(arr,n){
 // You have a pack of 5 randomly numbered cards, which can range from 0-9. You can win if you can produce a higher two-digit number from your cards than your opponent. Return true if your cards win that round.
 
 // Examples
-console.log(winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2])) //➞ true
-// // Your cards can make the number 96
-// // Your opponent can make the number 73
-// // You win the round since 96 > 73
+// console.log(winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2])) //➞ true
+// // // Your cards can make the number 96
+// // // Your opponent can make the number 73
+// // // You win the round since 96 > 73
 
-console.log(winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2])) //➞ true
+// console.log(winRound([2, 5, 2, 6, 9], [3, 7, 3, 1, 2])) //➞ true
 
-console.log(winRound([1, 2, 3, 4, 5], [9, 8, 7, 6, 5])) //➞ false
+// console.log(winRound([1, 2, 3, 4, 5], [9, 8, 7, 6, 5])) //➞ false
 
-console.log(winRound([4, 3, 4, 4, 5], [3, 2, 5, 4, 1])) //➞ false
+// console.log(winRound([4, 3, 4, 4, 5], [3, 2, 5, 4, 1])) //➞ false
 // Notes
 // Return false if you and your opponent reach the same maximum number (see example #4).
 
@@ -137,4 +137,53 @@ function winRound(arr1,arr2){
     let playerMax = myScore.slice(myScore.length-2,myScore.length) 
     let opponentMax = opponent.slice(opponent.length-2,myScore.length);
     return playerMax > opponentMax
+}
+
+// -----------------------------------------------------------------------------------------
+// Perfect Square Patch
+// Create a function that takes an integer and outputs an n x n square solely consisting of the integer n.
+
+// Examples
+console.log(squarePatch(3)) //➞ [
+//   [3, 3, 3],
+//   [3, 3, 3],
+//   [3, 3, 3]
+// ]
+
+console.log(squarePatch(5)) //➞ [
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5],
+//   [5, 5, 5, 5, 5]
+// ]
+
+console.log(squarePatch(1)) //➞ [
+//   [1]
+// ]
+
+console.log(squarePatch(0)) //➞ []
+// Notes
+// n >= 0.
+// If n === 0, return an empty array.
+function squarePatch(n){
+    if(n === 0) return [];
+    let res = [];
+    for(let i = 0 ; i < n ; i++){
+        let subArr = [];
+        for(let j = 0 ; j < n ; j++){
+            subArr.push(n)
+        }
+        res.push(subArr)
+    }
+    return res
+}
+function squarePatch(n){
+    return Array(n).fill(Array(n).fill(n))
+}
+function squarePatch(n,result=[]){
+    if(n === 0) return [];
+    if(result.length === n) return result;
+    result.push(Array(n).fill(n));
+    return squarePatch(n,result)
 }
