@@ -77,20 +77,20 @@ function flash(arr){
 // Given two arrays of two people's different interests, return whether both people have at least two things in common or have exact interests. Return true if there's a potential friend!
 
 // Examples
-console.log(isPotentialFriend(
-  ["sports", "music", "chess"],
-  ["coding", "music", "netflix", "chess"]
-)) //➞ true
+// console.log(isPotentialFriend(
+//   ["sports", "music", "chess"],
+//   ["coding", "music", "netflix", "chess"]
+// )) //➞ true
 
-console.log(isPotentialFriend(
-  ["cycling", "technology", "drawing"],
-  ["dancing", "drawing"]
-)) //➞ false
+// console.log(isPotentialFriend(
+//   ["cycling", "technology", "drawing"],
+//   ["dancing", "drawing"]
+// )) //➞ false
 
-console.log(isPotentialFriend(
-  ["history"],
-  ["history"]
-)) //➞ true
+// console.log(isPotentialFriend(
+//   ["history"],
+//   ["history"]
+// )) //➞ true
 // Notes
 // Arrays of interests may have varied lengths.
 function isPotentialFriend(arr1,arr2){
@@ -107,3 +107,6 @@ function isPotentialFriend(arr1,arr2){
     }
     return res > 1
 }
+
+
+
