@@ -100,3 +100,12 @@ function findSingleNumber(arr){
     }
     return Object.keys(obj).find(val => obj[val] === 1)
 }
+
+
+function findSingleNumber(arr){
+    if(arr.length === 0) return null
+    if(arr.length === 1) return arr[0]
+
+    return arr.filter(num => arr.indexOf(num) === arr.lastIndexOf(num))[0]  
+}
+
