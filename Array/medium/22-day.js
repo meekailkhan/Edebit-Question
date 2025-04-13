@@ -26,16 +26,16 @@
 // console.log(findVertex("7x +14x +28")) //➞ -1
 // Notes
 // List comprehension and unpacking is useful in this challenge :)
-function findVertex(str){
-    str = str.replace(/\s+/g,"").replace(/\^2/g,"");
+//function findVertex(str){
+//  str = str.replace(/\s+/g,"").replace(/\^2/g,"");
 
-    let term = str.replace(/-/g,'+-').split("+").filter(Boolean);
-    let a = parseInt(term[0].replace("x",""));
-    let b = parseInt(term[1].replace("x",""));
+//  let term = str.replace(/-/g,'+-').split("+").filter(Boolean);
+//  let a = parseInt(term[0].replace("x",""));
+//  let b = parseInt(term[1].replace("x",""));
 
-    let vertex = -b / (2 * a)
-    return Math.round(vertex)
-}
+//  let vertex = -b / (2 * a)
+//  return Math.round(vertex)
+//}
 function findVertex(str){
     let arr = str.split(" ").map(item => item.replace("x","")).filter(item => item != "+")
     let a = arr[0];
