@@ -115,3 +115,13 @@
 
 // const getName = obj.getName
 // console.log(getName())
+
+const buttons = [];
+
+for(var i = 0 ; i < 3 ; i++){
+    buttons.push(()=> console.log(i))
+}
+
+buttons[0]()
+buttons[1]()
+buttons[2]()
