@@ -56,11 +56,11 @@ function convertToNumber(obj){
     return obj
 }
 
-function convertToNumber(obj){
-    for(key in obj){
-        obj[key] = +obj[key]
-    }
-    return obj
-}
+// function convertToNumber(obj){
+//     for(key in obj){
+//         obj[key] = +obj[key]
+//     }
+//     return obj
+// }
 
     
